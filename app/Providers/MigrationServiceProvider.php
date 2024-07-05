@@ -24,8 +24,8 @@ class MigrationServiceProvider extends ServiceProvider
     public function boot()
     {
         $this->loadMigrationsFrom([
-//            database_path('migrations/Blog'),
-//            database_path('migrations/Service'),
+            database_path('migrations/Blog'),
+            database_path('migrations/Service'),
             database_path('migrations/Portfolio'),
         ]);
     }

@@ -69,16 +69,16 @@ class UrlSelectionField extends Forms\Components\Field
             'External' => $this->buildItemType('External', TextInput::make('url')
                 ->label(__('filament.menu.attributes.url'))
                 ->required()),
-            'App\Models\Blog\Post' => $this->buildItemType('Blog post', Select::make('url')
-                ->options(BlogPost::pluck('title', 'id')->toArray())
-                ->live()
-                ->label(__('filament.menu.attributes.url'))
-                ->required()),
-            'App\Models\Service\Post' => $this->buildItemType('Service post', Select::make('url')
-                ->options(ServicePost::pluck('title', 'id')->toArray())
-                ->live()
-                ->label(__('filament.menu.attributes.url'))
-                ->required()),
+//            'App\Models\Blog\Post' => $this->buildItemType('Blog post', Select::make('url')
+//                ->options(BlogPost::pluck('title', 'id')->toArray())
+//                ->live()
+//                ->label(__('filament.menu.attributes.url'))
+//                ->required()),
+//            'App\Models\Service\Post' => $this->buildItemType('Service post', Select::make('url')
+//                ->options(ServicePost::pluck('title', 'id')->toArray())
+//                ->live()
+//                ->label(__('filament.menu.attributes.url'))
+//                ->required()),
             'App\Models\Page' => $this->buildItemType('Page', Select::make('url')
                 ->options(Page::pluck('title', 'id')->toArray())
                 ->live()
