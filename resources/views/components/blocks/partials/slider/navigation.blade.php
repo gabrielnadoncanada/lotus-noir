@@ -1,25 +1,15 @@
 <div {{$attributes->
-  class(['slider-nav-panel'])}}>
-    <div class="container">
-        <div class="slider-progress-bar-frame">
-            <div class="slider-progress-bar" x-ref="progress">
-                <div class="progress"></div>
-            </div>
+  class(['slider-nav-panel h-[32px] md:h-[75px] lg:h-[100px] has-[.swiper-button-lock]:hidden'])}}>
+    <div class="slider-arrows bg-body">
+        <div class="button-prev magnetic-link w-[60px] cursor-pointer" x-ref="prev">
+          <span class="magnetic-object block text-center">
+                <img src="{{asset('img/arrow-left-solid.svg')}}" width="20px" alt="">
+          </span>
         </div>
-    </div>
-
-    <div class="slider-arrows">
-        <x-text as="div" theme="label" class="hidden sm:block !mb-0 pt-[3px] mr-[15px]">
-            Navigation
-        </x-text>
-
-        <div class="button-prev magnetic-link h-[100px]" x-ref="prev">
-      <span class="magnetic-object">
-        <i class="fas fa-arrow-left"></i>
-      </span>
-        </div>
-        <div class="button-next magnetic-link h-[100px]" x-ref="next">
-            <span class="magnetic-object"><i class="fas fa-arrow-right"></i> </span>
+        <div class="button-next magnetic-link w-[60px] cursor-pointer" x-ref="next">
+            <span class="magnetic-object block text-center">
+               <img src="{{asset('img/arrow-right-solid.svg')}}" width="20px" alt="">
+            </span>
         </div>
     </div>
 </div>

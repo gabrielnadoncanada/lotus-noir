@@ -9,22 +9,13 @@
     "isEntry": true,
     "src": "resources/css/filament/admin/theme.css"
   },
-  "resources/css/fonts/GlacialIndifference-Bold.otf": {
-    "file": "assets/GlacialIndifference-Bold.otf",
-    "src": "resources/css/fonts/GlacialIndifference-Bold.otf"
+  "resources/css/fonts/DIN_CONDENSED.ttf": {
+    "file": "assets/DIN_CONDENSED.ttf",
+    "src": "resources/css/fonts/DIN_CONDENSED.ttf"
   },
-  "resources/css/fonts/GlacialIndifference-Italic.otf": {
-    "file": "assets/GlacialIndifference-Italic.otf",
-    "src": "resources/css/fonts/GlacialIndifference-Italic.otf"
-  },
-  "resources/css/fonts/GlacialIndifference-Regular.otf": {
-    "file": "assets/GlacialIndifference-Regular.otf",
-    "src": "resources/css/fonts/GlacialIndifference-Regular.otf"
-  },
-  "resources/css/theme/style-formats.css": {
-    "file": "assets/style-formats.css",
-    "isEntry": true,
-    "src": "resources/css/theme/style-formats.css"
+  "resources/css/fonts/DIN_CONDENSED_LIGHT.ttf": {
+    "file": "assets/DIN_CONDENSED_LIGHT.ttf",
+    "src": "resources/css/fonts/DIN_CONDENSED_LIGHT.ttf"
   },
   "resources/js/app.css": {
     "file": "assets/app2.css",

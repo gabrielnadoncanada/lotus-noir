@@ -7,7 +7,7 @@
         @if(!empty($item['children']))
             @click.prevent="isOpen = !isOpen"
         @endif
-        class="text-foreground hover:text-foreground text-[34px] py-2.5  inline-block h-full font-black anima-link default-link"
+        class="text-body-text hover:text-body-text text-[34px] py-2.5  inline-block h-full font-black anima-link default-link"
         href="{{ !empty($item['children']) ? '#' : $url }}"
     >
         {{ $item['data']['label'] }}

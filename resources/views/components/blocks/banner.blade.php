@@ -5,7 +5,7 @@
             :image="$image"
         />
         <div
-            class="absolute left-0 top-0 h-[555px] w-full bg-[linear-gradient(0deg,#f7f8fa_1%,rgba(247,248,250,0.94)_100%,rgba(247,248,250,0.89)_100%)]"
+            class="absolute left-0 top-0 h-[555px] w-full bg-gradient-to-t from-body via-body via-15% to-body/[0.94]"
         ></div>
     </div>
     <div class="container">

@@ -18,7 +18,7 @@
     @livewireStyles
     <x-partials.meta :meta="$meta"/>
 </head>
-<body class="h-full bg-highlight m-0 p-0 {{str_replace('.','-',Route::getCurrentRoute()->getName())}}">
+<body class="h-full bg-body m-0 p-0">
 
 <div class="relative flex flex-col h-full">
     <x-header/>

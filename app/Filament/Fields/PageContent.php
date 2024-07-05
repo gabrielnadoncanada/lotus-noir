@@ -15,7 +15,7 @@ class PageContent
         return Builder::make($name)
             ->blocks([
                 Slider::make(),
-                RichText::make(),
+
             ])
             ->addActionLabel('Add block')
             ->collapsible();

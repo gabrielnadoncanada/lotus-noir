@@ -17,10 +17,11 @@ module.exports = {
 
         extend: {
             fontFamily: {
-                sans: ['Glacial Indifference', ...defaultTheme.fontFamily.sans],
-
+                sans: ['DIN Condensed', ...defaultTheme.fontFamily.sans],
             },
             colors: {
+                'body': '#090909',
+                'body-text': '#ffffff',
                 'primary': '#cbb8a4',
                 'highlight': '#f7f8fa',
                 'base': '#fcfdff',

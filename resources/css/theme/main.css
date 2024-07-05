@@ -4,6 +4,9 @@
 @import "./partials/custom/mapbox.css";
 @import "./partials/custom/fancybox.css";
 
+body {
+    @apply text-body-text;
+}
 
 .text {
     @apply w-full text-base leading-[22px];
@@ -49,13 +52,6 @@ a:hover {
     }
 }
 
-
-/**,*/
-/**:after,*/
-/**:before {*/
-/*    @apply box-border;*/
-/*}*/
-
 *:focus {
     outline: inherit;
 }
@@ -64,13 +60,8 @@ a:hover {
     @apply relative;
 }
 
-body {
-    font-family: "Glacial Indifference", sans-serif;
-}
-
-
 .magnetic-link {
-    @apply pointer-events-auto duration-300 ease-in-out w-[100px] h-[75px] flex relative justify-center items-center float-left z-10 cursor-pointer rounded-[50%];
+    @apply pointer-events-auto duration-300 ease-in-out flex relative justify-center items-center float-left z-10 cursor-pointer rounded-[50%];
 }
 
 
@@ -153,16 +144,18 @@ blockquote:after {
 .burger span,
 .burger span:after,
 .burger span:before {
-    @apply bg-foreground-dark  content-[""] block w-[19px] h-[0.177em] duration-300 ease-in-out rounded-[3px];
+    @apply content-[""] block duration-300 ease-in-out ;
     backface-visibility: hidden;
 }
+
+
 
 .menu nav ul .menu-item.current-menu-item a {
     @apply text-primary;
 }
 
 .sub-menu a {
-    @apply duration-300 ease-in-out hover:text-main uppercase text-[11px] font-semibold tracking-[2px]  text-main;
+    @apply duration-300 ease-in-out hover:text-body-text uppercase text-[11px] font-semibold tracking-[2px];
 }
 
 .sub-menu > :first-child > a {
@@ -170,7 +163,7 @@ blockquote:after {
 }
 
 .menu-item-has-children > a {
-    @apply flex items-center justify-between after:font-black after:content-["\f078"] after:text-main after:text-[1rem];
+    @apply flex items-center justify-between after:font-black after:content-["\f078"] after:text-body-text after:text-[1rem];
     /*@apply relative cursor-pointer after:text-main after:font-black after:content-["\f078"] after:absolute after:duration-300 after:ease-in-out after:right-0 after:top-[25px];*/
 }
 
@@ -354,3 +347,24 @@ main > section:first-child {
 .swiper-container {
     overflow: hidden;
 }
+
+
+.border-text {
+    letter-spacing: 0;
+    -webkit-text-fill-color: transparent;
+    -webkit-text-stroke-width: 2px;
+}
+
+.subtitle {
+    position: relative;
+    font-size: 11px;
+    text-transform: uppercase;
+    font-weight: 600;
+    color: #424242;
+    letter-spacing: 2px;
+    padding-left: 40px;
+}
+
+
+
+

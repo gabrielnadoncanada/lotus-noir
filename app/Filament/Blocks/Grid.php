@@ -74,6 +74,7 @@ class Grid
                                     'App\Models\Blog\Post' => 'blog_posts',
                                     'App\Models\Page' => 'Pages',
                                     'App\Models\Service\Post' => 'service_posts',
+                                    'App\Models\Portfolio\Post' => 'portfolio_posts',
                                 ])
                                 ->live(),
                             Select::make('order_by')

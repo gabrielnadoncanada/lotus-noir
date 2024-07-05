@@ -4,7 +4,7 @@ namespace App\Filament\Blocks;
 
 use App\Filament\Blocks\Fields\Buttons;
 use App\Filament\Blocks\Fields\Heading;
-use App\Filament\Blocks\Fields\Text;
+use App\Filament\Blocks\Fields\RichEditor;
 use App\Filament\Blocks\Fields\Subtitle;
 use App\Filament\Fields\UrlSelectionField;
 use Filament\Forms\Components\Builder;
@@ -24,7 +24,7 @@ class Section
                     ->default('01'),
                 Subtitle::make(),
                 Heading::make(),
-                Text::make(),
+                RichEditor::make(),
                 Buttons::make(),
                 Builder::make('blocks')
                     ->collapsible()

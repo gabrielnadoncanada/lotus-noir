@@ -34,7 +34,6 @@ class FilamentServiceProvider extends ServiceProvider
         FilamentAsset::register([
             Css::make('filament-navigation-styles', __DIR__ . '/../../resources/dist/filament-menu.css'),
             Css::make('filament-title-with-slug-styles', __DIR__ . '/../../resources/dist/filament-title-with-slug.css'),
-            Css::make('style-format', __DIR__ . '/../../resources/css/theme/style-formats.css'),
             Js::make('tinymce', 'https://cdn.jsdelivr.net/npm/tinymce@5.10.7/tinymce.min.js'),
             Js::make('filament-menu', resource_path('dist/filament-menu.js')),
         ]);

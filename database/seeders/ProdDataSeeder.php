@@ -3,6 +3,8 @@
 namespace Database\Seeders;
 
 use App\Models\Blog\Category as BlogCategory;
+use App\Models\Portfolio\Category as PortfolioCategory;
+use App\Models\Portfolio\Post as PortfolioPost;
 use App\Models\Blog\Post as BlogPost;
 use App\Models\Navigation;
 use App\Models\Page;
@@ -18,8 +20,9 @@ class ProdDataSeeder extends Seeder
     public function run(): void
     {
         $this->seedUsers();
-        $this->seedService();
+//        $this->seedService();
 //        $this->seedBlog();
+        $this->seedPortfolio();
         $this->seedPage();
         $this->seedMenu();
     }
@@ -29,7 +32,7 @@ class ProdDataSeeder extends Seeder
 
         User::create([
             'name' => 'Admin',
-            'email' => 'admin@vilaplex.ca',
+            'email' => 'admin@lotusnoir.ca',
             'password' => bcrypt('password'),
         ]);
     }
@@ -316,138 +319,65 @@ class ProdDataSeeder extends Seeder
             ->create();
     }
 
+    public function seedPortfolio(): void
+    {
+        $categories = PortfolioCategory::factory()->count(3)->create();
+        PortfolioPost::factory()->count(50)
+            ->hasAttached($categories->random(rand(1, 3))->first())
+            ->create();
+    }
+
+
     public function seedHomeSlider()
     {
         return [
             [
                 'type' => 'slider',
                 'data' => [
-                    'slides' => [
+                    "slides" => [
                         [
-                            'subtitle_text' => 'Bienvenue chez Vilaplex!',
-                            'subtitle_level' => 'span',
-                            'heading_text' => "Là où la tranquillité\nd'esprit commence",
-                            'heading_level' => 'h2',
-                            'heading_size' => 'h1',
-                            'text' => "<p>Notre engagement à vous offrir le meilleur service sur le marché est la clé de notre succès. Curieux? Communiquez avec nous pour en savoir plus!</p>",
-                            'image' => $this->createDefaultImage(),
-                            'buttons' => [
-                                [
-                                    'style' => 'default',
-                                    'action' => [
-                                        'type' => 'App\\Models\\Page',
-                                        'data' => [
-                                            'label' => 'Contactez-nous',
-                                            'url' => '4',
-                                            'target' => null
-                                        ]
-                                    ]
-                                ]
+                            "subtitle_text" => "Lorem ipsum dolor sit amet.",
+                            "subtitle_level" => "span",
+                            "heading_text" => "Lorem ipsum dolor sit amet.",
+                            "heading_level" => "h2",
+                            "heading_size" => "h1",
+                            "text" => "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam in dui mauris.</p>",
+                            "image" => $this->createDefaultImage(),
+                            "buttons" => [
                             ]
                         ],
                         [
-                            'subtitle_text' => 'Services',
-                            'subtitle_level' => 'span',
-                            'heading_text' => "Gestion\nadministrative",
-                            'heading_level' => 'h2',
-                            'heading_size' => 'h1',
-                            'text' => "<p>Coordination et supervision des tâches administratives pour votre propriété, incluant gestion des locataires et des contrats.</p>",
-                            'image' => $this->createDefaultImage(),
-                            'buttons' => [
-                                [
-                                    'style' => 'default',
-                                    'action' => [
-                                        'type' => 'App\\Models\\Service\\Post',
-                                        'data' => [
-                                            'label' => 'En savoir plus',
-                                            'url' => '2',
-                                            'target' => null
-                                        ]
-                                    ]
-                                ],
-                                [
-                                    'style' => 'outline',
-                                    'action' => [
-                                        'type' => 'App\\Models\\Page',
-                                        'data' => [
-                                            'label' => 'Contactez-nous',
-                                            'url' => '4',
-                                            'target' => null
-                                        ]
-                                    ]
-                                ]
-                            ]
-                        ],
-                        [
-                            'subtitle_text' => 'Services',
-                            'subtitle_level' => 'span',
-                            'heading_text' => "Gestion\nfinancière",
-                            'heading_level' => 'h2',
-                            'heading_size' => 'h1',
-                            'text' => "<p>Supervision des finances de vos propriétés afin d'optimiser vos rendements immobiliers.</p>",
-                            'image' => $this->createDefaultImage(),
-                            'buttons' => [
-                                [
-                                    'style' => 'default',
-                                    'action' => [
-                                        'type' => 'App\\Models\\Service\\Post',
-                                        'data' => [
-                                            'label' => 'En savoir plus',
-                                            'url' => '1',
-                                            'target' => null
-                                        ]
-                                    ]
-                                ],
-                                [
-                                    'style' => 'outline',
-                                    'action' => [
-                                        'type' => 'App\\Models\\Page',
-                                        'data' => [
-                                            'label' => 'Contactez-nous',
-                                            'url' => '4',
-                                            'target' => null
-                                        ]
-                                    ]
-                                ]
-                            ]
-                        ],
-                        [
-                            'subtitle_text' => 'Services',
-                            'subtitle_level' => 'span',
-                            'heading_text' => "Gestion\nopérationnelle",
-                            'heading_level' => 'h2',
-                            'heading_size' => 'h1',
-                            'text' => "<p>Organisation quotidienne de la propriété, de la maintenance au traitement des urgences, pour un fonctionnement optimal.</p>",
-                            'image' => $this->createDefaultImage(),
-                            'buttons' => [
-                                [
-                                    'style' => 'default',
-                                    'action' => [
-                                        'type' => 'App\\Models\\Service\\Post',
-                                        'data' => [
-                                            'label' => 'En savoir plus',
-                                            'url' => '3',
-                                            'target' => null
-                                        ]
-                                    ]
-                                ],
-                                [
-                                    'style' => 'outline',
-                                    'action' => [
-                                        'type' => 'App\\Models\\Page',
-                                        'data' => [
-                                            'label' => 'Contactez-nous',
-                                            'url' => '4',
-                                            'target' => null
-                                        ]
-                                    ]
-                                ]
+                            "subtitle_text" => "Lorem ipsum dolor sit amet.",
+                            "subtitle_level" => "span",
+                            "heading_text" => "Lorem ipsum dolor sit amet.",
+                            "heading_level" => "h2",
+                            "heading_size" => "h1",
+                            "text" => "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam in dui mauris.</p>",
+                            "image" => $this->createDefaultImage(),
+                            "buttons" => [
                             ]
                         ]
                     ],
-                    'pagination' => true,
-                    'navigation' => true,
-                    'template' => 'full-screen'
+                    "template" => "full-screen",
+                    "options" => [
+                        "slidesPerView" => "1",
+                        "pagination" => [
+                            "enabled" => true
+                        ],
+                        "autoplay" => [
+                            "enabled" => true,
+                            "delay" => 10000,
+                            "disableOnInteraction" => true
+                        ],
+                        "navigation" => [
+                            "enabled" => true
+                        ],
+                        "loop" => true,
+                        "parallax" => true,
+                        "mousewheel" => true,
+                        "keyboard" => true,
+                        "speed" => 1200
+                    ]
                 ]
             ]
         ];

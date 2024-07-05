@@ -90,7 +90,7 @@ window.Components.swiper = function swiper(options = {}) {
     return {
         init() {
             const defaultOptions = {
-                container: '.swiper-container',
+                container: this.$el.querySelector('.swiper-container'),
                 autoplay: {
                     delay: 10000,
                     disableOnInteraction: false,
@@ -104,25 +104,13 @@ window.Components.swiper = function swiper(options = {}) {
                     nextEl: this.$refs.next,
                     prevEl: this.$refs.prev,
                 },
+                watchOverflow: true,
                 pagination: {
-                    el: '.swiper-pagination',
+                    el: this.$refs.pagination,
                     clickable: true,
                 },
-                on: {
-                    init: () => {
-                        this.$refs.progress.classList.remove('animate', 'active');
-                        this.$refs.progress.classList.add('animate', 'active');
-                    },
-                    slideChangeTransitionStart: () => {
-                        this.$refs.progress.classList.remove('animate', 'active');
-                        this.$refs.progress.classList.add('active');
-                    },
-                    slideChangeTransitionEnd: () => {
-                        this.$refs.progress.classList.add('animate');
-                    },
-                },
             };
-            options = { ...defaultOptions, ...options };
+            options = deepMerge(defaultOptions, options);
 
             setTimeout(() => {
                 new Swiper(options.container, options);
@@ -131,3 +119,14 @@ window.Components.swiper = function swiper(options = {}) {
         },
     };
 };
+
+function deepMerge(target, source) {
+    for (let key in source) {
+        if (source[key] instanceof Object && key in target) {
+            Object.assign(source[key], deepMerge(target[key], source[key]));
+        }
+    }
+    // Join `target` and modified `source`
+    Object.assign(target || {}, source);
+    return target;
+}
