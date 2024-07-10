@@ -8,10 +8,15 @@ use Livewire\Component;
 class Contact extends Component
 {
     public $firstName;
+
     public $lastName;
+
     public $email;
+
     public $tel;
+
     public $message;
+
     public $success = null;
 
     public function rules()
@@ -21,7 +26,7 @@ class Contact extends Component
             'lastName' => 'required|regex:/^[a-zA-Z\s.]+$/',
             'email' => 'required|email',
             'tel' => 'nullable',
-            'message' => 'required|regex:/^[a-zA-Z0-9\s.:,!?\']+$/'
+            'message' => 'required|regex:/^[a-zA-Z0-9\s.:,!?\']+$/',
         ];
     }
 

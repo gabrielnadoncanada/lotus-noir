@@ -9,7 +9,7 @@ class BladeThemeServiceProvider extends ServiceProvider
 {
     public function register(): void
     {
-        $this->mergeConfigFrom(__DIR__.'/../../config/blade-components.php', 'blade-components');
+        $this->mergeConfigFrom(__DIR__ . '/../../config/blade-components.php', 'blade-components');
     }
 
     public function boot(): void
@@ -21,7 +21,7 @@ class BladeThemeServiceProvider extends ServiceProvider
 
     private function bootResources()
     {
-        $this->loadViewsFrom(__DIR__.'/../../resources/views', 'blade-components');
+        $this->loadViewsFrom(__DIR__ . '/../../resources/views', 'blade-components');
     }
 
     private function bootBladeComponents(): void
@@ -40,11 +40,11 @@ class BladeThemeServiceProvider extends ServiceProvider
         }
 
         $this->publishes([
-            __DIR__.'/../../config/blade-components.php' => $this->app->configPath('blade-components.php'),
+            __DIR__ . '/../../config/blade-components.php' => $this->app->configPath('blade-components.php'),
         ], 'blade-components');
 
         $this->publishes([
-            __DIR__.'/../../resources/views' => $this->app->resourcePath('views/vendor/blade-components'),
+            __DIR__ . '/../../resources/views' => $this->app->resourcePath('views/vendor/blade-components'),
         ], 'blade-components-views');
     }
 }

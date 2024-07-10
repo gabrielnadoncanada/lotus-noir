@@ -2,8 +2,8 @@
 
 namespace App\Filament\Resources\Blog\PostResource\Pages;
 
+use App\Filament\Builder\HasTemplates;
 use App\Filament\Resources\Blog\PostResource;
-use App\Traits\HasTemplates;
 use Filament\Actions;
 use Filament\Resources\Pages\EditRecord;
 use Pboivin\FilamentPeek\Pages\Actions\PreviewAction;

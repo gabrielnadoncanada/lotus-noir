@@ -2,13 +2,13 @@
 
 namespace App\Filament\Resources\Portfolio;
 
+use App\Filament\Builder\HasTemplates;
 use App\Filament\Fields\IsVisible;
 use App\Filament\Fields\Meta;
 use App\Filament\Fields\TitleWithSlugInput;
 use App\Filament\Resources\Portfolio\PostResource\Pages;
 use App\Models\Portfolio\Post;
 use App\Traits\HasMeta;
-use App\Traits\HasTemplates;
 use Filament\Forms\Components\DatePicker;
 use Filament\Forms\Components\FileUpload;
 use Filament\Forms\Components\Group;

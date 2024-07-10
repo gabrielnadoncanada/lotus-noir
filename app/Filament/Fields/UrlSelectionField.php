@@ -26,7 +26,8 @@ class UrlSelectionField extends Forms\Components\Field
                 ->label(__('filament.menu.items-modal.type'))
                 ->options($this->getTypeOptions())
                 ->afterStateUpdated(fn ($state, Select $component) => $this->updateAfterState($component))
-                ->reactive(),
+                ->reactive()
+                ->default('External'),
             $this->getDataGroup(),
             $this->getExtraFieldsGroup(),
         ];
@@ -51,7 +52,6 @@ class UrlSelectionField extends Forms\Components\Field
         return Group::make()
             ->statePath('data')
             ->whenTruthy('type')
-
             ->schema(fn (Get $get) => $this->getItemTypes()[$get('type')]['fields'] ?? []);
     }
 
@@ -66,24 +66,37 @@ class UrlSelectionField extends Forms\Components\Field
     public function getItemTypes(): array
     {
         return [
-            'External' => $this->buildItemType('External', TextInput::make('url')
-                ->label(__('filament.menu.attributes.url'))
-                ->required()),
-//            'App\Models\Blog\Post' => $this->buildItemType('Blog post', Select::make('url')
-//                ->options(BlogPost::pluck('title', 'id')->toArray())
-//                ->live()
-//                ->label(__('filament.menu.attributes.url'))
-//                ->required()),
-//            'App\Models\Service\Post' => $this->buildItemType('Service post', Select::make('url')
-//                ->options(ServicePost::pluck('title', 'id')->toArray())
-//                ->live()
-//                ->label(__('filament.menu.attributes.url'))
-//                ->required()),
-            'App\Models\Page' => $this->buildItemType('Page', Select::make('url')
-                ->options(Page::pluck('title', 'id')->toArray())
-                ->live()
-                ->label(__('filament.menu.attributes.url'))
-                ->required()),
+            'External' => $this->buildItemType(
+                'External',
+                TextInput::make('url')
+                    ->label(__('filament.menu.attributes.url'))
+                    ->required()
+                    ->default('#')
+            ),
+            'App\Models\Blog\Post' => $this->buildItemType(
+                'Blog post',
+                Select::make('url')
+                    ->options(BlogPost::pluck('title', 'id')->toArray())
+                    ->live()
+                    ->label(__('filament.menu.attributes.url'))
+                    ->required()
+            ),
+            'App\Models\Service\Post' => $this->buildItemType(
+                'Service post',
+                Select::make('url')
+                    ->options(ServicePost::pluck('title', 'id')->toArray())
+                    ->live()
+                    ->label(__('filament.menu.attributes.url'))
+                    ->required()
+            ),
+            'App\Models\Page' => $this->buildItemType(
+                'Page',
+                Select::make('url')
+                    ->options(Page::pluck('title', 'id')->toArray())
+                    ->live()
+                    ->label(__('filament.menu.attributes.url'))
+                    ->required()
+            ),
         ];
     }
 
@@ -100,7 +113,8 @@ class UrlSelectionField extends Forms\Components\Field
         return [
             TextInput::make('label')
                 ->label(__('filament.menu.items-modal.label'))
-                ->required(),
+                ->required()
+                ->default('Lorem ipsum'),
             $urlFieldFactory(),
             Select::make('target')
                 ->label(__('filament.menu.attributes.target'))

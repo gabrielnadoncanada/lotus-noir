@@ -2,7 +2,8 @@
 
 namespace App\Filament\Resources\PageResource\Pages;
 
-use App\Filament\Blocks\Section;
+use App\Filament\Blocks\BlockSection;
+use App\Filament\Builder\Templates\Home;
 use Filament\Forms\Components\Builder;
 use Filament\Forms\Components\Component;
 use Pboivin\FilamentPeek\Pages\Actions\PreviewAction;
@@ -56,9 +57,7 @@ trait HasPagePreview
     {
         return match ($builderName) {
             'content_section' => Builder::make('items')
-                ->blocks([
-                    Section::make(),
-                ])
+                ->blocks(Home::contentSectionBlocks())
         };
     }
 }

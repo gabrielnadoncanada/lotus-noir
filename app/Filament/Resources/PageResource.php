@@ -2,14 +2,13 @@
 
 namespace App\Filament\Resources;
 
+use App\Filament\Builder\HasTemplates;
 use App\Filament\Fields\IsVisible;
 use App\Filament\Fields\Meta;
 use App\Filament\Fields\TitleWithSlugInput;
 use App\Filament\Resources\PageResource\Pages;
 use App\Models\Page;
-use App\Settings\ThemeSettings;
 use App\Traits\HasMeta;
-use App\Traits\HasTemplates;
 use Filament\Forms\Components\DatePicker;
 use Filament\Forms\Components\FileUpload;
 use Filament\Forms\Components\Group;
@@ -45,7 +44,7 @@ class PageResource extends Resource
     public static function form(Form $form): Form
     {
         $record = $form->getRecord();
-        if($record){
+        if ($record) {
             static::$templateModel = $record->template();
         }
 
@@ -71,13 +70,13 @@ class PageResource extends Resource
                                                     ->image(),
                                             ])->afterStateUpdated(function ($get, $state, $set) {
                                                 if (class_has_trait(static::$model, HasMeta::class)) {
-                                                    if (empty($get('meta.title')) && !empty($state['title'])) {
+                                                    if (empty($get('meta.title')) && ! empty($state['title'])) {
                                                         $set('meta.title', $state['title']);
                                                     }
-                                                    if (empty($get('meta.text')) && !empty($state['text'])) {
+                                                    if (empty($get('meta.text')) && ! empty($state['text'])) {
                                                         $set('meta.text', $state['text']);
                                                     }
-                                                    if (empty($get('meta.image')) && !empty($state['image'])) {
+                                                    if (empty($get('meta.image')) && ! empty($state['image'])) {
                                                         $set('meta.image', $state['image']);
                                                     }
                                                 }

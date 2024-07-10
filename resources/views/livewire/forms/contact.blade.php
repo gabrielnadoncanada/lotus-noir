@@ -69,7 +69,7 @@
                     </div>
                 </div>
                 <div class="md:col-span-6">
-                    <p class="text leading-4 m-0 contact-hint">
+                    <p class="m-0 contact-hint">
                         <span class="text-primary">*</span> Nous promettons de ne pas partager
                         vos informations personnelles avec des tiers.
                     </p>

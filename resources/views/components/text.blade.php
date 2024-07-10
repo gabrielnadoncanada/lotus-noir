@@ -1,5 +1,5 @@
 @if($part1 || $part2 || $text || !$slot->isEmpty())
-    <{{ $as }} {{ $attributes->merge(['class' => $theme()]) }}>
+    <{{ $as }} {{ $attributes->class([$theme(), $classes]) }}>
     @if ($split && ($part1 || $part2))
         <span>{!! $part1 !!}</span>
         @if ($part2)

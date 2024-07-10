@@ -12,7 +12,7 @@ class Login extends BasePage
 
         $this->form->fill([
             'email' => 'admin@vilaplex.ca',
-                        'password' => 'password',
+            'password' => 'password',
             'remember' => true,
         ]);
     }

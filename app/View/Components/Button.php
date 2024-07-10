@@ -10,6 +10,7 @@ class Button extends Component
     use Themeable;
 
     public $href;
+
     public $newTab;
 
     public function __construct($href = null, $theme = 'default')

@@ -47,6 +47,7 @@ a:hover {
         @apply tracking-[-1px] text-inherit;
         -webkit-text-stroke-width: 0;
         -moz-text-stroke-width: 0;
+        -webkit-text-fill-color: inherit;
         -webkit-text-stroke-color: inherit;
         -moz-text-stroke-color: inherit;
     }
@@ -340,9 +341,6 @@ html.is-animating .transition-fade .loading-curtain {
     @apply pb-[141%];
 }
 
-main > section:first-child {
-    @apply pt-[140px];
-}
 
 .swiper-container {
     overflow: hidden;

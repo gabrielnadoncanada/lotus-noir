@@ -2,13 +2,13 @@
 
 namespace App\Filament\Resources\Blog;
 
+use App\Filament\Builder\HasTemplates;
 use App\Filament\Fields\IsVisible;
 use App\Filament\Fields\Meta;
 use App\Filament\Fields\TitleWithSlugInput;
 use App\Filament\Resources\Blog\PostResource\Pages;
 use App\Models\Blog\Post;
 use App\Traits\HasMeta;
-use App\Traits\HasTemplates;
 use Filament\Forms\Components\DatePicker;
 use Filament\Forms\Components\FileUpload;
 use Filament\Forms\Components\Group;

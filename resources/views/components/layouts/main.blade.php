@@ -16,19 +16,24 @@
     @endif
     @vite(['resources/css/app.css', 'resources/js/app.js'])
     @livewireStyles
-    <x-partials.meta :meta="$meta"/>
+
+
+    @if($meta)
+        <x-layouts.meta :meta="$meta" />
+    @endif
 </head>
 <body class="h-full bg-body m-0 p-0">
 
 <div class="relative flex flex-col h-full">
-    <x-header/>
-    <canvas class="dots absolute w-full h-screen opacity-60 left-0 top-0" width="835" height="1347" style="display: none;"></canvas>
+    <x-header />
+    <canvas class="dots absolute w-full h-screen opacity-60 left-0 top-0" width="835" height="1347"
+            style="display: none;"></canvas>
 
     <main class="transition-fade flex-1">
         {{ $slot }}
     </main>
     @if(request()->path() !== '/')
-        <x-footer/>
+        <x-footer />
     @endif
 </div>
 

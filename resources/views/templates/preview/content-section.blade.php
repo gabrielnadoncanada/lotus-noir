@@ -1,4 +1,3 @@
-@dd($sections)
-<x-layouts.main>
-  <x-render-blocks :blocks="$items" />
-</x-layouts.main>
+<x-layouts.preview>
+    <x-render-sections :sections="$items" />
+</x-layouts.preview>

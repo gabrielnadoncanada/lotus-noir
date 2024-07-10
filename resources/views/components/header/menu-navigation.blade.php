@@ -13,7 +13,9 @@
             $menu =  App\Models\Navigation::find(app(App\Settings\ThemeSettings::class)->header_menu_id);
         @endphp
         @if($menu)
-            <x-menu :items="$menu->items" />
+            <x-menu :items="$menu->items">
+                menu
+            </x-menu>
         @endif
     </nav>
 </div>

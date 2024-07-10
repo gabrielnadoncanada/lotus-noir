@@ -2,8 +2,7 @@
 
 namespace App\Filament\Fields;
 
-use App\Filament\Blocks\RichText;
-use App\Filament\Blocks\Slider;
+use App\Filament\Blocks\BlockSlider;
 use Filament\Forms\Components\Builder;
 
 class PageContent
@@ -14,7 +13,7 @@ class PageContent
     ): Builder {
         return Builder::make($name)
             ->blocks([
-                Slider::make(),
+                BlockSlider::make(),
 
             ])
             ->addActionLabel('Add block')

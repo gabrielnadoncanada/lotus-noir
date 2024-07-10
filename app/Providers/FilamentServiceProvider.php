@@ -2,7 +2,6 @@
 
 namespace App\Providers;
 
-use App\Filament\TiptapBlock\BatmanBlock;
 use Filament\Facades\Filament;
 use Filament\Forms;
 use Filament\Support\Assets\Css;
@@ -15,14 +14,13 @@ use Filament\Tables\Actions\EditAction as TableEditAction;
 use Filament\Tables\Actions\ReplicateAction as TableReplicateAction;
 use Filament\Tables\Actions\ViewAction as TableViewAction;
 use Filament\Tables\Columns\Column;
-use Filament\Tables\Columns\ImageColumn;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
 use Illuminate\Contracts\View\View;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Str;
-use FilamentTiptapEditor\TiptapEditor;
+
 class FilamentServiceProvider extends ServiceProvider
 {
     public function boot(): void
@@ -42,9 +40,9 @@ class FilamentServiceProvider extends ServiceProvider
     protected function configureTable(): void
     {
         Table::configureUsing(
-            fn(Table $table) => $table
+            fn (Table $table) => $table
                 ->filtersTriggerAction(
-                    fn(Action $action) => $action
+                    fn (Action $action) => $action
                         ->button()
                         ->label('Filtres'),
                 )->filtersFormWidth('2xl')
@@ -115,8 +113,8 @@ class FilamentServiceProvider extends ServiceProvider
 
         Forms\Components\Repeater::configureUsing(function ($component) {
             $component
-                ->collapseAllAction(fn($action) => $action->icon('heroicon-o-arrows-pointing-in'))
-                ->expandAllAction(fn($action) => $action->icon('heroicon-o-arrows-pointing-out'));
+                ->collapseAllAction(fn ($action) => $action->icon('heroicon-o-arrows-pointing-in'))
+                ->expandAllAction(fn ($action) => $action->icon('heroicon-o-arrows-pointing-out'));
         });
 
         Forms\Components\RichEditor::configureUsing(function ($component) {
@@ -135,11 +133,26 @@ class FilamentServiceProvider extends ServiceProvider
                 ]);
 
         });
+        Forms\Components\Builder::configureUsing(function ($component) {
+            $component
+                ->blockNumbers(false);
+        });
 
-        //        Forms\Components\FileUpload::configureUsing(function($component) {
-        //            $component
-        //                ->optimize('webp');
-        //        });
+        Forms\Components\Repeater::configureUsing(function ($component) {
+            $component
+                ->reorderable()
+                ->cloneable();
+        });
+
+        Forms\Components\ToggleButtons::configureUsing(function ($component) {
+            $component
+                ->inline();
+        });
+
+        Forms\Components\FileUpload::configureUsing(function ($component) {
+            $component
+                ->optimize('webp');
+        });
     }
 
     protected function configureFilamentShield(): void
@@ -164,7 +177,7 @@ class FilamentServiceProvider extends ServiceProvider
     {
         Filament::registerRenderHook(
             'panels::body.start',
-            fn(): View => view('components.staging-banner'),
+            fn (): View => view('components.staging-banner'),
         );
     }
 }

@@ -3,12 +3,11 @@
 namespace App\Models;
 
 use App\Enums\PublishedStatus;
-use App\Filament\Templates\Archive;
-use App\Filament\Templates\Home;
-use App\Filament\Templates\Single;
+use App\Filament\Builder\Templates\Archive;
+use App\Filament\Builder\Templates\Home;
+use App\Filament\Builder\Templates\Single;
 use App\Settings\ThemeSettings;
 use App\Traits\HasMeta;
-use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
@@ -74,5 +73,4 @@ class Page extends Model
 
         return Single::class;
     }
-
 }

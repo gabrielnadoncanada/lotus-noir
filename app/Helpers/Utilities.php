@@ -1,8 +1,6 @@
 <?php
 
-use Spatie\Ray\Settings\Settings;
-
-if (!function_exists('theme')) {
+if (! function_exists('theme')) {
     function theme($key)
     {
         return app(App\Settings\ThemeSettings::class)->$key;

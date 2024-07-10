@@ -2,8 +2,8 @@
 
 namespace App\Filament\Resources\Blog\PostResource\Pages;
 
+use App\Filament\Builder\HasTemplates;
 use App\Filament\Resources\Blog\PostResource;
-use App\Traits\HasTemplates;
 use Filament\Resources\Pages\CreateRecord;
 
 class CreatePost extends CreateRecord

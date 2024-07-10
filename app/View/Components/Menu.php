@@ -17,20 +17,8 @@ class Menu extends Component
         $this->theme = $theme;
     }
 
-    public function resolveUrl(array $item): string
-    {
-        if ($item['type'] !== 'External') {
-            $record = app($item['type'])->find($item['data']['url']);
-            if ($record && $record['is_visible'] && $record['published_at'] <= now()) {
-                return $record->getPublicUrl();
-            }
-        }
-
-        return $item['data']['url'];
-    }
-
     public function render()
     {
-        return view('components.menu');
+        return view('components.menu.index');
     }
 }

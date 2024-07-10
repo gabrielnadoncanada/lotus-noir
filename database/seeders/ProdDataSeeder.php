@@ -3,11 +3,11 @@
 namespace Database\Seeders;
 
 use App\Models\Blog\Category as BlogCategory;
-use App\Models\Portfolio\Category as PortfolioCategory;
-use App\Models\Portfolio\Post as PortfolioPost;
 use App\Models\Blog\Post as BlogPost;
 use App\Models\Navigation;
 use App\Models\Page;
+use App\Models\Portfolio\Category as PortfolioCategory;
+use App\Models\Portfolio\Post as PortfolioPost;
 use App\Models\Service\Post as ServicePost;
 use App\Models\User;
 use Database\Factories\Concerns\CanCreateImages;
@@ -54,13 +54,13 @@ class ProdDataSeeder extends Seeder
                                 'heading_text' => "Gestion\nfinancière",
                                 'heading_level' => 'h1',
                                 'heading_size' => 'h1',
-                                'text' => "<p>Supervision des finances de vos propriétés, incluant facturation, loyers, et optimisation des rendements immobiliers.</p>",
+                                'text' => '<p>Supervision des finances de vos propriétés, incluant facturation, loyers, et optimisation des rendements immobiliers.</p>',
                                 'image' => $this->createDefaultImage(),
-                                'buttons' => []
-                            ]
-                        ]
+                                'buttons' => [],
+                            ],
+                        ],
                     ],
-                    "content_section" => [
+                    'content_section' => [
                         [
                             'type' => 'section',
                             'data' => [
@@ -72,8 +72,8 @@ class ProdDataSeeder extends Seeder
                                 'heading_size' => 'h2',
                                 'text' => "<p>Nous nous chargeons de la perception du loyer de tous vos locataires en plus d'effectuer les suivis pour les retards.</p>",
                                 'buttons' => [],
-                                'blocks' => []
-                            ]
+                                'blocks' => [],
+                            ],
                         ],
                         [
                             'type' => 'section',
@@ -86,8 +86,8 @@ class ProdDataSeeder extends Seeder
                                 'heading_size' => 'h2',
                                 'text' => "<p>Notre équipe s'occupe de la comptabilisation des revenus et dépenses, la production des rapports financiers de chaque immeuble, la conciliation bancaire, etc.</p>",
                                 'buttons' => [],
-                                'blocks' => []
-                            ]
+                                'blocks' => [],
+                            ],
                         ],
                         [
                             'type' => 'section',
@@ -100,8 +100,8 @@ class ProdDataSeeder extends Seeder
                                 'heading_size' => 'h2',
                                 'text' => "<p>Règlement de vos factures du quotidien (à votre charge) afin d'éviter tout oubli d'une routine chargée.</p>",
                                 'buttons' => [],
-                                'blocks' => []
-                            ]
+                                'blocks' => [],
+                            ],
                         ],
                         [
                             'type' => 'section',
@@ -114,12 +114,12 @@ class ProdDataSeeder extends Seeder
                                 'heading_size' => 'h2',
                                 'text' => "<p>Quelques tâches que vous aviez en tête de déléguer n'apparaissent pas dans notre liste? N'hésitez pas à communiquer avec nous pour vérifier si ces services sont offerts.</p>",
                                 'buttons' => [],
-                                'blocks' => []
-                            ]
+                                'blocks' => [],
+                            ],
                         ],
                     ],
                     'footer_section' => $this->seedFooterSection(),
-                ]
+                ],
             ],
             [
                 'title' => 'Gestion administrative',
@@ -135,11 +135,11 @@ class ProdDataSeeder extends Seeder
                                 'heading_text' => "Gestion\nadministrative",
                                 'heading_level' => 'h1',
                                 'heading_size' => 'h1',
-                                'text' => "<p>Coordination et supervision des tâches administratives pour votre propriété, incluant gestion des locataires et contrats.</p>",
+                                'text' => '<p>Coordination et supervision des tâches administratives pour votre propriété, incluant gestion des locataires et contrats.</p>',
                                 'image' => $this->createDefaultImage(),
-                                'buttons' => []
-                            ]
-                        ]
+                                'buttons' => [],
+                            ],
+                        ],
                     ],
                     'content_section' => [
                         [
@@ -153,8 +153,8 @@ class ProdDataSeeder extends Seeder
                                 'heading_size' => 'h2',
                                 'text' => "<p>Il peut être ardu de devoir faire la gestion des clés de vos immeubles en plus des espaces de stationnement et d'entreposage. Nous vous offrons donc d'en faire la gestion pour vous à l'aide de nos outils d'organisation.</p>",
                                 'buttons' => [],
-                                'blocks' => []
-                            ]
+                                'blocks' => [],
+                            ],
                         ],
                         [
                             'type' => 'section',
@@ -167,8 +167,8 @@ class ProdDataSeeder extends Seeder
                                 'heading_size' => 'h2',
                                 'text' => "<p>Vous manquez de temps pour faire l'affichage de vos logements vacants donc ceux-ci n'ont pas la visibilité escomptée? Pas de souci, avec la visibilité de nos réseaux sociaux en plus de notre maîtrise des annonces de logements sur les sites appropriés, nous saurons diminuer le taux de vacances de vos unités.</p>",
                                 'buttons' => [],
-                                'blocks' => []
-                            ]
+                                'blocks' => [],
+                            ],
                         ],
                         [
                             'type' => 'section',
@@ -181,8 +181,8 @@ class ProdDataSeeder extends Seeder
                                 'heading_size' => 'h2',
                                 'text' => "<p>Le renouvellement des baux et l'augmentation du prix du loyer sont des tâches administratives qui peuvent prendre beaucoup de votre temps. Avec nos outils de gestion, nous vous garantissons une saison de renouvellement de baux tout en douceur et sans complications.</p>",
                                 'buttons' => [],
-                                'blocks' => []
-                            ]
+                                'blocks' => [],
+                            ],
                         ],
                         [
                             'type' => 'section',
@@ -195,8 +195,8 @@ class ProdDataSeeder extends Seeder
                                 'heading_size' => 'h2',
                                 'text' => "<p>Voici l'exemple d'une autre tâche administrative qui peut prendre beaucoup de votre précieux temps surtout lorsque le nombre d'unités dans votre portefeuille immobilier est élevé. Soyez assuré que notre équipe est outillée pour compléter cette tâche en peu de temps vous laissant ainsi plus de temps pour vous concentrer sur autre chose.</p>",
                                 'buttons' => [],
-                                'blocks' => []
-                            ]
+                                'blocks' => [],
+                            ],
                         ],
                         [
                             'type' => 'section',
@@ -209,12 +209,12 @@ class ProdDataSeeder extends Seeder
                                 'heading_size' => 'h2',
                                 'text' => "<p>Quelques tâches que vous aviez en tête de déléguer n'apparaissent pas dans notre liste? N'hésitez pas à communiquer avec nous pour vérifier si ces services sont offerts.</p>",
                                 'buttons' => [],
-                                'blocks' => []
-                            ]
-                        ]
+                                'blocks' => [],
+                            ],
+                        ],
                     ],
                     'footer_section' => $this->seedFooterSection(),
-                ]
+                ],
             ],
             [
                 'title' => 'Gestion opérationnelle',
@@ -230,11 +230,11 @@ class ProdDataSeeder extends Seeder
                                 'heading_text' => "Gestion\nopérationnelle",
                                 'heading_level' => 'h1',
                                 'heading_size' => 'h1',
-                                'text' => "<p>Organisation quotidienne de la propriété, de la maintenance à la gestion locative, pour un fonctionnement optimal.</p>",
+                                'text' => '<p>Organisation quotidienne de la propriété, de la maintenance à la gestion locative, pour un fonctionnement optimal.</p>',
                                 'image' => $this->createDefaultImage(),
-                                'buttons' => []
-                            ]
-                        ]
+                                'buttons' => [],
+                            ],
+                        ],
                     ],
                     'content_section' => [
                         [
@@ -243,13 +243,13 @@ class ProdDataSeeder extends Seeder
                                 'section_number' => '01',
                                 'subtitle_text' => 'Service disponible',
                                 'subtitle_level' => 'span',
-                                'heading_text' => "Négocier et gérer tous les contrats de services",
+                                'heading_text' => 'Négocier et gérer tous les contrats de services',
                                 'heading_level' => 'h2',
                                 'heading_size' => 'h2',
                                 'text' => "<p>Des services d'entretien ménager jusqu'au contrat de déneigement, notre équipe se charge de trouver les meilleures entreprises de services pour maintenir l'immeuble en bon état durant toute l'année.</p>",
                                 'buttons' => [],
-                                'blocks' => []
-                            ]
+                                'blocks' => [],
+                            ],
                         ],
                         [
                             'type' => 'section',
@@ -257,13 +257,13 @@ class ProdDataSeeder extends Seeder
                                 'section_number' => '02',
                                 'subtitle_text' => 'Service disponible',
                                 'subtitle_level' => 'span',
-                                'heading_text' => "Obtention des soumissions pour réparations urgentes et travaux majeurs",
+                                'heading_text' => 'Obtention des soumissions pour réparations urgentes et travaux majeurs',
                                 'heading_level' => 'h2',
                                 'heading_size' => 'h2',
                                 'text' => "<p>Pour un problème de plomberie, d'électricité ou bien une réparation mineur dans votre immeuble, aucun problème n'est à notre épreuve. Nous détenons un éventail de contacts dans plusieurs secteurs différents pour répondre à vos besoins.</p>",
                                 'buttons' => [],
-                                'blocks' => []
-                            ]
+                                'blocks' => [],
+                            ],
                         ],
                         [
                             'type' => 'section',
@@ -271,13 +271,13 @@ class ProdDataSeeder extends Seeder
                                 'section_number' => '03',
                                 'subtitle_text' => 'Service disponible',
                                 'subtitle_level' => 'span',
-                                'heading_text' => "Traitement des demandes ponctuelles des locataires",
+                                'heading_text' => 'Traitement des demandes ponctuelles des locataires',
                                 'heading_level' => 'h2',
                                 'heading_size' => 'h2',
                                 'text' => "<p>Vous avez de la difficulté à trouver l'équilibre entre le travail et votre vie personnelle? Déléguez nous les demandes récurrentes ou ponctuelles de vos locataires. Nous traiterons leurs demandes sans que vous n'ayez à vous en préoccuper.</p>",
                                 'buttons' => [],
-                                'blocks' => []
-                            ]
+                                'blocks' => [],
+                            ],
                         ],
                         [
                             'type' => 'section',
@@ -290,14 +290,14 @@ class ProdDataSeeder extends Seeder
                                 'heading_size' => 'h2',
                                 'text' => "<p>Quelques tâches que vous aviez en tête de déléguer n'apparaissent pas dans notre liste? N'hésitez pas à communiquer avec nous pour vérifier si ces services sont offerts.</p>",
                                 'buttons' => [],
-                                'blocks' => []
-                            ]
-                        ]
+                                'blocks' => [],
+                            ],
+                        ],
                     ],
                     'footer_section' => $this->seedFooterSection(),
 
-                ]
-            ]
+                ],
+            ],
         ];
 
         foreach ($posts as $post) {
@@ -327,59 +327,60 @@ class ProdDataSeeder extends Seeder
             ->create();
     }
 
-
     public function seedHomeSlider()
     {
         return [
             [
                 'type' => 'slider',
                 'data' => [
-                    "slides" => [
+                    'slides' => [
                         [
-                            "subtitle_text" => "Lorem ipsum dolor sit amet.",
-                            "subtitle_level" => "span",
-                            "heading_text" => "Lorem ipsum dolor sit amet.",
-                            "heading_level" => "h2",
-                            "heading_size" => "h1",
-                            "text" => "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam in dui mauris.</p>",
-                            "image" => $this->createDefaultImage(),
-                            "buttons" => [
-                            ]
+                            'subtitle_text' => 'Lorem ipsum dolor sit amet.',
+                            'subtitle_level' => 'span',
+                            'heading_text' => 'Lorem ipsum dolor sit amet.',
+                            'heading_level' => 'h2',
+                            'heading_size' => 'h1',
+                            'text' => '<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam in dui mauris.</p>',
+                            'image' => $this->createDefaultImage(),
+                            'buttons' => [
+                            ],
                         ],
                         [
-                            "subtitle_text" => "Lorem ipsum dolor sit amet.",
-                            "subtitle_level" => "span",
-                            "heading_text" => "Lorem ipsum dolor sit amet.",
-                            "heading_level" => "h2",
-                            "heading_size" => "h1",
-                            "text" => "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam in dui mauris.</p>",
-                            "image" => $this->createDefaultImage(),
-                            "buttons" => [
-                            ]
-                        ]
+                            'subtitle_text' => 'Lorem ipsum dolor sit amet.',
+                            'subtitle_level' => 'span',
+                            'heading_text' => 'Lorem ipsum dolor sit amet.',
+                            'heading_level' => 'h2',
+                            'heading_size' => 'h1',
+                            'text' => '<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam in dui mauris.</p>',
+                            'image' => $this->createDefaultImage(),
+                            'buttons' => [
+                            ],
+                        ],
                     ],
-                    "template" => "full-screen",
-                    "options" => [
-                        "slidesPerView" => "1",
-                        "pagination" => [
-                            "enabled" => true
+                    'template' => 'full-screen',
+                    'fullWidth' => false,
+                    'options' => [
+                        'mobileSlidesPerView' => 1,
+                        'slidesPerView' => 1,
+                        'pagination' => [
+                            'enabled' => true,
                         ],
-                        "autoplay" => [
-                            "enabled" => true,
-                            "delay" => 10000,
-                            "disableOnInteraction" => true
+                        'autoplay' => [
+                            'enabled' => true,
+                            'delay' => 10000,
+                            'disableOnInteraction' => true,
                         ],
-                        "navigation" => [
-                            "enabled" => true
+                        'navigation' => [
+                            'enabled' => true,
                         ],
-                        "loop" => true,
-                        "parallax" => true,
-                        "mousewheel" => true,
-                        "keyboard" => true,
-                        "speed" => 1200
-                    ]
-                ]
-            ]
+                        'loop' => true,
+                        'parallax' => true,
+                        'mousewheel' => true,
+                        'keyboard' => true,
+                        'speed' => 1200,
+                    ],
+                ],
+            ],
         ];
 
     }
@@ -405,14 +406,14 @@ class ProdDataSeeder extends Seeder
                                 'data' => [
                                     'label' => 'Contactez-nous',
                                     'url' => '4',
-                                    'target' => null
-                                ]
-                            ]
+                                    'target' => null,
+                                ],
+                            ],
                         ],
 
-                    ]
-                ]
-            ]
+                    ],
+                ],
+            ],
         ];
     }
 
@@ -443,9 +444,9 @@ class ProdDataSeeder extends Seeder
                                 'heading_size' => 'h1',
                                 'text' => "<p>Chex Vilaplex, nous scindons notre offre de services en trois grandes catégories. Explorez chacune d'entre elle pour y découvrir les multitudes de façons dont nous pouvons vous aider dans votre gestion immobilière.</p>",
                                 'image' => $this->createDefaultImage(),
-                                'buttons' => []
-                            ]
-                        ]
+                                'buttons' => [],
+                            ],
+                        ],
                     ],
                     'content_section' => [
                         [
@@ -463,12 +464,12 @@ class ProdDataSeeder extends Seeder
                                 'order_direction' => 'asc',
                                 'limit' => 999,
                                 'per_page' => 999,
-                                'category_ids' => []
-                            ]
-                        ]
+                                'category_ids' => [],
+                            ],
+                        ],
                     ],
                     'footer_section' => $this->seedFooterSection(),
-                ]
+                ],
             ],
             [
                 'title' => 'Blogue',
@@ -484,11 +485,11 @@ class ProdDataSeeder extends Seeder
                                 'heading_text' => "Quelques sujets qui\npourraient vous intéresser",
                                 'heading_level' => 'h1',
                                 'heading_size' => 'h1',
-                                'text' => "<p>À venir bientôt!</p>",
+                                'text' => '<p>À venir bientôt!</p>',
                                 'image' => $this->createDefaultImage(),
-                                'buttons' => []
-                            ]
-                        ]
+                                'buttons' => [],
+                            ],
+                        ],
                     ],
                     'content_section' => [
                         [
@@ -506,12 +507,12 @@ class ProdDataSeeder extends Seeder
                                 'order_direction' => 'asc',
                                 'limit' => 999,
                                 'per_page' => 999,
-                                'category_ids' => []
-                            ]
-                        ]
+                                'category_ids' => [],
+                            ],
+                        ],
                     ],
                     'footer_section' => $this->seedFooterSection(),
-                ]
+                ],
             ],
             [
                 'title' => 'Contact',
@@ -527,11 +528,11 @@ class ProdDataSeeder extends Seeder
                                 'heading_text' => "À la recherche d'une gestion\nImmobilière efficace et personnalisée?",
                                 'heading_level' => 'h1',
                                 'heading_size' => 'h1',
-                                'text' => "<p>Appelez-nous ou envoyez-nous un message en remplissant le formulaire ci-dessous pour discuter de vos besoins spécifiques. Nous avons hâte de travailler avec vous!</p>",
+                                'text' => '<p>Appelez-nous ou envoyez-nous un message en remplissant le formulaire ci-dessous pour discuter de vos besoins spécifiques. Nous avons hâte de travailler avec vous!</p>',
                                 'image' => $this->createDefaultImage(),
-                                'buttons' => []
-                            ]
-                        ]
+                                'buttons' => [],
+                            ],
+                        ],
                     ],
                     'footer_section' => [],
                     'content_section' => [
@@ -539,10 +540,10 @@ class ProdDataSeeder extends Seeder
                             'type' => 'form',
                             'data' => [
 
-                            ]
-                        ]
-                    ]
-                ]
+                            ],
+                        ],
+                    ],
+                ],
             ],
             [
                 'title' => 'À propos',
@@ -560,9 +561,9 @@ class ProdDataSeeder extends Seeder
                                 'heading_size' => 'h1',
                                 'text' => "<p>Chez Vilaplex, nous sommes une équipe passionnée par la gestion efficace et durable des biens immobiliers. Notre équipe dévouée s'engage à vous offrir un service des plus professionnel qui ira au delà de vos attentes. Soyez donc rassuré que chacun de nos membres vous apporteront leur expertise dans tous les aspects de la gestion immobilière.</p>",
                                 'image' => $this->createDefaultImage(),
-                                'buttons' => []
-                            ]
-                        ]
+                                'buttons' => [],
+                            ],
+                        ],
                     ],
                     'content_section' => [
                         [
@@ -587,7 +588,7 @@ class ProdDataSeeder extends Seeder
                                                 'heading_level' => 'h2',
                                                 'heading_size' => 'h3',
                                                 'text' => null,
-                                                'buttons' => []
+                                                'buttons' => [],
                                             ],
                                             'right' => [
                                                 'subtitle_text' => 'CO-FONDATRICE',
@@ -596,13 +597,13 @@ class ProdDataSeeder extends Seeder
                                                 'heading_level' => 'h2',
                                                 'heading_size' => 'h3',
                                                 'text' => null,
-                                                'buttons' => []
-                                            ]
-                                        ]
-                                    ]
-                                ]
-                            ]
-                        ]
+                                                'buttons' => [],
+                                            ],
+                                        ],
+                                    ],
+                                ],
+                            ],
+                        ],
                     ],
                     'footer_section' => [
                         [
@@ -623,18 +624,18 @@ class ProdDataSeeder extends Seeder
                                             'data' => [
                                                 'label' => 'Contactez-nous',
                                                 'url' => '4',
-                                                'target' => null
-                                            ]
-                                        ]
+                                                'target' => null,
+                                            ],
+                                        ],
                                     ],
 
-                                ]
-                            ]
-                        ]
+                                ],
+                            ],
+                        ],
 
                     ],
 
-                ]
+                ],
             ],
         ];
 

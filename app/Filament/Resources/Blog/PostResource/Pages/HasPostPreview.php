@@ -2,7 +2,7 @@
 
 namespace App\Filament\Resources\Blog\PostResource\Pages;
 
-use App\Filament\Blocks\Section;
+use App\Filament\Blocks\BlockSection;
 use Filament\Forms\Components\Builder;
 use Filament\Forms\Components\Component;
 use Pboivin\FilamentPeek\Pages\Actions\PreviewAction;
@@ -57,7 +57,7 @@ trait HasPostPreview
         return match ($builderName) {
             'content_section' => Builder::make('items')
                 ->blocks([
-                    Section::make(),
+                    BlockSection::make(),
                 ])
         };
     }

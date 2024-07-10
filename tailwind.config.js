@@ -13,6 +13,16 @@ module.exports = {
         './app/Filament/Blocks/*.php',
         './config/blade-components.php',
     ],
+    safelist: [
+        {
+            pattern: /col-span-+/,
+            variants: ['sm', 'md', 'lg', 'xl'],
+        },
+        {
+            pattern: /grid-cols-+/,
+            variants: ['sm', 'md', 'lg', 'xl'],
+        },
+    ],
     theme: {
 
         extend: {

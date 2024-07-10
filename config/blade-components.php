@@ -16,16 +16,16 @@ return [
                 'h5' => 'uppercase relative m-0 p-0 text-sm',
                 'h6' => 'uppercase relative m-0 p-0 text-sm',
                 'subtitle' => [
-                    'default' => 'relative text-[11px] uppercase font-semibold tracking-[2px] pl-10 before:content-[""] before:w-[30px] before:h-[3px] before:bg-white before:absolute before:top-[calc(50%_-_4px)]  before:left-0',
-                    'center' => 'before:ml-[-15px] before:left-2/4 before:top-0 relative text-[11px] uppercase leading-[16px] font-semibold pt-[20px] tracking-[2px] before:content-[""] before:w-[30px] before:h-[3px] before:bg-white before:absolute before:top-0  before:left-0',
-                ]
+                    'default' => '',
+                    'center' => '',
+                ],
             ],
         ],
         'button' => [
             'class' => Components\Button::class,
             'themes' => [
-                'default' => 'default-link cursor-pointer relative inline-block no-underline h-[55px] leading-[55px] text-[11px] uppercase font-semibold tracking-[2px]  bg-transparent duration-400 ease-in-out mr-2.5 px-10 py-0 hover:text-primary rounded-[3px] border-[2px] border-solid border-white',
-                'outline' => 'default-link border-transparent cursor-pointer relative inline-block no-underline h-[55px] leading-[55px] text-[11px] uppercase font-semibold tracking-[2px] text-foreground-dark bg-transparent duration-400 hover:text-primary ease-in-out mr-2.5 px-10 py-0 rounded-[3px] border-none border-solid border-white',
+                'primary' => 'default-link cursor-pointer relative inline-block no-underline  text-[11px] uppercase font-semibold tracking-[2px]  bg-transparent duration-400 ease-in-out leading-[1] px-5 py-4 hover:text-primary rounded-[3px] border-[2px] border-solid border-white',
+                'outline' => 'default-link border-transparent cursor-pointer relative inline-block no-underline text-[11px] uppercase font-semibold tracking-[2px] text-foreground-dark bg-transparent duration-400 hover:text-primary ease-in-out leading-[1] px-5 py-4 px-5 py-3  rounded-[3px] border-none border-solid border-white',
             ],
         ],
         'form' => [
@@ -103,7 +103,7 @@ return [
             'error' => [
                 'class' => Components\Form\Error::class,
                 'themes' => [
-                    'default' => "opacity-100 text-[10px] font-semibold uppercase border bg-[red] text-[white] list-none opacity-0 mx-0 -mt-[5px] pl-[3px] pr-0  pb-0 border-solid border-[red] before:content-[''] before:block before:mt-[-9px] before:pointer-events-none before:absolute before:border-b-[solid] before:border-b-[red] before:border-x-[solid] before:border-x-transparent"
+                    'default' => "opacity-100 text-[10px] font-semibold uppercase border bg-[red] text-[white] list-none opacity-0 mx-0 -mt-[5px] pl-[3px] pr-0  pb-0 border-solid border-[red] before:content-[''] before:block before:mt-[-9px] before:pointer-events-none before:absolute before:border-b-[solid] before:border-b-[red] before:border-x-[solid] before:border-x-transparent",
                 ],
             ],
         ],

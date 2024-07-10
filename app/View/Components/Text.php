@@ -10,22 +10,30 @@ class Text extends Component
     use Themeable;
 
     public $as;
+
     public $split = false;
+
     public $part1;
+
     public $part2;
+
     public $text;
+
+    public $classes;
 
     public function __construct(
         $theme = 'default',
         $split = false,
         $as = 'p',
-        $text = null
+        $text = null,
+        $classes = ''
     )
     {
         $this->theme = $theme;
         $this->as = $as;
         $this->split = $split;
         $this->text = $text;
+        $this->classes = $classes;
 
         if ($split && $text) {
             [$this->part1, $this->part2] = $this->explodeNewline($text);
@@ -34,10 +42,12 @@ class Text extends Component
 
     protected function explodeNewline($text)
     {
-        return preg_split("/\r\n|\n|\r/", $text);
+        if (strpos($text, "\n") === false) {
+            return [$text, null];
+        }
+
+        return preg_split("/\r\n|\n|\r/", $text, 2);
     }
-
-
 
     public function render()
     {

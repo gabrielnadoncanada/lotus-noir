@@ -2,7 +2,6 @@
 
 namespace App\Filament\Resources;
 
-
 use App\Filament\Resources\FormEntryResource\Pages;
 use App\Models\FormEntry;
 use Filament\Forms;
@@ -19,7 +18,9 @@ class FormEntryResource extends Resource
     protected static ?string $pluralLabel = 'messages';
 
     protected static ?string $model = FormEntry::class;
+
     protected static ?string $navigationGroup = 'Site';
+
     protected static ?int $navigationSort = 2;
 
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
@@ -28,23 +29,23 @@ class FormEntryResource extends Resource
     {
         return $form->schema([
             Section::make('Informations')
-            ->schema([
-                Forms\Components\TextInput::make('firstName')
-                    ->disabled()
-                    ->label('Prénom'),
-                Forms\Components\TextInput::make('lastName')
-                    ->disabled()
-                    ->label('Nom'),
-                Forms\Components\TextInput::make('email')
-                    ->disabled()
-                    ->label('Courriel'),
-                Forms\Components\TextInput::make('tel')
-                    ->disabled()
-                    ->label('Téléphone'),
-                Forms\Components\Textarea::make('message')
-                    ->disabled()
-                    ->label('Message'),
-            ])
+                ->schema([
+                    Forms\Components\TextInput::make('firstName')
+                        ->disabled()
+                        ->label('Prénom'),
+                    Forms\Components\TextInput::make('lastName')
+                        ->disabled()
+                        ->label('Nom'),
+                    Forms\Components\TextInput::make('email')
+                        ->disabled()
+                        ->label('Courriel'),
+                    Forms\Components\TextInput::make('tel')
+                        ->disabled()
+                        ->label('Téléphone'),
+                    Forms\Components\Textarea::make('message')
+                        ->disabled()
+                        ->label('Message'),
+                ]),
 
         ]);
     }
@@ -60,7 +61,7 @@ class FormEntryResource extends Resource
                 Tables\Columns\TextColumn::make('email')
                     ->label('Courriel'),
                 Tables\Columns\TextColumn::make('tel')
-                    ->label('Téléphone')
+                    ->label('Téléphone'),
             ])
             ->filters([
                 // ... your filters
