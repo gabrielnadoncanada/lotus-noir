@@ -37,6 +37,13 @@ class MultiRowSection extends AbstractSection
         ];
     }
 
+    public function defaultParameters(): array
+    {
+        return [
+
+        ];
+    }
+
     public function blocks(): array
     {
         return [

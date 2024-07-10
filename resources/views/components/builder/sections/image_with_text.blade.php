@@ -52,7 +52,7 @@
     };
 @endphp
 
-<section class="my-10 sm:my-15 md:my-20 relative">
+<section class="my-10 sm:my-15 md:my-20 relative" data-section="image-with-text">
     <div class="container max-md:px-0 ">
         <div class="grid md:grid-cols-12">
             <div @class([$desktopImageWidthClasses, $layoutClasses])>

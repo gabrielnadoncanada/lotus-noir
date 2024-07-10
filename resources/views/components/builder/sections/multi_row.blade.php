@@ -56,7 +56,7 @@
 @endphp
 
 @if(!empty($rows))
-    <section class="my-10 sm:my-15 md:my-20 relative">
+    <section class="my-10 sm:my-15 md:my-20 relative" data-section="multi-row">
         <div class="container max-md:px-0">
             <div class="flex flex-col md:gap-y-10">
                 @foreach($rows as $row)

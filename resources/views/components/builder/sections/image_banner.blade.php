@@ -1,6 +1,7 @@
 @props([
     'blocks' => [],
-    'image' => null,
+    'desktop_image' => null,
+    'mobile_image' => null,
     'full_width' => true,
     'stack_images_on_mobile' => true,
     'show_text_box_desktop' => true,
@@ -11,6 +12,7 @@
     'desktop_content_position' => 'middle-center',
     'desktop_image_position' => 'middle-center',
     'mobile_image_position' => 'middle-center',
+    'mobile_layout' => 'image-first',
 ])
 
 @php
@@ -72,28 +74,40 @@
         default => 'md:justify-center md:items-center',
     };
 
+    $mobileLayoutClasses = match($mobile_layout) {
+        'text-first' => 'order-last',
+        default => 'order-first',
+    };
+
 @endphp
 
 @if(!empty($blocks))
-    <section @class(['relative py-10 sm:py-15 md:py-20 group-[.swiper-slide]:!py-0', $imageHeightClasses])>
-        <div
-            class="md:absolute max-md:h-[31.4rem] left-0 top-0 z-[-2] h-full w-full flex max-md:relative">
-            <x-builder.blocks.image
-                @class(['h-full w-full object-cover',$desktopImagePositionClasses,$mobileImagePositionClasses])
-                :image="$image"
-                :placeholder="true"
-            />
+    <section
+        @class(['max-w-7xl px-8 mx-auto relative py-10 sm:py-15 md:py-20 group-[.swiper-slide]:!py-0'])
+        data-section="image-banner"
+    >
+        <div @class(['flex flex-col md:flex-row ', $imageHeightClasses])>
             <div
-                class="absolute left-0 top-0 h-full w-full bg-gradient-to-t from-body via-body via-15% to-body/[0.94]"
-                style="opacity: {{$image_overlay_opacity .'%'}}"
-            ></div>
-        </div>
-        <div class="container h-full">
-            <div @class(['h-full flex ', $desktopContentPositionClasses])>
-                <div @class(['flex py-10 sm:py-14 flex-col gap-y-5 group', $desktopClasses, $mobileClasses, $textBoxDesktopClasses])>
+                @class(['max-md:-mx-8 md:absolute left-0 top-0 z-[-2] h-full  md:flex max-md:relative', $mobileLayoutClasses])>
+                <x-builder.blocks.image
+                    @class(['h-full max-md:h-[31.4rem] w-full object-cover',$desktopImagePositionClasses,$mobileImagePositionClasses])
+                    :desktopImage="$desktop_image"
+                    :mobileImage="$mobile_image"
+                    :placeholder="true"
+                />
+                <div
+                    class="absolute left-0 top-0 h-full w-full bg-gradient-to-t from-body via-body via-15% to-body/[0.94]"
+                    style="opacity: {{$image_overlay_opacity .'%'}}"
+                ></div>
+            </div>
+
+            <div @class(['w-full h-full md:flex', $desktopContentPositionClasses])>
+                <div @class(['flex py-10 sm:py-14 flex-col gap-y-5 group md:max-w-md', $desktopClasses, $mobileClasses, $textBoxDesktopClasses])>
                     <x-render-blocks :blocks="$blocks" />
                 </div>
             </div>
+
         </div>
+
     </section>
 @endif

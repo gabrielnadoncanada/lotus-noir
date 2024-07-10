@@ -20,7 +20,7 @@
 @endphp
 
 @if(!empty($blocks))
-    <section class="my-10 sm:my-15 md:my-20 relative">
+    <section class="my-10 sm:my-15 md:my-20 relative" data-section="rich-text">
         <div class="container">
             <div @class(['flex flex-col gap-y-5 group', $desktopClasses, $mobileClasses])>
                 <x-render-blocks :blocks="$blocks" />

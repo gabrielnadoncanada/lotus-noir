@@ -9,6 +9,7 @@
     'column_alignment'=> 'left',
     'button',
     'columns_mobile'=> '1',
+    'columns_tablet'=> '2',
     'swipe_on_mobile'=> false,
     'classes' => []
 ])
@@ -33,8 +34,8 @@
     };
 @endphp
 
-<section class="my-10 sm:my-15 md:my-20 relative">
-    <div class="container">
+<section class="my-10 sm:my-15 md:my-20 relative" data-section="multi-column">
+    <div class="max-w-7xl mx-auto px-8">
         <x-builder.blocks.heading
             class="mb-10"
             :heading_level="$heading_level"
@@ -42,7 +43,9 @@
             :heading_text="$heading_text"
         />
         @if(!empty($columns))
-            <div @class(['grid gap-5 sm:gap-10  grid-cols-'.$columns_mobile.'  md:grid-cols-'.$columns_desktop, $columnAlignmentClasses])>
+            <div
+
+                @class(['grid gap-5 sm:gap-10  grid-cols-'.$columns_mobile.' md:grid-cols-'.$columns_tablet.'  lg:grid-cols-'.$columns_desktop, $columnAlignmentClasses])>
                 @foreach($columns as $column)
                     <div class="flex flex-col gap-y-5 max-sm:px-5 p-10 bg-white bg-opacity-5">
                         @foreach ($column['blocks'] as $block)

@@ -20,7 +20,7 @@ export default (options = {}) => {
                     prevEl: this.$refs.prev,
                 },
 
-                spaceBetween: 30,
+                spaceBetween: 0,
                 watchOverflow: true,
                 pagination: {
                     el: this.$refs.pagination,

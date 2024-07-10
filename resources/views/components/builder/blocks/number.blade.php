@@ -4,7 +4,7 @@
 ])
 
 @if($number)
-    <div class="numbering">
+    <div class="numbering" data-block="number">
         <div {{$attributes->class(['border-text text-7xl/[0.8] font-black',$classes])}}>
             {{$number}}
         </div>

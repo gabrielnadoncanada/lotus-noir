@@ -30,11 +30,17 @@ final class Home
                 ->schema([
                     Builder::make('header_section')
                         ->blocks([
-
+                            ImageBannerSection::make([
+                                    'heading_level' => 'h1',
+                                    'heading_size' => 'h1',
+                                ]
+                            )
                         ])
+                        ->collapsible()
+                        ->collapsed()
+                        ->deletable(false)
                         ->maxItems(1)
                         ->reorderable(false)
-
                 ]),
 
             Section::make('Content')
@@ -75,7 +81,9 @@ final class Home
             MultiColumnSection::make(),
             MultiRowSection::make(),
             ImageBannerSection::make(),
-            SlideshowSection::make()
+            SlideshowSection::make([
+                'template' => 'horizontal-1',
+            ])
         ];
     }
 }

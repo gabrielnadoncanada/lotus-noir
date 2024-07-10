@@ -7,6 +7,7 @@
 
 @if($heading_text)
     <x-text
+        data-block="heading"
         {{$attributes->class([$classes])}}
         :as="$heading_level"
         :theme="$heading_size">

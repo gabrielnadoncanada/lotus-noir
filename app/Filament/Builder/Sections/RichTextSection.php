@@ -28,6 +28,13 @@ class RichTextSection extends AbstractSection
         ];
     }
 
+    public function defaultParameters(): array
+    {
+        return [
+
+        ];
+    }
+
     public function settings(): array
     {
         return [

@@ -7,11 +7,17 @@ use Filament\Forms\Components\Builder\Block;
 
 class HeadingBlock
 {
-    public static function make(): Block
+    public static function make(
+        string $defaultHeadingLevel = 'h2',
+        string $defaultHeadingSize = 'h2'
+    ): Block
     {
         return Block::make('heading')
             ->schema([
-                HeadingField::make()
+                HeadingField::make(
+                    defaultHeadingLevel: $defaultHeadingLevel,
+                    defaultHeadingSize: $defaultHeadingSize
+                )
             ]);
     }
 }

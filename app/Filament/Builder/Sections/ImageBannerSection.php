@@ -24,18 +24,32 @@ class ImageBannerSection extends AbstractSection
         return [
             NumberBlock::make()->maxItems(1),
             SubtitleBlock::make()->maxItems(1),
-            HeadingBlock::make()->maxItems(1),
+            HeadingBlock::make(
+                defaultHeadingLevel: $this->parameters['heading_level'],
+                defaultHeadingSize: $this->parameters['heading_size'],
+            )->maxItems(1),
             TextBlock::make()->maxItems(1),
             ButtonsBlock::make()->maxItems(1),
         ];
     }
 
+    public function defaultParameters(): array
+    {
+        return [
+            'heading_level' => 'h2',
+            'heading_size' => 'h2',
+            'template' => 'horizontal-1',
+        ];
+    }
     public function settings(): array
     {
         return [
-            FileUpload::make('image')
+            FileUpload::make('mobile_image')
                 ->image()
-                ->label('Image'),
+                ->label('Mobile Image'),
+            FileUpload::make('desktop_image')
+                ->image()
+                ->label('Desktop Image'),
             Fieldset::make('image')
                 ->schema([
                     RangeSlider::make('image_overlay_opacity')
@@ -122,8 +136,13 @@ class ImageBannerSection extends AbstractSection
                         ->default(true)
                         ->label('Show Text Box Desktop'),
                 ]),
-
-
+            ToggleButtons::make('mobile_layout')
+                ->options([
+                    'image-first' => 'Image First',
+                    'text-first' => 'Text First',
+                ])
+                ->default('image-first')
+                ->label('Mobile Layout'),
         ];
     }
 

@@ -4,7 +4,7 @@
 ])
 
 @if(!empty($buttons))
-    <div class='flex flex-col sm:flex-row '>
+    <div class='flex flex-col sm:flex-row ' data-block="buttons">
         @foreach($buttons as $button)
             <x-builder.blocks.button
                 :classes="$classes"

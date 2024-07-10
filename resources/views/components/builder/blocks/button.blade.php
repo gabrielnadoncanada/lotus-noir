@@ -5,7 +5,7 @@
 ])
 
 @if(!empty($action))
-    <div class="mt-2.5">
+    <div class="mt-2.5" data-block="button">
         @if($action['type'])
             @if($action['type'] !== 'External')
                 @php

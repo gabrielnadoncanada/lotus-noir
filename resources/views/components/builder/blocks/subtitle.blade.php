@@ -6,7 +6,9 @@
 ])
 
 @if($subtitle_text)
-    <x-text :as="$subtitle_level"
+    <x-text
+        data-block="subtitle"
+        :as="$subtitle_level"
             :theme="$theme"
             {{$attributes->class(['flex uppercase font-semibold tracking-[2px] relative text-[11px] gap-3
             group-[.text-center]:flex-col group-[.text-right]:.flex-row-reverse group-[.text-left]:.flex-row

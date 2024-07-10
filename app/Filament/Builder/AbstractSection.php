@@ -2,6 +2,7 @@
 
 namespace App\Filament\Builder;
 
+use Closure;
 use Filament\Forms\Components\Builder;
 use Filament\Forms\Components\Builder\Block;
 use Filament\Forms\Components\Tabs;
@@ -10,9 +11,15 @@ abstract class AbstractSection
 {
     protected static string $blockName;
 
-    public static function make(): Block
+    public array $parameters;
+    private array $defaultParameters;
+
+    public static function make($parameters = []): Block
     {
         $instance = new static();
+
+        $instance->setDefaultParameters();
+        $instance->setParameters($parameters);
 
         return Block::make(static::$blockName)
             ->schema([
@@ -39,11 +46,23 @@ abstract class AbstractSection
         ];
     }
 
-    abstract protected function blocks(): array;
+    abstract protected function blocks(): Closure | array;
 
     abstract protected function settings(): array;
 
     abstract protected function preset(): array;
 
     abstract protected function maxItems(): int;
+
+    abstract protected function defaultParameters(): array;
+
+    public function setParameters($parameters): void
+    {
+        $this->parameters = array_merge($this->defaultParameters, $parameters);
+    }
+
+    public function setDefaultParameters(): void
+    {
+        $this->defaultParameters = $this->defaultParameters();
+    }
 }

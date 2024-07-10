@@ -2,7 +2,6 @@
 
 namespace App\Filament\Builder\Templates;
 
-use App\Filament\Blocks\BlockSection;
 use App\Filament\Builder\Sections\ImageBannerSection;
 use App\Filament\Builder\Sections\ImageWithTextSection;
 use App\Filament\Builder\Sections\MultiColumnSection;

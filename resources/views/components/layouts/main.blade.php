@@ -26,8 +26,8 @@
 
 <div class="relative flex flex-col h-full">
     <x-header />
-    <canvas class="dots absolute w-full h-screen opacity-60 left-0 top-0" width="835" height="1347"
-            style="display: none;"></canvas>
+{{--    <canvas class="dots absolute w-full h-screen opacity-60 left-0 top-0" width="835" height="1347"--}}
+{{--            style="display: none;"></canvas>--}}
 
     <main class="transition-fade flex-1">
         {{ $slot }}
@@ -48,6 +48,6 @@
 
 <script src="{{asset("js/plugins/parsley.min.js")}}"></script>
 <script src="{{asset("js/main.js")}}"></script>
-<script src="{{asset("js/plugins/canvas.js")}}"></script>
+{{--<script src="{{asset("js/plugins/canvas.js")}}"></script>--}}
 </body>
 </html>

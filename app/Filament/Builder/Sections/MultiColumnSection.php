@@ -37,6 +37,13 @@ class MultiColumnSection extends AbstractSection
         ];
     }
 
+    public function defaultParameters(): array
+    {
+        return [
+
+        ];
+    }
+
     public function blocks(): array
     {
         return [
@@ -82,6 +89,13 @@ class MultiColumnSection extends AbstractSection
                         ->maxValue(6)
                         ->step(1)
                         ->default(3),
+
+                    RangeSlider::make('columns_tablet')
+                        ->label('Number of Columns (Tablet)')
+                        ->minValue(1)
+                        ->maxValue(3)
+                        ->step(1)
+                        ->default(2),
 
                     RangeSlider::make('columns_mobile')
                         ->label('Number of Columns (Mobile)')

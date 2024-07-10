@@ -32,6 +32,13 @@ class SlideshowSection extends AbstractSection
         ];
     }
 
+    public function defaultParameters(): array
+    {
+        return [
+           'template' => 'horizontal-1',
+        ];
+    }
+
     public function blocks(): array
     {
         return [
@@ -41,8 +48,8 @@ class SlideshowSection extends AbstractSection
 
     public function settings(): array
     {
-        $template = 'horizontal-1';
-        $defaultOptions = self::setDefaultOptionsByTemplate($template);
+        $defaultOptions = self::setDefaultOptionsByTemplate($this->parameters['template']);
+
         return [
             Toggle::make('fullWidth')
                 ->label('Full Width')
@@ -53,7 +60,7 @@ class SlideshowSection extends AbstractSection
                     'full-screen' => 'Full Screen',
                     'horizontal-1' => 'Horizontal 1',
                 ])
-                ->default($template)
+                ->default('horizontal-1')
                 ->hidden()
                 ->live(),
             Group::make()
@@ -64,15 +71,17 @@ class SlideshowSection extends AbstractSection
                         ->hidden()
                         ->numeric(),
                     TextInput::make('slidesPerView')
+                        ->statePath('breakpoints.1200.slidesPerView')
+                        ->label('slidesPerView tablet')
+                        ->hidden()
+                        ->numeric()
+                        ->default($defaultOptions['tabletSlidesPerView']),
+                    TextInput::make('slidesPerView')
                         ->statePath('breakpoints.768.slidesPerView')
                         ->label('slidesPerView mobile')
-
+                        ->hidden()
                         ->numeric()
                         ->default($defaultOptions['mobileSlidesPerView']),
-                    TextInput::make('spaceBetween')
-                        ->numeric()
-                        ->hidden()
-                        ->default(30),
                     Group::make()
                         ->statePath('pagination')
                         ->schema([
@@ -140,7 +149,8 @@ class SlideshowSection extends AbstractSection
         return match ($template) {
             'horizontal-1' => [
                 'slidesPerView' => 1,
-                'mobileSlidesPerView' => 3,
+                'mobileSlidesPerView' => 2,
+                'tabletSlidesPerView' => 3,
                 'heading_level' => 'h3',
                 'heading_size' => 'h2',
                 'fullWidth' => false,
@@ -149,6 +159,7 @@ class SlideshowSection extends AbstractSection
             'full-screen' => [
                 'slidesPerView' => 1,
                 'mobileSlidesPerView' => 1,
+                'tabletSlidesPerView' => 1,
                 'heading_level' => 'h2',
                 'heading_size' => 'h2',
                 'fullWidth' => false,

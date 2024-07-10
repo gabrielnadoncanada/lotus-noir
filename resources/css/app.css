@@ -36,12 +36,39 @@ p {
 /*    color: orange;*/
 /*}*/
 
-main > section:first-child {
-    margin-top: 0 !important;
+[data-content="header_section"] {
+   @apply mt-12 md:mt-0;
 
 }
+
+[data-content="header_section"] [data-section="slideshow"] {
+    @apply mt-0
+}
+
 
 /*section {*/
 /*    margin: 5px;*/
 /*    outline: 2px solid red;*/
 /*}*/
+
+
+[data-content="header_section"] [data-section="slideshow"] .swiper-wrapper {
+    @apply h-screen;
+}
+
+
+[data-content="header_section"] [data-section="slideshow"] [data-section="image-banner"] {
+    @apply h-full;
+}
+
+[data-content="header_section"] [data-section="slideshow"] [data-section="image-banner"] .container {
+    @apply flex-1;
+}
+
+[data-content="header_section"] [data-section="slideshow"] [data-section="image-banner"] img {
+    @apply max-md:h-full;
+}
+
+.container {
+    @apply max-md:px-8;
+}
