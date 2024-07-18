@@ -16,7 +16,6 @@ return new class extends Migration
             $table->string('title');
             $table->string('slug')->unique();
             $table->string('text')->nullable();
-            $table->longText('content')->nullable();
             $table->boolean('is_visible')->default(true);
             $table->date('published_at')->default(now());
             $table->string('image')->nullable();

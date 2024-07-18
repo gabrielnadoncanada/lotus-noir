@@ -1,7 +1,7 @@
-<a href="/" class="default-link anima-link">
+<a href="/" class="default-link anima-link magnetic-link flex items-center gap-x-2">
     @if(app(App\Settings\ThemeSettings::class)->site_logo)
         <img
-            class="max-w-[160px] w-full"
+            class="h-[60px]  w-full"
             src="{{Storage::url(app(App\Settings\ThemeSettings::class)->site_logo)}}"
             alt="{{config('app.name')}}">
     @endif

@@ -9,10 +9,15 @@ use Illuminate\Support\Arr;
 class RangeSlider extends Field
 {
     protected float | int | Closure | null $min = null;
+
     protected float | int | Closure | null $max = null;
+
     protected float | int | Closure | null $step = 1;
+
     protected bool | Closure $displaySteps = true;
+
     protected bool $stepsAssoc = false;
+
     protected array $steps = [];
 
     protected string $view = 'filament.forms.components.range-slider';
@@ -20,8 +25,7 @@ class RangeSlider extends Field
     /**
      * Sets the step value
      *
-     * @param float $step
-     * @return self
+     * @param  float  $step
      */
     public function step(float | int | Closure $step): self
     {
@@ -33,8 +37,7 @@ class RangeSlider extends Field
     /**
      * Sets the min value
      *
-     * @param float $min
-     * @return self
+     * @param  float  $min
      */
     public function minValue(float | int | Closure $min): self
     {
@@ -46,8 +49,7 @@ class RangeSlider extends Field
     /**
      * Sets the max value
      *
-     * @param float $max
-     * @return self
+     * @param  float  $max
      */
     public function maxValue(float | int | Closure $max): self
     {
@@ -60,8 +62,7 @@ class RangeSlider extends Field
      * Sets the displays steps value.
      * If tru the steps list should be listed in the form.
      *
-     * @param bool $displaySteps
-     * @return self
+     * @param  bool  $displaySteps
      */
     public function displaySteps(bool | Closure $displaySteps = true): self
     {
@@ -72,10 +73,6 @@ class RangeSlider extends Field
 
     /**
      * Sets the steps value.
-     *
-     * @param array $steps
-     * @param bool|null $sort
-     * @return self
      */
     public function steps(array $steps, ?bool $sort = null): self
     {
@@ -83,7 +80,7 @@ class RangeSlider extends Field
         $sort = $sort !== null ? $sort : $this->stepsAssoc;
         $this->steps = ($sort) ? Arr::sort($steps) : $steps;
         $min = $this->stepsAssoc ? array_key_first($this->steps) : 1;
-        $max = $this->stepsAssoc ? array_key_last($this->steps) : sizeof($this->steps);
+        $max = $this->stepsAssoc ? array_key_last($this->steps) : count($this->steps);
 
         return $this->min($min)
             ->max($max)

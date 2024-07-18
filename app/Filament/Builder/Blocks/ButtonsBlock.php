@@ -3,19 +3,20 @@
 namespace App\Filament\Builder\Blocks;
 
 use App\Filament\Builder\Fields\ButtonField;
-use Filament\Forms\Components\Builder\Block;
+use Devlense\FilamentBuilder\BlockBuilder;
 use Filament\Forms\Components\Repeater;
 
-class ButtonsBlock
+class ButtonsBlock extends BlockBuilder
 {
-    public static function make(): Block
+    protected static string $name = 'buttons';
+
+    public static function getSchema($parameters): array
     {
-        return Block::make('buttons')
-            ->schema([
-                Repeater::make('buttons')
-                    ->schema([
-                        ButtonField::make()
-                    ]),
-            ]);
+        return [
+            Repeater::make('buttons')
+                ->schema([
+                    ButtonField::make(),
+                ]),
+        ];
     }
 }

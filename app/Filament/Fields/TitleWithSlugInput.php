@@ -55,7 +55,7 @@ class TitleWithSlugInput
         $textInput = TextInput::make($fieldTitle)
             ->disabled($titleIsReadonly)
             ->autofocus($titleAutofocus)
-            ->live(debounce: 300)
+            ->live(true)
             ->autocomplete(false)
             ->rules($titleRules)
             ->extraInputAttributes($titleExtraInputAttributes ?? ['class' => 'text-xl font-semibold'])

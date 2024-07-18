@@ -2,21 +2,18 @@
 
 namespace App\Filament\Resources\Service;
 
-use App\Filament\Builder\HasTemplates;
 use App\Filament\Fields\IsVisible;
 use App\Filament\Fields\Meta;
-use App\Filament\Fields\TitleWithSlugInput;
 use App\Filament\Resources\Blog\CategoryResource;
+use App\Filament\Resources\PageResource;
 use App\Filament\Resources\Service\PostResource\Pages;
 use App\Models\Service\Post;
-use App\Traits\HasMeta;
+use Devlense\FilamentBuilder\Concerns\HasTemplates;
 use Filament\Forms\Components\DatePicker;
-use Filament\Forms\Components\FileUpload;
 use Filament\Forms\Components\Group;
 use Filament\Forms\Components\Section;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\Tabs;
-use Filament\Forms\Components\Textarea;
 use Filament\Forms\Components\Toggle;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
@@ -30,7 +27,7 @@ use Pboivin\FilamentPeek\Tables\Actions\ListPreviewAction;
 
 class PostResource extends Resource
 {
-    use HasTemplates;
+    //    use HasTemplates;
 
     protected static ?string $model = Post::class;
 
@@ -57,30 +54,7 @@ class PostResource extends Resource
                             Tabs::make('Tabs')
                                 ->tabs([
                                     Tabs\Tab::make('General')
-                                        ->schema([
-                                            TitleWithSlugInput::make(
-                                                fieldTitle: 'title',
-                                                fieldSlug: 'slug',
-                                            )->label('Title'),
-                                            Textarea::make('text')
-                                                ->rows(3)
-                                                ->required(),
-                                            FileUpload::make('image')
-                                                ->label('Image')
-                                                ->image(),
-                                        ])->afterStateUpdated(function ($get, $state, $set) {
-                                            if (class_has_trait(static::$model, HasMeta::class)) {
-                                                if (empty($get('meta.title')) && ! empty($state['title'])) {
-                                                    $set('meta.title', $state['title']);
-                                                }
-                                                if (empty($get('meta.text')) && ! empty($state['text'])) {
-                                                    $set('meta.text', $state['text']);
-                                                }
-                                                if (empty($get('meta.image')) && ! empty($state['image'])) {
-                                                    $set('meta.image', $state['image']);
-                                                }
-                                            }
-                                        })->live(),
+                                        ->schema(PageResource::getGeneralSchema()),
                                     Tabs\Tab::make('SEO')
                                         ->schema([
                                             Meta::make(),
@@ -113,7 +87,7 @@ class PostResource extends Resource
                         ])
                         ->columnSpan(['lg' => 1]),
                 ])->columns(3),
-            ...self::getTemplateSchemas(),
+            //            ...self::getTemplateSchemas(),
         ])->columns(1);
     }
 

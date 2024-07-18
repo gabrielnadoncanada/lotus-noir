@@ -46,7 +46,8 @@
         "psr-4": {
             "App\\": "app/",
             "Database\\Factories\\": "database/factories/",
-            "Database\\Seeders\\": "database/seeders/"
+            "Database\\Seeders\\": "database/seeders/",
+            "Devlense\\FilamentBuilder\\": "devlense/filament-builder/src/"
         }
     },
     "autoload-dev": {

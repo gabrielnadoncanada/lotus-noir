@@ -15,8 +15,8 @@ class Meta
         return Group::make([
             TextInput::make('title')
                 ->label('Title'),
-            Textarea::make('description')
-                ->label('Description')
+            Textarea::make('text')
+                ->label('Text')
                 ->rows(3),
             FileUpload::make('image')
                 ->image()

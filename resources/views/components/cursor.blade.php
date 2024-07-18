@@ -1,7 +1,7 @@
 <div class="absolute w-[30px] h-[30px] pointer-events-none z-[999999999999999]">
     <div
         x-data="Components.cursor()"
-        class=" fixed block w-10 h-10 border pointer-events-none opacity-50 rounded-[50%] border-solid border-body-text left-0 -top-px">
+        class=" fixed block w-10 h-10 border pointer-events-none opacity-50 rounded-[50%] border-solid border-white border-body-text left-0 -top-px">
         <div class="loader">
             <svg
                 class="opacity-0 duration-300 ease-in-out"

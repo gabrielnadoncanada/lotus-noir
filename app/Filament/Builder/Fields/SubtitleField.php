@@ -12,7 +12,7 @@ class SubtitleField
     {
         return Group::make()
             ->schema([
-                TextInput::make('subtitle_text')
+                TextInput::make('subtitle_content')
                     ->columnSpanFull()
 
                     ->default('Lorem ipsum dolor sit amet.'),

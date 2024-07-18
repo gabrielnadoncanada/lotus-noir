@@ -3,6 +3,8 @@
 namespace App\Providers\Filament;
 
 use App\Filament\Pages\Auth\Login;
+use App\Settings\ThemeSettings;
+use Devlense\FilamentBuilder\FilamentBuilderPlugin;
 use Filament\FontProviders\GoogleFontProvider;
 use Filament\Http\Middleware\Authenticate;
 use Filament\Http\Middleware\DisableBladeIconComponents;
@@ -17,8 +19,8 @@ use Illuminate\Foundation\Http\Middleware\VerifyCsrfToken;
 use Illuminate\Routing\Middleware\SubstituteBindings;
 use Illuminate\Session\Middleware\AuthenticateSession;
 use Illuminate\Session\Middleware\StartSession;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\View\Middleware\ShareErrorsFromSession;
-use Pboivin\FilamentPeek\FilamentPeekPlugin;
 
 class AdminPanelProvider extends PanelProvider
 {
@@ -32,9 +34,9 @@ class AdminPanelProvider extends PanelProvider
             ->colors([
 
             ])
-            ->brandLogo(asset(__('app.logo_light')))
-            ->darkModeBrandLogo(asset(__('app.logo_dark')))
-            ->brandLogoHeight('1.25rem')
+            ->brandLogo(Storage::url(app(ThemeSettings::class)->site_logo))
+            ->darkModeBrandLogo(Storage::url(app(ThemeSettings::class)->site_logo))
+            ->brandLogoHeight('2.25rem')
             ->font('DM Sans', provider: GoogleFontProvider::class)
             ->viteTheme('resources/css/filament/admin/theme.css')
             ->discoverResources(in: app_path('Filament/Resources'), for: 'App\\Filament\\Resources')
@@ -63,7 +65,7 @@ class AdminPanelProvider extends PanelProvider
             ])
             ->plugins([
                 SpatieLaravelTranslatablePlugin::make()->defaultLocales(['fr', 'en']),
-                FilamentPeekPlugin::make(),
+                FilamentBuilderPlugin::make()
 
             ]);
     }

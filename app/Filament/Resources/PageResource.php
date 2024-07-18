@@ -2,13 +2,13 @@
 
 namespace App\Filament\Resources;
 
-use App\Filament\Builder\HasTemplates;
 use App\Filament\Fields\IsVisible;
 use App\Filament\Fields\Meta;
 use App\Filament\Fields\TitleWithSlugInput;
 use App\Filament\Resources\PageResource\Pages;
 use App\Models\Page;
 use App\Traits\HasMeta;
+use Devlense\FilamentBuilder\Components\Content;
 use Filament\Forms\Components\DatePicker;
 use Filament\Forms\Components\FileUpload;
 use Filament\Forms\Components\Group;
@@ -27,7 +27,6 @@ use Pboivin\FilamentPeek\Tables\Actions\ListPreviewAction;
 
 class PageResource extends Resource
 {
-    use HasTemplates;
 
     protected static ?string $model = Page::class;
 
@@ -43,10 +42,7 @@ class PageResource extends Resource
 
     public static function form(Form $form): Form
     {
-        $record = $form->getRecord();
-        if ($record) {
-            static::$templateModel = $record->template();
-        }
+
 
         return $form
             ->schema([
@@ -57,30 +53,7 @@ class PageResource extends Resource
                                 Tabs::make('Tabs')
                                     ->tabs([
                                         Tabs\Tab::make('General')
-                                            ->schema([
-                                                TitleWithSlugInput::make(
-                                                    fieldTitle: 'title',
-                                                    fieldSlug: 'slug',
-                                                )->label('Title'),
-                                                Textarea::make('text')
-                                                    ->rows(3)
-                                                    ->required(),
-                                                FileUpload::make('image')
-                                                    ->label('Image')
-                                                    ->image(),
-                                            ])->afterStateUpdated(function ($get, $state, $set) {
-                                                if (class_has_trait(static::$model, HasMeta::class)) {
-                                                    if (empty($get('meta.title')) && ! empty($state['title'])) {
-                                                        $set('meta.title', $state['title']);
-                                                    }
-                                                    if (empty($get('meta.text')) && ! empty($state['text'])) {
-                                                        $set('meta.text', $state['text']);
-                                                    }
-                                                    if (empty($get('meta.image')) && ! empty($state['image'])) {
-                                                        $set('meta.image', $state['image']);
-                                                    }
-                                                }
-                                            })->live(),
+                                            ->schema(static::getGeneralSchema()),
                                         Tabs\Tab::make('SEO')
                                             ->schema([
                                                 Meta::make(),
@@ -103,7 +76,7 @@ class PageResource extends Resource
                             ])
                             ->columnSpan(['lg' => 1]),
                     ])->columns(3),
-                ...self::getTemplateSchemas(),
+                Content::make()
             ])->columns(1);
     }
 
@@ -143,6 +116,37 @@ class PageResource extends Resource
             'index' => Pages\ListPages::route('/'),
             'create' => Pages\CreatePage::route('/create'),
             'edit' => Pages\EditPage::route('/{record}/edit'),
+        ];
+    }
+
+    public static function getGeneralSchema(): array
+    {
+        return [
+            TitleWithSlugInput::make(
+                fieldTitle: 'title',
+                fieldSlug: 'slug',
+            )->label('Title')
+                ->afterStateUpdated(function ($get, $state, $set) {
+                    if (class_has_trait(static::$model, HasMeta::class)) {
+                        if (empty($get('meta.title')) && ! empty($state['title'])) {
+                            $set('meta.title', $state['title']);
+                        }
+                    }
+                }),
+            Textarea::make('text')
+                ->rows(3)
+                ->required()
+                ->live(true)
+                ->afterStateUpdated(function ($get, $state, $set) {
+                    if (class_has_trait(static::$model, HasMeta::class)) {
+                        if (empty($get('meta.text')) && ! empty($state)) {
+                            $set('meta.text', $state);
+                        }
+                    }
+                }),
+            FileUpload::make('image')
+                ->label('Image')
+                ->image(),
         ];
     }
 }

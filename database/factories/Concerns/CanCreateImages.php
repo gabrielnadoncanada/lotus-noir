@@ -19,6 +19,17 @@ trait CanCreateImages
         return $filename;
     }
 
+    public function createImages(int $number = 3, ?string $size = LocalImages::SIZE_200x200): array
+    {
+        $images = [];
+
+        for ($i = 0; $i < $number; $i++) {
+            $images[] = $this->createImage($size);
+        }
+
+        return $images;
+    }
+
     public function createDefaultImage(): ?string
     {
         return Storage::disk('public')->putFile(public_path(config('seeding.image_placeholder_path')));

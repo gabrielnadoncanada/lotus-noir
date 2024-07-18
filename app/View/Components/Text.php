@@ -27,8 +27,7 @@ class Text extends Component
         $as = 'p',
         $text = null,
         $classes = ''
-    )
-    {
+    ) {
         $this->theme = $theme;
         $this->as = $as;
         $this->split = $split;

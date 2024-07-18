@@ -3,6 +3,7 @@
 namespace App\Models\Service;
 
 use App\Traits\HasMeta;
+use Devlense\FilamentBuilder\Concerns\HasContent;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
@@ -11,6 +12,7 @@ class Post extends Model
 {
     use HasFactory;
     use HasMeta;
+    use HasContent;
 
     protected $table = 'service_posts';
 
@@ -19,7 +21,6 @@ class Post extends Model
     protected $casts = [
         'is_visible' => 'boolean',
         'published_at' => 'datetime',
-        'content' => 'array',
     ];
 
     public function categories(): BelongsToMany

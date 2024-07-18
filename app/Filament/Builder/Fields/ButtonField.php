@@ -3,7 +3,6 @@
 namespace App\Filament\Builder\Fields;
 
 use App\Filament\Fields\UrlSelectionField;
-use Filament\Forms\Components\Fieldset;
 use Filament\Forms\Components\Group;
 use Filament\Forms\Components\ToggleButtons;
 
@@ -18,6 +17,7 @@ class ButtonField
                         'primary' => 'Primary',
                         'outline' => 'Outline',
                     ])
+                    ->hidden()
                     ->inline()
                     ->default('primary'),
                 UrlSelectionField::make('action')

@@ -19,7 +19,6 @@ class PostFactory extends Factory
             'slug' => $this->faker->unique()->slug,
             'text' => $this->faker->sentence,
             'published_at' => now(),
-            'content' => $this->faker->optional()->text,
             'is_visible' => true,
             'image' => $this->createImage(),
             'created_at' => now(),

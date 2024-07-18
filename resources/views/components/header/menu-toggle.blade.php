@@ -1,11 +1,15 @@
-<div
-    class="relative cursor-pointer magnetic-link"
-    x-bind:class="{ 'active': menuActive }"
-    @click="menuActive = !menuActive">
-    <div class="w-5 h-5 pt-px magnetic-object burger">
-        <span
-            class="w-[19px] h-[3px] bg-white before:bg-white after:bg-white after:absolute before:absolute relative mt-[7px] mb-0 mx-0 before:top-[-7px] after:w-[75%] before:w-full before:h-full after:h-full after:top-[7px] after:right-0"
-            x-bind:class="{'rotate-45 before:translate-x-0 before:translate-y-[7px] before:-rotate-90 after:translate-x-0 after:translate-y-[-7px] after:-rotate-90 after:!hidden': menuActive}">
-        </span>
-    </div>
-</div>
+<button @click="menuActive = !menuActive" class="magnetic-link   flex items-center justify-center my-auto  p-8">
+    <svg clwidth="26" height="26" viewBox="0 0 26 26" class="h-full magnetic-object " fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect x="1" y="2" width="100%" height="3" fill="white"></rect>
+        <rect x="1" y="12" width="100%" height="3" fill="white"></rect>
+        <rect x="1" y="22" width="100%" height="3" fill="white"></rect>
+    </svg>
+
+</button>
+
+{{--<div--}}
+{{--    class="relative cursor-pointer magnetic-link"--}}
+{{--    x-bind:class="{ 'active': menuActive }"--}}
+{{--  >--}}
+
+{{--</div>--}}

@@ -2,7 +2,6 @@
 
 namespace App\Filament\Resources\Service\PostResource\Pages;
 
-use App\Filament\Builder\HasTemplates;
 use App\Filament\Resources\Service\PostResource;
 use Filament\Actions;
 use Filament\Resources\Pages\EditRecord;
@@ -11,7 +10,6 @@ use Pboivin\FilamentPeek\Pages\Actions\PreviewAction;
 class EditPost extends EditRecord
 {
     use HasPostPreview;
-    use HasTemplates;
 
     protected static string $resource = PostResource::class;
 

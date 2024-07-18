@@ -2,17 +2,18 @@
 
 namespace App\Filament\Builder\Blocks;
 
-use Filament\Forms\Components\Builder\Block;
+use Devlense\FilamentBuilder\BlockBuilder;
 use Filament\Forms\Components\TextInput;
 
-class NumberBlock
+class NumberBlock extends BlockBuilder
 {
-    public static function make(): Block
+    protected static string $name = 'number';
+
+    public static function getSchema($parameters): array
     {
-        return Block::make('number')
-            ->schema([
-                TextInput::make('number')
-                ->default('01')
-            ]);
+        return [
+            TextInput::make('number_content')
+                ->default('01'),
+        ];
     }
 }

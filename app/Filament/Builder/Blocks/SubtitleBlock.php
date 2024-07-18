@@ -3,15 +3,16 @@
 namespace App\Filament\Builder\Blocks;
 
 use App\Filament\Builder\Fields\SubtitleField;
-use Filament\Forms\Components\Builder\Block;
+use Devlense\FilamentBuilder\BlockBuilder;
 
-class SubtitleBlock
+class SubtitleBlock extends BlockBuilder
 {
-    public static function make(): Block
+    protected static string $name = 'subtitle';
+
+    public static function getSchema($parameters): array
     {
-        return Block::make('subtitle')
-            ->schema([
-                SubtitleField::make()
-            ]);
+        return [
+            SubtitleField::make(),
+        ];
     }
 }

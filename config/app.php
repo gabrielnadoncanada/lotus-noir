@@ -177,7 +177,7 @@ return [
         App\Providers\FilamentServiceProvider::class,
         App\Providers\MigrationServiceProvider::class,
         App\Providers\BladeThemeServiceProvider::class,
-
+        Devlense\FilamentBuilder\FilamentBuilderServiceProvider::class,
     ])->toArray(),
 
     /*
@@ -192,7 +192,7 @@ return [
     */
 
     'aliases' => Facade::defaultAliases()->merge([
-        // 'Example' => App\Facades\Example::class,
+
     ])->toArray(),
 
 ];

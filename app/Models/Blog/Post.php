@@ -4,6 +4,7 @@ namespace App\Models\Blog;
 
 use App\Enums\PublishedStatus;
 use App\Traits\HasMeta;
+use Devlense\FilamentBuilder\Concerns\HasContent;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
@@ -12,6 +13,7 @@ class Post extends Model
 {
     use HasFactory;
     use HasMeta;
+    use HasContent;
 
     /**
      * @var string
@@ -23,7 +25,6 @@ class Post extends Model
      */
     protected $casts = [
         'status' => PublishedStatus::class,
-        'content' => 'array',
     ];
 
     protected $table = 'blog_posts';

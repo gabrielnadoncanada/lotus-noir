@@ -20,11 +20,11 @@ class ProdDataSeeder extends Seeder
     public function run(): void
     {
         $this->seedUsers();
-//        $this->seedService();
-//        $this->seedBlog();
-//        $this->seedPortfolio();
-//        $this->seedPage();
-//        $this->seedMenu();
+        //        $this->seedService();
+        //        $this->seedBlog();
+        $this->seedPortfolio();
+        //        $this->seedPage();
+        //        $this->seedMenu();
     }
 
     private function seedUsers(): void

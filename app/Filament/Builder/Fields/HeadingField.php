@@ -2,22 +2,21 @@
 
 namespace App\Filament\Builder\Fields;
 
-use Filament\Forms\Components\Fieldset;
 use Filament\Forms\Components\Group;
 use Filament\Forms\Components\Textarea;
 use Filament\Forms\Components\ToggleButtons;
 
 class HeadingField
 {
-    public static function make(
-        string $defaultHeadingLevel = 'h2',
-        string $defaultHeadingSize = 'h2'
-    ): Group {
+    public static function make($parameters = [
+        'heading_level' => 'h1',
+        'heading_size' => 'h1',
+    ]): Group
+    {
         return Group::make()
             ->schema([
-                Textarea::make('heading_text')
+                Textarea::make('heading_content')
                     ->columnSpanFull()
-
                     ->default('Lorem ipsum dolor sit amet.'),
                 ToggleButtons::make('heading_level')
                     ->options([
@@ -30,7 +29,7 @@ class HeadingField
                     ])
                     ->inline()
                     ->hidden()
-                    ->default($defaultHeadingLevel),
+                    ->default($parameters['heading_level']),
                 ToggleButtons::make('heading_size')
                     ->label('Heading Size')
                     ->options([
@@ -41,7 +40,7 @@ class HeadingField
                     ])
                     ->inline()
                     ->hidden()
-                    ->default($defaultHeadingSize),
+                    ->default($parameters['heading_size']),
             ])
             ->default('Lorem Ipsum Dolor Sit Amet');
     }

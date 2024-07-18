@@ -3,21 +3,18 @@
 namespace App\Filament\Builder\Blocks;
 
 use App\Filament\Builder\Fields\HeadingField;
+use Devlense\FilamentBuilder\BlockBuilder;
 use Filament\Forms\Components\Builder\Block;
+use Filament\Forms\Components\Repeater;
 
-class HeadingBlock
+class HeadingBlock extends BlockBuilder
 {
-    public static function make(
-        string $defaultHeadingLevel = 'h2',
-        string $defaultHeadingSize = 'h2'
-    ): Block
+    protected static string $name = 'heading';
+
+    public static function getSchema($parameters): array
     {
-        return Block::make('heading')
-            ->schema([
-                HeadingField::make(
-                    defaultHeadingLevel: $defaultHeadingLevel,
-                    defaultHeadingSize: $defaultHeadingSize
-                )
-            ]);
+        return [
+            HeadingField::make(),
+        ];
     }
 }

@@ -3,6 +3,7 @@ import 'swiper/css/bundle';
 
 export default (options = {}) => {
     return {
+
         init() {
             const defaultOptions = {
                 container: this.$el.querySelector('.swiper-container'),
@@ -20,7 +21,7 @@ export default (options = {}) => {
                     prevEl: this.$refs.prev,
                 },
 
-                spaceBetween: 0,
+                spaceBetween: 40,
                 watchOverflow: true,
                 pagination: {
                     el: this.$refs.pagination,
@@ -28,11 +29,7 @@ export default (options = {}) => {
                 },
             };
             options = deepMerge(defaultOptions, options);
-
-            setTimeout(() => {
-                new Swiper(options.container, options);
-            }, 1000);
-
+            new Swiper(options.container, options);
         },
     };
 }

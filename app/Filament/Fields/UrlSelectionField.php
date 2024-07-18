@@ -3,33 +3,71 @@
 namespace App\Filament\Fields;
 
 use App\Models\Blog\Post as BlogPost;
+use App\Models\Navigation;
 use App\Models\Page;
 use App\Models\Service\Post as ServicePost;
 use Closure;
 use Filament\Forms;
+use Filament\Forms\Components\Actions\Action;
 use Filament\Forms\Components\Component;
 use Filament\Forms\Components\Group;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Get;
+use Filament\Support\Enums\ActionSize;
+use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Config;
 
 class UrlSelectionField extends Forms\Components\Field
 {
     protected string $view = 'filament-forms::components.group';
 
-    protected array | Closure $extraFields = [];
+    public bool $hasLabel = true;
+
+    public function hasLabel($hasLabel)
+    {
+        $this->hasLabel = $hasLabel;
+
+        return $this;
+    }
 
     public function getChildComponents(): array
     {
+        $columns = 4;
+        if ($this->getModel() === Navigation::class) {
+            $columns = 1;
+        }
+        if (!$this->hasLabel) {
+            $columns = 3;
+        }
+
         return [
-            Select::make('type')
-                ->label(__('filament.menu.items-modal.type'))
-                ->options($this->getTypeOptions())
-                ->afterStateUpdated(fn ($state, Select $component) => $this->updateAfterState($component))
-                ->reactive()
-                ->default('External'),
-            $this->getDataGroup(),
-            $this->getExtraFieldsGroup(),
+            Group::make()
+                ->columns($columns)
+                ->schema([
+                    Select::make('type')
+                        ->label(__('filament.menu.items-modal.type'))
+                        ->options($this->getTypeOptions())
+                        ->afterStateUpdated(fn($state, Select $component) => $this->updateAfterState($component))
+                        ->reactive()
+                        ->default('External'),
+                    $this->getDataGroup(),
+                    TextInput::make('label')
+                        ->label(__('filament.menu.items-modal.label'))
+                        ->required()
+                        ->hidden(fn($state) => $this->hasLabel === false)
+                        ->statePath('data.label')
+                        ->default('Lorem ipsum'),
+                    Select::make('target')
+                        ->statePath('data.target')
+                        ->label(__('filament.menu.attributes.target'))
+                        ->options([
+                            '' => __('filament.menu.select-options.same-tab'),
+                            '_blank' => __('filament.menu.select-options.new-tab'),
+                        ])
+                        ->default('')
+                        ->selectablePlaceholder(false),
+                ]),
         ];
     }
 
@@ -37,12 +75,12 @@ class UrlSelectionField extends Forms\Components\Field
     {
         $itemTypes = $this->getItemTypes();
 
-        return array_combine(array_keys($itemTypes), array_column($itemTypes, 'name'));
+        return array_combine(array_keys($itemTypes), array_values($itemTypes));
     }
 
     protected function updateAfterState(Select $component): void
     {
-        $component->getContainer()->getComponent(fn (Component $component) => $component instanceof Group)
+        $component->getContainer()->getComponent(fn(Component $component) => $component instanceof Group)
             ?->getChildComponentContainer()
             ->fill();
     }
@@ -50,80 +88,35 @@ class UrlSelectionField extends Forms\Components\Field
     protected function getDataGroup(): Group
     {
         return Group::make()
-            ->statePath('data')
-            ->whenTruthy('type')
-            ->schema(fn (Get $get) => $this->getItemTypes()[$get('type')]['fields'] ?? []);
+            ->schema(fn(Get $get) => [$this->getItemTypeFields($get('type') ?? 'External')]);
     }
 
-    protected function getExtraFieldsGroup(): Group
+    protected function getItemTypes(): array
     {
-        return Group::make()
-            ->statePath('data')
-            ->visible(fn (Component $component) => ! empty($component->evaluate($this->extraFields)))
-            ->schema(fn (Component $component) => $this->extraFields);
+        return Config::get('filament.url_selection_field.item_types', []);
     }
 
-    public function getItemTypes(): array
+    protected function getItemTypeFields(string $type)
     {
-        return [
-            'External' => $this->buildItemType(
-                'External',
-                TextInput::make('url')
-                    ->label(__('filament.menu.attributes.url'))
-                    ->required()
-                    ->default('#')
-            ),
-            'App\Models\Blog\Post' => $this->buildItemType(
-                'Blog post',
-                Select::make('url')
-                    ->options(BlogPost::pluck('title', 'id')->toArray())
-                    ->live()
-                    ->label(__('filament.menu.attributes.url'))
-                    ->required()
-            ),
-            'App\Models\Service\Post' => $this->buildItemType(
-                'Service post',
-                Select::make('url')
-                    ->options(ServicePost::pluck('title', 'id')->toArray())
-                    ->live()
-                    ->label(__('filament.menu.attributes.url'))
-                    ->required()
-            ),
-            'App\Models\Page' => $this->buildItemType(
-                'Page',
-                Select::make('url')
-                    ->options(Page::pluck('title', 'id')->toArray())
-                    ->live()
-                    ->label(__('filament.menu.attributes.url'))
-                    ->required()
-            ),
-        ];
-    }
-
-    protected function buildItemType(string $name, $urlField): array
-    {
-        return [
-            'name' => $name,
-            'fields' => $this->buildLinkFields(fn () => $urlField),
-        ];
-    }
-
-    protected function buildLinkFields(callable $urlFieldFactory): array
-    {
-        return [
-            TextInput::make('label')
-                ->label(__('filament.menu.items-modal.label'))
+        if ($type === 'External') {
+            return TextInput::make('url')
+                ->statePath('data.url')
+                ->label(__('filament.menu.attributes.url'))
                 ->required()
-                ->default('Lorem ipsum'),
-            $urlFieldFactory(),
-            Select::make('target')
-                ->label(__('filament.menu.attributes.target'))
-                ->options([
-                    '' => __('filament.menu.select-options.same-tab'),
-                    '_blank' => __('filament.menu.select-options.new-tab'),
-                ])
-                ->default('')
-                ->selectablePlaceholder(false),
-        ];
+                ->default('#');
+
+        }
+
+        $modelClass = $type;
+        if (class_exists($modelClass)) {
+            return Select::make('url')
+                ->statePath('data.url')
+                ->options($modelClass::pluck('title', 'id')->toArray())
+                ->live()
+                ->label(__('filament.menu.attributes.url'))
+                ->required();
+        }
+
+        return null;
     }
 }

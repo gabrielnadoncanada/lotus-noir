@@ -3,15 +3,16 @@
 namespace App\Filament\Builder\Blocks;
 
 use App\Filament\Builder\Fields\ButtonField;
-use Filament\Forms\Components\Builder\Block;
+use Devlense\FilamentBuilder\BlockBuilder;
 
-class ButtonBlock
+class ButtonBlock extends BlockBuilder
 {
-    public static function make(): Block
+    protected static string $name = 'button';
+
+    public static function getSchema($parameters): array
     {
-        return Block::make('button')
-            ->schema([
-                ButtonField::make(),
-            ]);
+        return [
+            ButtonField::make(),
+        ];
     }
 }

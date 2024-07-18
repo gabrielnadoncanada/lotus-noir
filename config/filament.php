@@ -14,6 +14,15 @@ return [
     |
     */
 
+    'url_selection_field' => [
+        'item_types' => [
+            'External' => 'External',
+            'App\Models\Blog\Post' => 'Blog post',
+            'App\Models\Service\Post' => 'Service post',
+            'App\Models\Page' => 'Page',
+        ],
+    ],
+
     'broadcasting' => [
 
         // 'echo' => [

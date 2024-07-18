@@ -8,6 +8,7 @@ use App\Filament\Builder\Templates\Home;
 use App\Filament\Builder\Templates\Single;
 use App\Settings\ThemeSettings;
 use App\Traits\HasMeta;
+use Devlense\FilamentBuilder\Concerns\HasContent;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
@@ -15,6 +16,7 @@ class Page extends Model
 {
     use HasFactory;
     use HasMeta;
+    use HasContent;
 
     /**
      * @var string
@@ -26,7 +28,6 @@ class Page extends Model
      */
     protected $casts = [
         'status' => PublishedStatus::class,
-        'content' => 'array',
     ];
 
     public function scopePublished($query)

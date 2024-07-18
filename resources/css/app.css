@@ -1,74 +1,371 @@
 @import "./theme/fonts.css";
-@import "./theme/main.css";
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-p {
-    line-height: 1.375;
+html {
+    scroll-behavior: smooth;
 }
 
-/*.container {*/
-/*    @apply !max-w-[95rem];*/
-/*}*/
-
-/*h1 {*/
-/*    color: red;*/
-/*}*/
-
-/*h2 {*/
-/*    color: green;*/
-/*}*/
-
-/*h3 {*/
-/*    color: blue;*/
-/*}*/
-
-/*h4 {*/
-/*    color: yellow;*/
-/*}*/
-
-/*h5 {*/
-/*    color: purple;*/
-/*}*/
-
-/*h6 {*/
-/*    color: orange;*/
-/*}*/
-
-[data-content="header_section"] {
-   @apply mt-12 md:mt-0;
-
-}
-
-[data-content="header_section"] [data-section="slideshow"] {
-    @apply mt-0
+body {
+    background-color: var(--background);
+    font-size: 18px;
+    line-height: 160%;
+    font-weight: 400;
+    color: white;
 }
 
 
-/*section {*/
-/*    margin: 5px;*/
-/*    outline: 2px solid red;*/
-/*}*/
+@layer base {
+    :root {
+        --background: #090909;
+
+        --primary: #253B2F;
+        --primary-foreground: #253B2F;
+
+        --secondary: #D2E0D9;
+        --secondary-foreground: #D2E0D9;
+
+        --muted: #32393E;
+
+        --rgba-color: rgba(255, 255, 255, 0.20);
+        --primary-rgba: rgb(108, 117, 125, 0.20);
+        --secondary-rgba: rgb(210, 224, 217, 0.50);
+        --overlay: rgba(0, 0, 0, 0.40);
 
 
-[data-content="header_section"] [data-section="slideshow"] .swiper-wrapper {
-    @apply h-screen;
+        --border: rgba(37, 59, 47, 0.20);
+
+        --radius: 8px;
+    }
+}
+
+@layer base {
+    * {
+        @apply border-border;
+    }
+
+}
+
+@layer utilities {
+    .stroke-dasharray-1000 {
+        stroke-dasharray: 1000;
+    }
+
+    .stroke-dashoffset-1000 {
+        stroke-dashoffset: 1000;
+    }
+
+    .webkit-text-stroke-width-1 {
+        -webkit-text-stroke-width: 1px;
+    }
+
+    .webkit-text-stroke-width-2 {
+        -webkit-text-stroke-width: 2px;
+    }
+
+    .webkit-text-stroke-width-3 {
+        -webkit-text-stroke-width: 3px;
+    }
+
+
+    .webkit-text-stroke-white {
+        -webkit-text-stroke-color: #fff;
+    }
+
+    .webkit-text-stroke-primary {
+        -webkit-text-stroke-color: var(--primary);
+    }
+
+    .webkit-text-stroke-secondary {
+        -webkit-text-stroke-color: var(--secondary);
+    }
+
+    .hover-underline span {
+        background-repeat: no-repeat;
+        background-image: linear-gradient(180deg, transparent 96%, var(--primary) 0);
+        background-size: 0 100%;
+        transition: background-size 0.4s ease-out;
+    }
+
+    .hover-underline:hover span {
+        background-size: 100% 100%;
+    }
 }
 
 
-[data-content="header_section"] [data-section="slideshow"] [data-section="image-banner"] {
-    @apply h-full;
+/* ---------- style for team card one */
+@media (min-width: 1024px) {
+    /*.team-card:nth-child(3n) {*/
+    /*    margin-top: 12px;*/
+    /*}*/
+    /*.team-card:nth-child(3n + 1) {*/
+    /*    margin-top: -120px;*/
+    /*}*/
+    /*.team-card:nth-child(3n + 2) {*/
+    /*    margin-top: -210px;*/
+    /*}*/
 }
 
-[data-content="header_section"] [data-section="slideshow"] [data-section="image-banner"] .container {
-    @apply flex-1;
+/* ---------- style for team card one */
+
+/* ---------- style for counter */
+.index-module_slot__DpPgW {
+    margin-left: -2px;
+    margin-bottom: -9px;
 }
 
-[data-content="header_section"] [data-section="slideshow"] [data-section="image-banner"] img {
-    @apply max-md:h-full;
+/* ---------- style for counter */
+
+
+/* --------- overright swiper slider custom css  */
+.banner-two .swiper-pagination-bullet-active {
+    opacity: 1;
+    transform: translateY(0);
+    transition: all 0.5s;
+    height: auto;
+    position: relative;
+}
+
+.banner-one .swiper-pagination-bullet-active .title {
+    display: block;
+}
+
+.banner-one .swiper-pagination-bullet-active .active-blut {
+    color: var(--primary);
+}
+
+
+.project-pagination .swiper-pagination-bullet-active {
+    opacity: 1;
+    transform: translateY(0);
+    transition: all 0.5s;
+    height: auto;
+}
+
+.swiper-pagination-progressbar-fill {
+    position: absolute;
+    width: 70%;
+    height: 5px;
+    background: var(--primary);
+    left: 0px;
+    bottom: 8px;
+    transform-origin: left center;
+}
+
+.blog-single .project-slider-one .swiper-slide {
+    width: auto !important;
+}
+
+/* --------- overright swiper slider custom css  */
+
+/* --------- hero animation */
+.animate-fill,
+.animate-fill::after {
+    animation-delay: 0.2s;
+    animation-iteration-count: 1;
+    animation-duration: 1s;
+    animation-fill-mode: both;
+}
+
+.animate-fill {
+    position: relative;
+    animation-name: clip-text;
+    white-space: nowrap;
+    cursor: default;
+}
+
+.animate-fill::after {
+    content: "";
+    position: absolute;
+    z-index: 999;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: var(--primary);
+    transform: scaleX(0);
+    transform-origin: 0 50%;
+    pointer-events: none;
+    animation-name: text-revealer;
+}
+
+@keyframes text-revealer {
+
+    0%,
+    50% {
+        transform-origin: 0 50%;
+    }
+
+    60%,
+    100% {
+        transform-origin: 100% 50%;
+    }
+
+
+    60% {
+        transform: scaleX(1);
+    }
+
+    100% {
+        transform: scaleX(0);
+    }
+}
+
+/* --------- hero animation */
+
+.container-fluid {
+    width: 100%;
+    padding-right: 0px;
+    padding-left: 0px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .container {
-    @apply max-md:px-8;
+    width: 100%;
+    padding-right: calc(1.5rem * .5);
+    padding-left: calc(1.5rem * .5);
+    margin-left: auto;
+    margin-right: auto;
+}
+
+@media (min-width: 340px) {
+    .container {
+        max-width: 100%
+    }
+    .container-fluid {
+        padding-right: 20px;
+        padding-left: 20px;
+    }
+}
+
+@media (min-width: 576px) {
+    .container {
+        max-width: 540px;
+    }
+
+    .container-fluid {
+        padding-right: 20px;
+        padding-left: 20px;
+    }
+}
+
+@media (min-width: 768px) {
+    .container {
+        max-width: 720px;
+    }
+
+    .container-fluid {
+        padding-right: 25px;
+        padding-left: 25px;
+    }
+
+    /* ---------- style for counter */
+    .index-module_slot__DpPgW {
+        margin-left: -6px;
+        margin-bottom: -9px;
+    }
+
+    /* ---------- style for counter */
+}
+
+@media (min-width: 992px) {
+    .container {
+        max-width: 960px;
+    }
+
+    .container-fluid {
+        padding-right: 30px;
+        padding-left: 30px;
+    }
+
+    /* ------------ swiper js progress bar */
+    .swiper-pagination-progressbar-fill {
+        width: 90%;
+    }
+
+    .blog-single .project-slider-one .swiper-wrapper {
+        padding-left: 50px;
+    }
+}
+
+@media (min-width: 1200px) {
+    .container {
+        max-width: 1140px;
+    }
+
+    .container-fluid {
+        padding-right: 50px;
+        padding-left: 50px;
+    }
+}
+
+@media (min-width: 1400px) {
+    .container {
+        max-width: 1320px;
+    }
+}
+
+
+.team-card .team-img {
+    @apply origin-center transition-all duration-1000  delay-0 scale-[120];
+    transform-origin: center;
+    transform: scale(1.2);
+    transition: all 1s ease 0s;
+}
+
+.team-card:hover .team-img {
+    @apply saturate-150 brightness-50 scale-100;
+    transition: filter 0.6s, transform 4s cubic-bezier(0.12, 0.72, 0.31, 0.65) 0.1s;
+
+    /*transition:_color_0.1s,transform_0.2s_out-expo*/
+}
+
+.transition-fade {
+    @apply duration-500 opacity-100 scale-100;
+    filter: none;
+}
+html.is-animating body,
+html.is-rendering body {
+    @apply pointer-events-none;
+}
+
+html.is-animating body .ball,
+html.is-rendering body .ball {
+    @apply bg-transparent opacity-100;
+}
+
+html.is-animating body .ball svg,
+html.is-rendering body .ball svg {
+    @apply opacity-100;
+}
+
+html.is-animating .transition-fade {
+    @apply opacity-0 delay-300 scale-110;
+}
+
+html.is-animating .transition-fade .loading-curtain {
+    @apply translate-x-0 duration-1000;
+}
+
+.curtain,
+.loading-curtain {
+    @apply absolute w-full h-full bg-[#f7f8fa] z-[1] left-0 top-0;
+}
+
+
+.mask {
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+  mask-image: url('data:image/svg+xml,<%3Fxml version="1.0" encoding="UTF-8"%3F><svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1291.48 1264"><defs><style> .cls-1 { fill: %23fff; stroke-width: 0px; } </style></defs><path class="cls-1" d="M1288.28,355.87c-1.49-.91-3.2-1.63-4.9-1.95-8.31-1.59-16.59-3.71-24.98-4.36-23.63-1.82-47.21-.87-70.68,2.82-33.11,5.2-64.76,15.08-94.99,29.63-3.69,1.78-7.41,3.49-11.81,5.57-1.17-3.87-2.41-7.19-3.15-10.62-3.1-14.38-5.77-28.86-9.09-43.19-11.58-49.99-26.18-99.12-41.36-148.08-1.26-4.07-3.09-7.96-4.8-12.29-1.94.97-3.18,1.51-4.33,2.19-8.32,4.93-16.46,10.19-24.95,14.8-21.68,11.77-43.32,23.63-65.32,34.77-29.6,14.98-58.87,30.51-86.99,48.19-1.14.72-2.36,1.33-4.01,2.25-1.24-2.04-2.38-3.83-3.43-5.67-28.53-49.84-59.32-98.14-94.88-143.24-15.95-20.23-31.59-40.73-46.83-61.51-11.84-16.14-22.78-32.94-34.25-49.36-3.59-5.15-7.57-10.02-11.96-15.8-5.06,6.93-9.53,12.93-13.88,19.03-16.45,23.08-32.58,46.42-49.38,69.24-15.05,20.43-31,40.19-46.25,60.46-28.78,38.24-53.9,78.91-77.73,120.43-1.24,2.16-2.62,4.24-3.99,6.45-1.62-.91-2.65-1.48-3.67-2.06-20.37-11.69-40.35-24.16-61.2-34.9-39.64-20.43-79.49-40.43-117.56-63.79-.78-.48-1.73-.66-3-1.13-.86,1.84-1.75,3.36-2.3,5-1.72,5.07-3.34,10.18-4.95,15.3-19.1,60.68-36.31,121.86-48.36,184.43-.58,2.99-1.92,5.83-3.02,9.05-8.94-4.17-17.03-8.24-25.35-11.76-42.64-18.06-87.01-27.54-133.37-27.09-13.84.13-27.52,1.4-41.01,4.55-2.1.49-4.22,1.09-6.16,2-4.39,2.06-5.39,4.72-3.47,9.11.95,2.17,2.1,4.29,3.4,6.27,21.61,32.56,38.23,67.71,52.21,104.14,16.65,43.4,32.76,87.01,49.1,130.53.61,1.63,1.07,3.31,1.83,5.66-2.36,0-3.74.09-5.09-.02-19.9-1.59-39.75-.93-59.56,1.27-10.81,1.2-21.36,3.63-31.53,7.54-6.14,2.36-8.01,6.02-5.78,12.1,7.58,20.7,14.6,41.66,23.29,61.88,14.55,33.84,33.05,65.56,53.91,95.85,21.91,31.81,46.56,61.22,75.74,86.54,45.96,39.89,96.6,72.05,153.52,93.53,14,5.28,28.49,9.23,42.76,13.81,1.42.46,2.81,1.04,4.22,1.56-.11.46-.22.93-.33,1.39-14.87-1.56-29.79-2.72-44.59-4.79-16.96-2.37-33.81-5.6-50.72-8.35-7.76-1.26-15.7-1.66-23.31-3.49-29.94-7.17-58.67-18.13-87.18-29.62-38.03-15.32-73.07-36.21-106.85-59.38-1.63-1.12-3.3-2.18-4.96-3.26-.25.35-.51.71-.76,1.06,1.73,1.82,3.25,3.9,5.22,5.41,11.47,8.75,22.84,17.65,34.6,25.98,66.47,47.12,139.81,76.79,220.34,88.07,6.98.98,13.94,2.05,22.26,3.27-2.83,2.38-4.61,3.85-6.37,5.34-6.78,5.76-13.95,11.11-20.28,17.34-34.06,33.49-57.14,73.75-70.69,119.6-7.93,26.84-11.6,54.33-10.93,82.44.28,11.7,2.6,22.86,6.13,33.86.36,1.13,1.44,2.03,2.42,3.37,1.11-1.4,1.91-2.24,2.52-3.21,3.01-4.88,6.07-9.73,8.93-14.7,11.35-19.71,27.47-34.63,45.9-47.37,32.21-22.27,67.77-37.16,104.91-48.35,22.83-6.88,45.57-13.91,67.79-22.61,33.44-13.09,65.15-29.17,91.65-54.26.63-.6,1.59-.84,2.26-1.18,3.24,8.92,5.81,17.73,9.57,25.99,8.38,18.45,17.67,36.48,29,53.29,18.18,26.97,36.65,53.74,55.04,80.56,1.4,2.04,3.14,3.83,5.23,6.34,2.37-2.96,4.32-5.13,5.98-7.51,11.78-16.93,23.51-33.89,35.24-50.86,16.25-23.51,31.79-47.44,44.17-73.35,4.72-9.88,8.92-19.92,11.75-30.53.38-1.4,1.05-2.73,1.77-4.58,2.27,2.02,3.98,3.62,5.78,5.13,12.76,10.66,25.72,20.97,40.41,28.92,32.44,17.54,66.78,30.13,101.93,40.72,10.74,3.24,21.56,6.28,32.15,9.98,32.13,11.25,62.79,25.47,90.75,45.39,21.25,15.14,37.19,34.68,49.56,57.51.86,1.58,2.03,3,3.73,5.49,1.23-2.87,2.03-4.4,2.56-6.02,4.13-12.78,5.4-25.8,5.46-39.32.12-25.75-3.61-50.82-10.96-75.26-16.58-55.1-45.64-101.94-91.38-137.36-1.6-1.24-3.12-2.6-5.77-4.82,6.19-.9,10.83-1.62,15.48-2.25,34.05-4.63,67.49-12.04,100.01-23.24,56.11-19.33,106.72-48.93,153.7-85.14,3.29-2.53,6.43-5.26,9.51-8.05,1.34-1.21,2.35-2.8,3.52-4.22-2.07.06-3.41.77-4.58,1.7-13.52,10.76-28.78,18.73-43.43,27.65-25.68,15.65-52.77,28.3-80.89,38.93-23.25,8.79-46.64,16.95-70.68,23.19-4.36,1.13-8.88,1.72-13.35,2.39-6.42.95-12.93,1.38-19.28,2.66-26.12,5.28-52.5,8.53-79.02,10.71-2.34.19-4.7.02-7.05.02,1.64-1.43,3.28-2.04,4.95-2.48,47.89-12.69,92.13-33.55,133.66-60.61,33.42-21.78,64.51-46.4,91.74-75.74,23.24-25.04,43.29-52.56,61.48-81.55,26.09-41.6,46.21-85.93,61.06-132.76,2.34-7.37.78-10.57-6.62-13.12-5.39-1.86-10.86-3.65-16.43-4.78-22.53-4.58-45.31-5.48-68.21-4.03-3.31.21-6.61.42-10.68.68.9-2.56,1.51-4.4,2.19-6.2,15.56-41.48,31.04-82.99,46.71-124.43,14.58-38.57,31.82-75.8,54.61-110.23,1.41-2.14,2.61-4.47,3.57-6.84,1.38-3.38.59-5.68-2.55-7.6Z"/></svg>');
+    mask-position: center center;
+    mask-repeat: no-repeat;
+    mask-size: 1000px;
+
+    -webkit-mask-position: 85% 50%;
+    -webkit-mask-repeat: no-repeat;
+    -webkit-mask-size: 1050px;
 }

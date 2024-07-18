@@ -8,7 +8,7 @@ class TextField
 {
     public static function make(): RichEditor
     {
-        return RichEditor::make('text')
+        return RichEditor::make('text_content')
             ->hiddenLabel()
             ->toolbarButtons([
                 'bold',

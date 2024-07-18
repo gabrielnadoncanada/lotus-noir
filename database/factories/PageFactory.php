@@ -15,7 +15,6 @@ class PageFactory extends Factory
             'title' => $this->faker->sentence,
             'slug' => $this->faker->unique()->slug,
             'text' => $this->faker->sentence,
-            'content' => $this->faker->optional()->text,
             'is_visible' => true,
             'published_at' => now(),
             'image' => $this->createImage(),

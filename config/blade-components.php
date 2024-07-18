@@ -24,8 +24,8 @@ return [
         'button' => [
             'class' => Components\Button::class,
             'themes' => [
-                'primary' => 'default-link cursor-pointer relative inline-block no-underline  text-[11px] uppercase font-semibold tracking-[2px]  bg-transparent duration-400 ease-in-out leading-[1] px-5 py-4 hover:text-primary rounded-[3px] border-[2px] border-solid border-white',
-                'outline' => 'default-link border-transparent cursor-pointer relative inline-block no-underline text-[11px] uppercase font-semibold tracking-[2px] text-foreground-dark bg-transparent duration-400 hover:text-primary ease-in-out leading-[1] px-5 py-4 px-5 py-3  rounded-[3px] border-none border-solid border-white',
+                'primary' => 'flex items-center justify-center gap-2.5 whitespace-nowrap sm:text-2xl text-xl font-bold border-2 px-10 sm:py-[15px] py-3 relative z-10 overflow-hidden after:absolute after:right-0 after:top-0 after:bottom-0 after:z-[-1] after:w-full after:transition-all after:duration-500 hover:after:w-0 transition-all duration-500 after:left-0 after:bg-white text-background border-white hover:text-white mt-6 md:mt-0',
+                'outline' => 'magnetic-link text-white flex items-center justify-center gap-2.5 whitespace-nowrap sm:text-2xl text-xl font-bold border-2 border-white px-10 sm:py-[15px] py-3 relative overflow-hidden after:absolute after:right-0 after:bottom-0 after:top-0 after:z-[-1] after:bg-white after:w-0 after:transition-all after:duration-500 hover:after:w-full hover:text-background transition-all duration-500',
             ],
         ],
         'form' => [
@@ -40,7 +40,7 @@ return [
                 'class' => Components\Form\Input::class,
                 'themes' => [
                     'default' => [
-                        'normal' => 'placeholder:opacity-80 placeholder:h-full placeholder:font-light  focus:border-primary h-[55px] default-link w-full bg-transparent transition-[0.4s] ease-in-out mb-[5px] pl-5 border-[2px] rounded-sm border-solid border-body-text',
+                        'normal' => 'placeholder:text-white text-white px-[15px] py-[14px] outline-none border-[2px] border-white w-full bg-transparent mb-[13px]',
                         'multiple' => '',
                         'invalid' => '',
                         'disabled' => '',
@@ -84,7 +84,7 @@ return [
                 'class' => Components\Form\Textarea::class,
                 'themes' => [
                     'default' => [
-                        'normal' => 'placeholder:opacity-80 placeholder:h-full placeholder:font-light focus:border-primary pt-[15px] w-full bg-transparent transition-[0.4s] ease-in-out mb-[5px] pl-5 border-[2px] rounded-sm border-solid border-body-text',
+                        'normal' => 'placeholder:text-white text-white px-[15px] py-[14px] outline-none border-[2px] border-white w-full bg-transparent min-h-[223px] mb-[13px]',
                         'invalid' => '',
                         'disabled' => '',
                     ],

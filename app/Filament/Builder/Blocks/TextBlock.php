@@ -3,15 +3,16 @@
 namespace App\Filament\Builder\Blocks;
 
 use App\Filament\Builder\Fields\TextField;
-use Filament\Forms\Components\Builder\Block;
+use Devlense\FilamentBuilder\BlockBuilder;
 
-class TextBlock
+class TextBlock extends BlockBuilder
 {
-    public static function make(): Block
+    protected static string $name = 'text';
+
+    public static function getSchema($parameters): array
     {
-        return Block::make('text')
-            ->schema([
-                TextField::make()
-            ]);
+        return [
+            TextField::make(),
+        ];
     }
 }

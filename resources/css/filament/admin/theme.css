@@ -1,5 +1,5 @@
 @import '../../../../vendor/filament/filament/resources/css/theme.css';
-@import '../filament-forms-range-component.css';
+@import './filament-forms-range-component.css';
 
 @config './tailwind.config.js';
 

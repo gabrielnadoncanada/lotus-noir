@@ -7,8 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>{{ config('app.name') }}</title>
     <link rel="stylesheet" href="{{asset("css/plugins/font-awesome.min.css")}}">
-    <link rel="stylesheet" href="{{asset("css/plugins/fancybox.min.css")}}">
-    <link href="{{asset("css/plugins/mapbox-style.css")}}" rel='stylesheet'>
+    <link rel="stylesheet" href="{{ asset('js/plugins/lightgallery/css/lightgallery-bundle.css') }}">
     <meta name="msapplication-TileColor" content="#da532c">
     <meta name="theme-color" content="#ffffff">
     @if(theme('site_fav_icon'))
@@ -22,32 +21,40 @@
         <x-layouts.meta :meta="$meta" />
     @endif
 </head>
-<body class="h-full bg-body m-0 p-0">
+<body class="h-full m-0 p-0">
 
+<x-cursor></x-cursor>
 <div class="relative flex flex-col h-full">
     <x-header />
-{{--    <canvas class="dots absolute w-full h-screen opacity-60 left-0 top-0" width="835" height="1347"--}}
-{{--            style="display: none;"></canvas>--}}
+    {{--    <canvas class="dots absolute w-full h-screen opacity-60 left-0 top-0" width="835" height="1347"--}}
+    {{--            style="display: none;"></canvas>--}}
 
     <main class="transition-fade flex-1">
         {{ $slot }}
     </main>
-    @if(request()->path() !== '/')
-        <x-footer />
-    @endif
+    {{--    @if(request()->path() !== '/')--}}
+    {{--        <x-footer />--}}
+    {{--    @endif--}}
 </div>
 
 @livewireScripts
 <script src="{{asset("js/plugins/jquery.min.js")}}"></script>
-<script src="{{asset("js/plugins/scroll-magic.js")}}"></script>
-<script src="{{asset("js/plugins/isotope.min.js")}}"></script>
-<script src="{{asset("js/plugins/fancybox.min.js")}}"></script>
-<script src="{{asset("js/plugins/mapbox.min.js")}}"></script>
-<script src="{{asset("js/plugins/smooth-scrollbar.min.js")}}"></script>
-<script src="{{asset("js/plugins/overscroll.min.js")}}"></script>
-
+<script src="{{asset("js/plugins/lenis.min.js")}}"></script>
 <script src="{{asset("js/plugins/parsley.min.js")}}"></script>
 <script src="{{asset("js/main.js")}}"></script>
-{{--<script src="{{asset("js/plugins/canvas.js")}}"></script>--}}
+
+<script src="{{ asset('js/plugins/lightgallery/lightgallery.min.js') }}"></script>
+<script src="{{ asset('js/plugins/lightgallery/plugins/thumbnail/lg-thumbnail.min.js') }}"></script>
+<script src="{{ asset('js/plugins/lightgallery/plugins/zoom/lg-zoom.min.js') }}"></script>
+<script>
+    document.querySelectorAll('[data-content="content_section"]').forEach((card, index) => {
+        lightGallery(card, {
+            plugins: [lgZoom, lgThumbnail],
+            selector: '.team-card a',
+            thumbnail: false,
+            animateThumb: false,
+        });
+    });
+</script>
 </body>
 </html>

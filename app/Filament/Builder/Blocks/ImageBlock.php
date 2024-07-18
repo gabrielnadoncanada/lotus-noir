@@ -3,15 +3,16 @@
 namespace App\Filament\Builder\Blocks;
 
 use App\Filament\Builder\Fields\ImageField;
-use Filament\Forms\Components\Builder\Block;
+use Devlense\FilamentBuilder\BlockBuilder;
 
-class ImageBlock
+class ImageBlock extends BlockBuilder
 {
-    public static function make(): Block
+    protected static string $name = 'image';
+
+    public static function getSchema($parameters): array
     {
-        return Block::make('image')
-            ->schema([
-                ImageField::make()
-            ]);
+        return [
+            ImageField::make(),
+        ];
     }
 }

@@ -1,9 +1,8 @@
-<div class="container">
-    <div class="mx-auto lg:w-2/3">
+<x-container :fluid="true" class="lg:pt-20 2sm:pt-20 pt-14">
+    <div class="mr-auto lg:w-2/3  xl:ml-12.5 lg:ml-9 md:ml-7 ml-3">
         <x-form id="form" class="form mb-[100px]" wire:submit.prevent="submit">
             <div class="grid gap-x-6 md:grid-cols-2 md:gap-y-5">
                 <x-form.field>
-                    <x-form.label for="firstName">Prénom</x-form.label>
                     <x-form.input
                         wire:model="firstName"
                         name="firstName"
@@ -13,7 +12,6 @@
                     <x-form.error for="firstName"></x-form.error>
                 </x-form.field>
                 <x-form.field>
-                    <x-form.label for="lastName">Nom</x-form.label>
                     <x-form.input
                         wire:model="lastName"
                         name="lastName"
@@ -25,7 +23,6 @@
             </div>
             <div class="grid gap-x-6 md:grid-cols-2 md:gap-y-5">
                 <x-form.field>
-                    <x-form.label for="email">Email</x-form.label>
                     <x-form.input
                         wire:model="email"
                         name="email"
@@ -35,7 +32,6 @@
                     <x-form.error for="email"></x-form.error>
                 </x-form.field>
                 <x-form.field>
-                    <x-form.label for="phone">Téléphone</x-form.label>
                     <div class="">
                         <x-form.input
                             wire:model="phone"
@@ -49,7 +45,6 @@
                 </x-form.field>
             </div>
             <x-form.field>
-                <x-form.label for="message">Message</x-form.label>
                 <x-form.textarea
                     wire:model="message"
                     name="message"
@@ -64,16 +59,11 @@
             <div class="grid items-center gap-x-6 gap-y-5 lg:grid-cols-12">
                 <div class="md:col-span-6 lg:col-span-6">
                     <div>
-                        <x-button>Envoyer le message</x-button>
+                        <x-button theme="primary" :has_arrow="true">Envoyer le message</x-button>
 
                     </div>
                 </div>
-                <div class="md:col-span-6">
-                    <p class="m-0 contact-hint">
-                        <span class="text-primary">*</span> Nous promettons de ne pas partager
-                        vos informations personnelles avec des tiers.
-                    </p>
-                </div>
+
             </div>
             @if($success)
                 <div class="alert alert-success mt-4" role="alert">
@@ -84,4 +74,7 @@
             @endif
         </x-form>
     </div>
-</div>
+
+</x-container>
+
+

@@ -2,7 +2,6 @@
 
 namespace App\Filament\Resources\PageResource\Pages;
 
-use App\Filament\Builder\HasTemplates;
 use App\Filament\Resources\PageResource;
 use Filament\Actions;
 use Filament\Resources\Pages\EditRecord;
@@ -11,18 +10,17 @@ use Pboivin\FilamentPeek\Pages\Actions\PreviewAction;
 class EditPage extends EditRecord
 {
     use HasPagePreview;
-    use HasTemplates;
 
     protected static string $resource = PageResource::class;
 
-    protected function mutateFormDataBeforeSave(array $data): array
-    {
-        if (! empty($data['content'])) {
-            $data['content']['content_section'] = static::updateHeadingLevels($data['content']['content_section']);
-        }
-
-        return $data;
-    }
+//    protected function mutateFormDataBeforeSave(array $data): array
+//    {
+//        if (! empty($data['content'])) {
+//            $data['content']['content_section'] = static::updateHeadingLevels($data['content']['content_section']);
+//        }
+//
+//        return $data;
+//    }
 
     protected function getHeaderActions(): array
     {
