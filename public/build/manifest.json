@@ -1,8 +1,4 @@
 {
-  "public/img/lens.svg": {
-    "file": "assets/lens.svg",
-    "src": "public/img/lens.svg"
-  },
   "resources/css/app.css": {
     "file": "assets/app.css",
     "isEntry": true,
