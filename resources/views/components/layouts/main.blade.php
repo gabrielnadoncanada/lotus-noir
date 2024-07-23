@@ -26,15 +26,13 @@
 <x-cursor></x-cursor>
 <div class="relative flex flex-col h-full">
     <x-header />
-    {{--    <canvas class="dots absolute w-full h-screen opacity-60 left-0 top-0" width="835" height="1347"--}}
-    {{--            style="display: none;"></canvas>--}}
 
     <main class="transition-fade flex-1">
         {{ $slot }}
     </main>
-    {{--    @if(request()->path() !== '/')--}}
-    {{--        <x-footer />--}}
-    {{--    @endif--}}
+
+    <x-footer />
+
 </div>
 
 @livewireScripts

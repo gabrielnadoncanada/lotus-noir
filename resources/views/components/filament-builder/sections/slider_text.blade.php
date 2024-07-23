@@ -1,8 +1,8 @@
-<x-container :fluid="true" class="lg:pt-30 2sm:pt-20 pt-14 max-md:overflow-hidden">
+<x-container :fluid="true" class="lg:pt-30 2sm:pt-20 pt-14 !pl-[150px] max-md:overflow-hidden">
     <x-swiper
         :options="[
           'slidesPerView' => 1,
-            'spaceBetween' => 30,
+            'spaceBetween' => 90,
             'breakpoints' => [
                 0 => [
                     'slidesPerView' => 1
@@ -14,6 +14,7 @@
                     'slidesPerView' => 3
                 ],
                 1400 => [
+                     'spaceBetween' => 60,
                     'slidesPerView' => 4
                 ]
             ],
@@ -32,10 +33,10 @@
                     <div class="px-3 sm:px-0 flex flex-col gap-y-3">
                         <x-outline-svg-text :text="$key" />
                         <span
-                            class="text-white font-bold leading-135 md:text-4xl text-3xl hover-underline">
+                            class="mt-4 text-white font-bold leading-135 md:text-4xl text-3xl hover-underline">
                             {{ $title }}
                         </span>
-                        <p class="font-normal text-white">{{ $description }}</p>
+                        <p class="font-normal text-2xl/10 text-white">{{ $description }}</p>
                     </div>
                 </x-swiper.item>
             @endforeach
