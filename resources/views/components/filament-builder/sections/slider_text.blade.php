@@ -13,7 +13,8 @@
                 1200 => [
                     'slidesPerView' => 3
                 ],
-                1400 => [
+                
+                1650 => [
                      'spaceBetween' => 60,
                     'slidesPerView' => 4
                 ]
