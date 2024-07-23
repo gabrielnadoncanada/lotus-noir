@@ -13,7 +13,7 @@
                 1200 => [
                     'slidesPerView' => 3
                 ],
-                
+
                 1650 => [
                      'spaceBetween' => 60,
                     'slidesPerView' => 4
@@ -37,7 +37,7 @@
                             class="mt-4 text-white font-bold leading-135 md:text-4xl text-3xl hover-underline">
                             {{ $title }}
                         </span>
-                        <p class="font-normal text-2xl/10 text-white">{{ $description }}</p>
+                        <p class="text-justify font-normal text-2xl/10 text-white">{{ $description }}</p>
                     </div>
                 </x-swiper.item>
             @endforeach
