@@ -308,6 +308,12 @@ body {
     }
 }
 
+@media (min-width: 1600px) {
+    .container {
+        max-width: 1450px;
+    }
+}
+
 
 .team-card .team-img {
     @apply origin-center transition-all duration-1000  delay-0 scale-[120];

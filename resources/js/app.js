@@ -7,6 +7,7 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 Alpine.plugin(intersect);
 gsap.registerPlugin(ScrollTrigger);
 
+
 document.addEventListener('DOMContentLoaded', () => {
     let scroll = false;
     let scrollHeight = 0;

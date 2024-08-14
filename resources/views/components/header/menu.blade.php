@@ -9,6 +9,7 @@
     class="fixed top-0 right-0 w-screen h-screen z-98 bg-body">
     <div class="container mx-auto">
         <div class="flex gap-x-6 gap-y-5 justify-between">
+
             <x-header.menu-navigation />
             <x-header.menu-info />
         </div>

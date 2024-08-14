@@ -11,8 +11,8 @@ return [
                 'label' => 'text-[10px]/[15px] md:text-[11px]/[15px] font-bold pt-[3px] tracking-[2px] uppercase mb-1 block',
                 'h1' => 'uppercase relative m-0 p-0 text-[38px] md:text-7xl leading-none font-black',
                 'h2' => 'uppercase relative m-0 p-0 text-[32px] md:text-5xl leading-none font-black',
-                'h3' => 'uppercase relative m-0 p-0 text-[28px] leading-[30px] md:text-[32px] md:leading-10 font-black',
-                'h4' => 'uppercase relative m-0 p-0 text-xl leading-[22px] md:text-[22px] md:leading-[30px] font-black',
+                'h3' => '[font-size:_clamp(48px,7vw,100px)] font-bold leading-110  relative m-0 p-0 ',
+                'h4' => 'uppercase relative m-0 p-0 text-lg sm:text-xl leading-[22px] md:text-[22px] md:leading-[30px] font-black',
                 'h5' => 'uppercase relative m-0 p-0 text-sm',
                 'h6' => 'uppercase relative m-0 p-0 text-sm',
                 'subtitle' => [
@@ -24,8 +24,8 @@ return [
         'button' => [
             'class' => Components\Button::class,
             'themes' => [
-                'primary' => 'flex items-center justify-center gap-2.5 whitespace-nowrap sm:text-2xl text-xl font-bold border-2 px-10 sm:py-[15px] py-3 relative z-10 overflow-hidden after:absolute after:right-0 after:top-0 after:bottom-0 after:z-[-1] after:w-full after:transition-all after:duration-500 hover:after:w-0 transition-all duration-500 after:left-0 after:bg-white text-background border-white hover:text-white mt-6 md:mt-0',
-                'outline' => 'magnetic-link text-white flex items-center justify-center gap-2.5 whitespace-nowrap sm:text-2xl text-xl font-bold border-2 border-white px-10 sm:py-[15px] py-3 relative overflow-hidden after:absolute after:right-0 after:bottom-0 after:top-0 after:z-[-1] after:bg-white after:w-0 after:transition-all after:duration-500 hover:after:w-full hover:text-background transition-all duration-500',
+                'primary' => 'flex items-center justify-center gap-2.5 whitespace-nowrap text-xl md:text-2xl text-lg font-bold border-2 px-10 sm:py-[15px] py-3 relative z-10 overflow-hidden after:absolute after:right-0 after:top-0 after:bottom-0 after:z-[-1] after:w-full after:transition-all after:duration-500 hover:after:w-0 transition-all duration-500 after:left-0 after:bg-white text-background border-white hover:text-white mt-6 md:mt-0',
+                'outline' => 'magnetic-link text-white flex items-center justify-center gap-2.5 whitespace-nowrap sm:text-2xl text-lg font-bold border-2 border-white px-10 sm:py-[15px] py-3 relative overflow-hidden after:absolute after:right-0 after:bottom-0 after:top-0 after:z-[-1] after:bg-white after:w-0 after:transition-all after:duration-500 hover:after:w-full hover:text-background transition-all duration-500',
             ],
         ],
         'form' => [

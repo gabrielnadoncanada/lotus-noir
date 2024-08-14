@@ -1,4 +1,4 @@
-<x-form id="form" class="form mb-[100px]" wire:submit.prevent="submit">
+<x-form id="contact" class="form mb-[100px]" wire:submit.prevent="submit">
     <div class="grid gap-x-6 md:grid-cols-2 md:gap-y-5">
         <x-form.field>
             <x-form.input
@@ -64,7 +64,7 @@
 
     </div>
     @if($success)
-        <div class="alert alert-success mt-4" role="alert">
+        <div class="md:col-span-6 lg:col-span-6 alert alert-success mt-4" role="alert">
             Votre message a bien été envoyé.<br />
             Nous avons reçu vos informations et nous vous répondrons dans les plus
             brefs délais.

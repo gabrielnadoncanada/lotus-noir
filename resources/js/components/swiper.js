@@ -3,7 +3,6 @@ import 'swiper/css/bundle';
 
 export default (options = {}) => {
     return {
-
         init() {
             const defaultOptions = {
                 container: this.$el.querySelector('.swiper-container'),

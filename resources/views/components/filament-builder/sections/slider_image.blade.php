@@ -1,7 +1,7 @@
-<x-container :fluid="true" class="lg:pt-30 2sm:pt-20 pt-14 !pl-[150px] max-md:overflow-hidden">
+<x-container :fluid="false" class="lg:pt-30 2sm:pt-20 pt-14 lg:!pl-[120px] max-md:overflow-hidden">
     <x-swiper
         :options="[
-            'slidesPerView' => 5,
+            'slidesPerView' => 4,
             'spaceBetween' => 30,
             'breakpoints' => [
                 0 => [
@@ -14,7 +14,7 @@
                     'slidesPerView' => 3
                 ],
                 1400 => [
-                    'slidesPerView' => 5
+                    'slidesPerView' => 4
                 ]
             ],
             'autoplay' => false,

@@ -1,6 +1,6 @@
 @props(['sections' => []])
 
-@foreach ($sections as $section)
+@foreach ($sections as  $section)
     @if(array_key_exists('hidden', $section['data']))
         @if($section['data']['hidden'])
             @continue

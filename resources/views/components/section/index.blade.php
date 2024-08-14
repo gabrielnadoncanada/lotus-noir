@@ -6,14 +6,13 @@
 ])
 
 <section class='pt-20'>
+    <x-section.title
+        :subtitle="$subtitle"
+        :title="$title"
+        :description="$description"
+        :action="$action"
 
-        <x-section.title
-            :subtitle="$subtitle"
-            :title="$title"
-            :description="$description"
-            :action="$action"
-
-        />
+    />
 
     {{$slot}}
 </section>
