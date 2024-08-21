@@ -23,7 +23,7 @@
 </head>
 <body class="h-full m-0 p-0">
 
-<x-cursor></x-cursor>
+{{--<x-cursor></x-cursor>--}}
 <div class="relative flex flex-col h-full">
     <x-header />
 
