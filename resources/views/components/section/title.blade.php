@@ -25,11 +25,9 @@
                 </x-text>
                 <span class="block w-[300px] h-[1px] bg-white"></span>
                 <div class="flex md:flex-row flex-col justify-between md:items-center">
-                    <p class="text-justify text-white lg:text-[35px] sm:text-3xl text-lg  font-semibold mt-8  md:mb-0 mb-7 !leading-160  flex-col  flex-wrap max-md:gap-y-8 gap-y-8 gap-x-12 ">
-                        @foreach(explodeNewline($description) as $column)
-                            <span class="flex-1 ">{!! $column !!}</span>
-                        @endforeach
-                    </p>
+                    <div class="text-justify text-white lg:text-[35px] sm:text-3xl text-lg  font-semibold mt-8  md:mb-0 mb-7 !leading-160  flex-col  flex-wrap max-md:gap-y-8 gap-y-8 gap-x-12 ">
+                       {!! $description !!}
+                    </div>
                 </div>
             </div>
         </x-container>

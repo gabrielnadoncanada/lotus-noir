@@ -45,6 +45,18 @@ class Section extends SectionBuilder
                 TextInput::make('subtitle'),
                 TextInput::make('title'),
                 RichEditor::make('description')
+                    ->toolbarButtons([
+                        'blockquote',
+                        'bold',
+                        'bulletList',
+                        'italic',
+                        'link',
+                        'orderedList',
+                        'redo',
+                        'strike',
+                        'underline',
+                        'undo',
+                    ])
                     ->columnSpanFull(),
             ])->columns(),
             SectionComponent::make('Blocks')
