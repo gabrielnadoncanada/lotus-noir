@@ -22,6 +22,7 @@ use Filament\Forms\Components\Builder;
 use Filament\Forms\Components\Builder\Block;
 use Filament\Forms\Components\Fieldset;
 use Filament\Forms\Components\Group;
+use Filament\Forms\Components\RichEditor;
 use Filament\Forms\Components\Section as SectionComponent;
 use Filament\Forms\Components\Repeater;
 use Filament\Forms\Components\Tabs;
@@ -43,8 +44,7 @@ class Section extends SectionBuilder
             Group::make([
                 TextInput::make('subtitle'),
                 TextInput::make('title'),
-                Textarea::make('description')
-                    ->rows(5)
+                RichEditor::make('description')
                     ->columnSpanFull(),
             ])->columns(),
             SectionComponent::make('Blocks')
