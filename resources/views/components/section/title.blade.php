@@ -7,7 +7,7 @@
 
 <div data-animated-container>
     <x-container :fluid="false">
-        <div class="overflow-x-hidden">
+        <div >
             <div>
                 <h2 data-animated-text
                     class="text-transparent webkit-text-stroke-width-3 webkit-text-stroke-white opacity-10 xl:text-[324px] lg:text-[200px] md:text-[170px] sm:text-[140px] text-[100px] whitespace-nowrap font-bold leading-135">
