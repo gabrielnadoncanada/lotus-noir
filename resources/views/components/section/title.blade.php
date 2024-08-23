@@ -10,7 +10,7 @@
         <div >
             <div>
                 <h2 data-animated-text
-                    class="text-transparent webkit-text-stroke-width-3 webkit-text-stroke-white opacity-10 xl:text-[324px] lg:text-[200px] md:text-[170px] sm:text-[140px] text-[100px] whitespace-nowrap font-bold leading-135">
+                    class="text-transparent webkit-text-stroke-width-3 -ml-[20vw] webkit-text-stroke-white opacity-10 xl:text-[324px] lg:text-[200px] md:text-[170px] sm:text-[120px] text-[80px] whitespace-nowrap font-bold leading-135">
                     {{ $subtitle }}
                 </h2>
             </div>

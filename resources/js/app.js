@@ -71,7 +71,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     onUpdate: self => {
                         const progress = self.progress;
                         const scrollValue = scroll
-                            ? `${gsap.utils.interpolate(0, 15, progress)}%`
+                            ? `${gsap.utils.interpolate(0, 45, progress)}%`
                             : `${gsap.utils.interpolate(0, scrollHeight / 3, progress)}px`;
 
                         gsap.to(animatedText, {
