@@ -66,12 +66,12 @@ document.addEventListener('DOMContentLoaded', () => {
             if (animatedText) {
                 ScrollTrigger.create({
                     trigger: container,
-                    start: 'top 90%',
-                    end: 'bottom 0%',
+                    start: 'top 100%',
+                    end: 'bottom 75%',
                     onUpdate: self => {
                         const progress = self.progress;
                         const scrollValue = scroll
-                            ? `${gsap.utils.interpolate(0, 45, progress)}%`
+                            ? `${gsap.utils.interpolate(0, 20, progress)}%`
                             : `${gsap.utils.interpolate(0, scrollHeight / 3, progress)}px`;
 
                         gsap.to(animatedText, {
