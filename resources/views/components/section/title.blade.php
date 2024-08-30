@@ -25,7 +25,7 @@
                 </x-text>
                 <span class="block w-[300px] max-w-full h-[1px] bg-white"></span>
                 <div class="flex md:flex-row flex-col justify-between md:items-center">
-                    <div class="text-white lg:text-[35px] sm:text-3xl text-lg  font-semibold mt-8  md:mb-0 mb-7 !leading-160  gap-y-4 flex-col  flex-wrap gap-y-8 gap-y-8 gap-x-12 ">
+                    <div class="text-white lg:text-[35px] sm:text-3xl text-lg  font-semibold mt-8  md:mb-0 mb-7 !leading-160  gap-y-4 flex-col  flex flex-wrap gap-x-12 ">
                        {!! $description !!}
                     </div>
                 </div>
