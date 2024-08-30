@@ -1,27 +1,27 @@
 <?php
 
-if (!function_exists('theme')) {
+if (! function_exists('theme')) {
     function theme($key)
     {
         return app(App\Settings\ThemeSettings::class)->$key;
     }
 }
 
-if (!function_exists('checked')) {
+if (! function_exists('checked')) {
     function checked($value, $test)
     {
         return $value === $test ? 'checked' : '';
     }
 }
 
-if (!function_exists('selected')) {
+if (! function_exists('selected')) {
     function selected($value, $test)
     {
         return $value === $test ? 'selected' : '';
     }
 }
 
-if (!function_exists('random_password')) {
+if (! function_exists('random_password')) {
     function random_password(): string
     {
         $random = str_shuffle('abcdefghjkmnpqrstuvwxyzABCDEFGHJKLMNOPQRSTUVWXYZ234567890!$%^&!$%^&');
@@ -30,14 +30,14 @@ if (!function_exists('random_password')) {
     }
 }
 
-if (!function_exists('untrailing_slash_it')) {
+if (! function_exists('untrailing_slash_it')) {
     function untrailing_slash_it(string $string): string
     {
         return rtrim($string, '/\\');
     }
 }
 
-if (!function_exists('trailing_slash_it')) {
+if (! function_exists('trailing_slash_it')) {
     function trailing_slash_it(string $string): string
     {
         if ($string != config('app.url')) {
@@ -48,7 +48,7 @@ if (!function_exists('trailing_slash_it')) {
     }
 }
 
-if (!function_exists('active_route')) {
+if (! function_exists('active_route')) {
     function active_route(string $route, $active = true, $default = false)
     {
         if (url()->current() == $route) {
@@ -59,14 +59,14 @@ if (!function_exists('active_route')) {
     }
 }
 
-if (!function_exists('class_has_trait')) {
+if (! function_exists('class_has_trait')) {
     function class_has_trait($class, $trait): bool
     {
         return in_array($trait, class_uses($class));
     }
 }
 
-if (!function_exists('explodeNewline')) {
+if (! function_exists('explodeNewline')) {
     function explodeNewline($string, $limit = 0)
     {
         if (strpos($string, "\n") === false) {
@@ -77,7 +77,7 @@ if (!function_exists('explodeNewline')) {
     }
 }
 
-if (!function_exists('getAlignmentClasses')) {
+if (! function_exists('getAlignmentClasses')) {
     function getAlignmentClasses($alignment, $isMobile = false)
     {
         $prefix = $isMobile ? '' : 'md:';
@@ -90,8 +90,7 @@ if (!function_exists('getAlignmentClasses')) {
     }
 }
 
-
-if (!function_exists('getImagePositionClasses')) {
+if (! function_exists('getImagePositionClasses')) {
     function getImagePositionClasses($position, $isMobile = false)
     {
         $prefix = $isMobile ? '' : 'md:';
@@ -110,7 +109,7 @@ if (!function_exists('getImagePositionClasses')) {
     }
 }
 
-if (!function_exists('getImageHeightClasses')) {
+if (! function_exists('getImageHeightClasses')) {
     function getImageHeightClasses($size)
     {
         return match ($size) {
@@ -123,7 +122,7 @@ if (!function_exists('getImageHeightClasses')) {
     }
 }
 
-if (!function_exists('getContentDirectionClasses')) {
+if (! function_exists('getContentDirectionClasses')) {
     function getContentDirectionClasses($direction, $isMobile = false)
     {
         $prefix = $isMobile ? '' : 'md:';
@@ -135,11 +134,10 @@ if (!function_exists('getContentDirectionClasses')) {
     }
 }
 
-
-if (!function_exists('getTextBoxClasses')) {
+if (! function_exists('getTextBoxClasses')) {
     function getTextBoxClasses($show, $isMobile = false)
     {
-        if (!$show) {
+        if (! $show) {
             return '';
         }
 
@@ -150,7 +148,7 @@ if (!function_exists('getTextBoxClasses')) {
     }
 }
 
-if (!function_exists('getContentPositionClasses')) {
+if (! function_exists('getContentPositionClasses')) {
     function getContentPositionClasses($position, $isMobile = false)
     {
         $prefix = $isMobile ? '' : 'md:';
@@ -169,14 +167,14 @@ if (!function_exists('getContentPositionClasses')) {
     }
 }
 
-if (!function_exists('combineClasses')) {
+if (! function_exists('combineClasses')) {
     function combineClasses(...$classes)
     {
         return implode(' ', array_filter($classes));
     }
 }
 
-if (!function_exists('resolveActionUrl')) {
+if (! function_exists('resolveActionUrl')) {
     function resolveActionUrl($action)
     {
         if ($action['type'] !== 'External') {

@@ -65,7 +65,7 @@ class AdminPanelProvider extends PanelProvider
             ])
             ->plugins([
                 SpatieLaravelTranslatablePlugin::make()->defaultLocales(['fr', 'en']),
-                FilamentBuilderPlugin::make()
+                FilamentBuilderPlugin::make(),
 
             ]);
     }

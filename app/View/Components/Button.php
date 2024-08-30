@@ -14,7 +14,6 @@ class Button extends Component
         $this->theme = $theme;
     }
 
-
     public function render()
     {
         return view('components.button');

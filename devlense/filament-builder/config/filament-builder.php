@@ -1,14 +1,5 @@
 <?php
 
-
-use App\Filament\Builder\Sections\FeaturedCollection;
-use App\Filament\Builder\Sections\ImageBanner;
-use App\Filament\Builder\Sections\ImageWithText;
-use App\Filament\Builder\Sections\MultiColumn;
-use App\Filament\Builder\Sections\MultiRow;
-use App\Filament\Builder\Sections\RichText;
-use App\Filament\Builder\Sections\Slideshow;
-
 return [
     'templates' => [
         'namespace' => 'App\\Filament\\Builder\\Templates',

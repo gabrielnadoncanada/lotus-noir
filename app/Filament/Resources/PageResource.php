@@ -7,28 +7,24 @@ use App\Filament\Fields\Meta;
 use App\Filament\Fields\TitleWithSlugInput;
 use App\Filament\Resources\PageResource\Pages;
 use App\Models\Page;
-use Filament\Forms;
-use Filament\Forms\Form;
 use App\Traits\HasMeta;
 use Devlense\FilamentBuilder\Components\Content;
+use Filament\Forms;
 use Filament\Forms\Components\DatePicker;
 use Filament\Forms\Components\Group;
 use Filament\Forms\Components\Section;
 use Filament\Forms\Components\Tabs;
 use Filament\Forms\Components\Textarea;
 use Filament\Forms\Components\Toggle;
-use Filament\Forms\Components;
+use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
-use Filament\Tables\Actions\ActionGroup;
 use Filament\Tables\Columns\ImageColumn;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
-use Pboivin\FilamentPeek\Tables\Actions\ListPreviewAction;
 
 class PageResource extends Resource
 {
-
     protected static ?string $model = Page::class;
 
     protected static ?string $navigationGroup = 'Site';
@@ -43,7 +39,6 @@ class PageResource extends Resource
 
     public static function form(Form $form): Form
     {
-
 
         return $form
             ->schema([
@@ -77,7 +72,7 @@ class PageResource extends Resource
                             ])
                             ->columnSpan(['lg' => 1]),
                     ])->columns(3),
-                Content::make()
+                Content::make(),
             ])->columns(1);
     }
 
@@ -142,7 +137,7 @@ class PageResource extends Resource
                 }),
             Forms\Components\FileUpload::make('image')
                 ->label('Image')
-            ->optimize('webp')
+                ->optimize('webp')
                 ->image(),
         ];
     }

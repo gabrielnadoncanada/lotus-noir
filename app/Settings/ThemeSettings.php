@@ -16,7 +16,6 @@ class ThemeSettings extends Settings
 
     public ?string $site_logo;
 
-
     public ?string $site_country;
 
     public ?string $site_state;

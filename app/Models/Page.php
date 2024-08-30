@@ -14,9 +14,9 @@ use Illuminate\Database\Eloquent\Model;
 
 class Page extends Model
 {
+    use HasContent;
     use HasFactory;
     use HasMeta;
-    use HasContent;
 
     /**
      * @var string

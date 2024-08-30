@@ -8,7 +8,7 @@ return new class extends Migration
 {
     public function up()
     {
-      Schema::create(config('filament-builder.table_name', 'contents'), function (Blueprint $table) {
+        Schema::create(config('filament-builder.table_name', 'contents'), function (Blueprint $table) {
             $table->id();
             $table->unique(['contentable_id', 'contentable_type']);
             $table->text('content');

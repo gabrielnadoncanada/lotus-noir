@@ -149,10 +149,10 @@ class FilamentServiceProvider extends ServiceProvider
                 ->inline();
         });
 
-//        Forms\Components\FileUpload::configureUsing(function ($component) {
-//            $component
-//                ->optimize('webp');
-//        });
+        //        Forms\Components\FileUpload::configureUsing(function ($component) {
+        //            $component
+        //                ->optimize('webp');
+        //        });
     }
 
     protected function configureFilamentShield(): void

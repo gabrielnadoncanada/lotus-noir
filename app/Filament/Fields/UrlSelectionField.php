@@ -2,20 +2,13 @@
 
 namespace App\Filament\Fields;
 
-use App\Models\Blog\Post as BlogPost;
 use App\Models\Navigation;
-use App\Models\Page;
-use App\Models\Service\Post as ServicePost;
-use Closure;
 use Filament\Forms;
-use Filament\Forms\Components\Actions\Action;
 use Filament\Forms\Components\Component;
 use Filament\Forms\Components\Group;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Get;
-use Filament\Support\Enums\ActionSize;
-use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Config;
 
 class UrlSelectionField extends Forms\Components\Field
@@ -37,7 +30,7 @@ class UrlSelectionField extends Forms\Components\Field
         if ($this->getModel() === Navigation::class) {
             $columns = 1;
         }
-        if (!$this->hasLabel) {
+        if (! $this->hasLabel) {
             $columns = 3;
         }
 
@@ -48,14 +41,14 @@ class UrlSelectionField extends Forms\Components\Field
                     Select::make('type')
                         ->label(__('filament.menu.items-modal.type'))
                         ->options($this->getTypeOptions())
-                        ->afterStateUpdated(fn($state, Select $component) => $this->updateAfterState($component))
+                        ->afterStateUpdated(fn ($state, Select $component) => $this->updateAfterState($component))
                         ->reactive()
                         ->default('External'),
                     $this->getDataGroup(),
                     TextInput::make('label')
                         ->label(__('filament.menu.items-modal.label'))
                         ->required()
-                        ->hidden(fn($state) => $this->hasLabel === false)
+                        ->hidden(fn ($state) => $this->hasLabel === false)
                         ->statePath('data.label')
                         ->default('Lorem ipsum'),
                     Select::make('target')
@@ -80,7 +73,7 @@ class UrlSelectionField extends Forms\Components\Field
 
     protected function updateAfterState(Select $component): void
     {
-        $component->getContainer()->getComponent(fn(Component $component) => $component instanceof Group)
+        $component->getContainer()->getComponent(fn (Component $component) => $component instanceof Group)
             ?->getChildComponentContainer()
             ->fill();
     }
@@ -88,7 +81,7 @@ class UrlSelectionField extends Forms\Components\Field
     protected function getDataGroup(): Group
     {
         return Group::make()
-            ->schema(fn(Get $get) => [$this->getItemTypeFields($get('type') ?? 'External')]);
+            ->schema(fn (Get $get) => [$this->getItemTypeFields($get('type') ?? 'External')]);
     }
 
     protected function getItemTypes(): array

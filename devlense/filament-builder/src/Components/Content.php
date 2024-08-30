@@ -9,7 +9,7 @@ class Content
     public static function make(): Group
     {
         return Group::make(function ($record) {
-            if (!$record) {
+            if (! $record) {
                 return [];
             }
 
@@ -21,7 +21,7 @@ class Content
                     ->afterStateHydrated(function ($component, $state) {
                         $component->getChildComponentContainer()->fill($state);
                     })
-                    ->statePath('content')
+                    ->statePath('content'),
             ];
         })->relationship('builder');
     }

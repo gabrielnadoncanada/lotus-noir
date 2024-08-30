@@ -2,17 +2,9 @@
 
 namespace Devlense\FilamentBuilder;
 
-use App\Filament\Builder\Sections\FeaturedCollection;
-use App\Filament\Builder\Sections\ImageBanner;
-use App\Filament\Builder\Sections\ImageWithText;
-use App\Filament\Builder\Sections\MultiColumn;
-use App\Filament\Builder\Sections\MultiRow;
-use App\Filament\Builder\Sections\RichText;
-use App\Filament\Builder\Sections\Slideshow;
 use Closure;
 use Filament\Forms\Components\Builder;
 use Filament\Forms\Components\Section;
-use Filament\Forms\Components\TextInput;
 
 abstract class TemplateBuilder
 {
@@ -41,7 +33,7 @@ abstract class TemplateBuilder
 
     protected static function createTemplateSection(string $title, ?array $sections = null, ?Closure $modifySection = null, ?Closure $modifyBuilder = null): Section
     {
-        if (!$sections) {
+        if (! $sections) {
             $sections = static::getDefaultSections();
         }
 
@@ -62,7 +54,6 @@ abstract class TemplateBuilder
 
         return $section;
     }
-
 
     protected static function getDefaultTemplateSections(): array
     {

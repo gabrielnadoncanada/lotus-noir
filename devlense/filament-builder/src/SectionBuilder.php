@@ -50,7 +50,7 @@ abstract class SectionBuilder
                             Toggle::make('hidden')
                                 ->label('Hidden')
                                 ->default(false),
-                            ...static::settings($parameters)
+                            ...static::settings($parameters),
                         ]),
                 ]),
             ]);

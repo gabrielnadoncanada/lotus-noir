@@ -2,7 +2,6 @@
 
 namespace Devlense\FilamentBuilder\Concerns;
 
-
 use App\Filament\Builder\Templates\Single;
 use Illuminate\Database\Eloquent\Relations\MorphOne;
 
