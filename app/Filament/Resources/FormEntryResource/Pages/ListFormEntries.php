@@ -9,11 +9,4 @@ use Filament\Resources\Pages\ListRecords;
 class ListFormEntries extends ListRecords
 {
     protected static string $resource = FormEntryResource::class;
-
-    protected function getHeaderActions(): array
-    {
-        return [
-            Actions\CreateAction::make(),
-        ];
-    }
 }

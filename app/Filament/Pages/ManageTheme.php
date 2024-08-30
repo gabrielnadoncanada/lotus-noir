@@ -28,16 +28,10 @@ class ManageTheme extends SettingsPage
     {
         return $form
             ->schema([
-
-
                 Tabs::make('Tabs')
                     ->tabs([
                         Tabs\Tab::make('General')
                             ->schema(static::generalTabSchema()),
-                        Tabs\Tab::make('Header')
-                            ->schema(static::headerTabSchema()),
-                        Tabs\Tab::make('Footer')
-                            ->schema(static::footerTabSchema()),
                     ])
                     ->columnSpanFull(),
             ]);
@@ -51,11 +45,8 @@ class ManageTheme extends SettingsPage
             TextInput::make('site_tag_line')
                 ->label('Tag Line'),
             PageSelect::make('site_home_page_id')
+                ->disabled()
                 ->label('Home Post'),
-            PageSelect::make('site_service_page_id')
-                ->label('Service index'),
-            PageSelect::make('site_blog_page_id')
-                ->label('Blog index'),
             FileUpload::make('site_fav_icon')
                 ->image()
                 ->label('Site Favicon'),
@@ -66,8 +57,6 @@ class ManageTheme extends SettingsPage
                 ->url(),
             TextInput::make('facebook_url')
                 ->url(),
-            TextArea::make('footer_text')
-                ->label('Footer Text'),
         ];
     }
 

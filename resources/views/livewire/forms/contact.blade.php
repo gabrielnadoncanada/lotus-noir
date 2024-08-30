@@ -32,13 +32,13 @@
         <x-form.field>
             <div class="">
                 <x-form.input
-                    wire:model="phone"
-                    name="phone"
+                    wire:model="tel"
+                    name="tel"
                     type="tel"
                     placeholder="+450 (123)-456"
                     required
                 />
-                <x-form.error for="phone"></x-form.error>
+                <x-form.error for="tel"></x-form.error>
             </div>
         </x-form.field>
     </div>

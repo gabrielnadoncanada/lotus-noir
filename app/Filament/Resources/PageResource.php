@@ -7,16 +7,17 @@ use App\Filament\Fields\Meta;
 use App\Filament\Fields\TitleWithSlugInput;
 use App\Filament\Resources\PageResource\Pages;
 use App\Models\Page;
+use Filament\Forms;
+use Filament\Forms\Form;
 use App\Traits\HasMeta;
 use Devlense\FilamentBuilder\Components\Content;
 use Filament\Forms\Components\DatePicker;
-use Filament\Forms\Components\FileUpload;
 use Filament\Forms\Components\Group;
 use Filament\Forms\Components\Section;
 use Filament\Forms\Components\Tabs;
 use Filament\Forms\Components\Textarea;
 use Filament\Forms\Components\Toggle;
-use Filament\Forms\Form;
+use Filament\Forms\Components;
 use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Actions\ActionGroup;
@@ -91,14 +92,9 @@ class PageResource extends Resource
             ])
             ->filters([])
             ->actions([
-                ActionGroup::make([
-                    ListPreviewAction::make(),
-                    Tables\Actions\EditAction::make(),
-                    Tables\Actions\DeleteAction::make(),
-                ]),
+                Tables\Actions\EditAction::make(),
             ])
             ->groupedBulkActions([
-                Tables\Actions\DeleteBulkAction::make(),
             ]);
 
     }
@@ -144,8 +140,9 @@ class PageResource extends Resource
                         }
                     }
                 }),
-            FileUpload::make('image')
+            Forms\Components\FileUpload::make('image')
                 ->label('Image')
+            ->optimize('webp')
                 ->image(),
         ];
     }

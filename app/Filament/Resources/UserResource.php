@@ -85,10 +85,9 @@ class UserResource extends Resource
                 //
             ])
             ->actions([
-                ActionGroup::make([
-                    EditAction::make(),
-                    DeleteAction::make(),
-                ]),
+                EditAction::make(),
+                DeleteAction::make(),
+
             ])
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([

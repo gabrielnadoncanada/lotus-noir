@@ -3,9 +3,13 @@
 namespace App\Filament\Resources\FormEntryResource\Pages;
 
 use App\Filament\Resources\FormEntryResource;
-use Filament\Resources\Pages\CreateRecord;
+use Filament\Actions;
+use Filament\Resources\Pages\EditRecord;
+use Filament\Resources\Pages\ViewRecord;
 
-class CreateFormEntry extends CreateRecord
+class ViewFormEntry extends ViewRecord
 {
     protected static string $resource = FormEntryResource::class;
+
+
 }

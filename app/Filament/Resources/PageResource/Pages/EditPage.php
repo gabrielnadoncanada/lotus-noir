@@ -13,19 +13,11 @@ class EditPage extends EditRecord
 
     protected static string $resource = PageResource::class;
 
-//    protected function mutateFormDataBeforeSave(array $data): array
-//    {
-//        if (! empty($data['content'])) {
-//            $data['content']['content_section'] = static::updateHeadingLevels($data['content']['content_section']);
-//        }
-//
-//        return $data;
-//    }
+
 
     protected function getHeaderActions(): array
     {
         return [
-            Actions\DeleteAction::make(),
             PreviewAction::make()->label('Preview Changes'),
         ];
     }

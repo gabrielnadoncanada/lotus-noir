@@ -67,15 +67,7 @@ class FormEntryResource extends Resource
                 // ... your filters
             ])
             ->actions([
-                Tables\Actions\EditAction::make(),
-            ])
-            ->bulkActions([
-                Tables\Actions\BulkActionGroup::make([
-                    Tables\Actions\DeleteBulkAction::make(),
-                ]),
-            ])
-            ->emptyStateActions([
-                Tables\Actions\CreateAction::make(),
+                Tables\Actions\ViewAction::make(),
             ]);
     }
 
@@ -90,8 +82,7 @@ class FormEntryResource extends Resource
     {
         return [
             'index' => Pages\ListFormEntries::route('/'),
-            'create' => Pages\CreateFormEntry::route('/create'),
-            'edit' => Pages\EditFormEntry::route('/{record}/edit'),
+            'view' => Pages\ViewFormEntry::route('/{record}/view'),
         ];
     }
 }
