@@ -10,7 +10,5 @@
         {{$attributes}}
         data-block="heading"
         :as="$level"
-        :theme="$size">
-        {{$text}}
-    </x-text>
+        :theme="$size">{{$text}}</x-text>
 @endif

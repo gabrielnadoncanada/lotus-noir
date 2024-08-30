@@ -29,12 +29,9 @@
                             <x-filament-builder.blocks.heading
                                 level="h1"
                                 size="h1"
-                                class="w-0 md:text-[100px] xl:text-[150px]  flex-1  max-md:pb-0   !md:pb-[40px] max-w-4xl  2sm:text-[130px] sm:text-[100px] xm:text-7xl text-5xl text-white"
-                            >
-                                <x-slot:text>
-                                    {{$title}}
-                                </x-slot:text>
-                            </x-filament-builder.blocks.heading>
+                                class="whitespace-pre-line md:text-[100px] xl:text-[150px]  flex-1  max-md:pb-0   !md:pb-[40px] max-w-4xl  2sm:text-[130px] sm:text-[100px] xm:text-7xl text-5xl text-white"
+                                :text="$title"
+                            />
                         </div>
 
 
