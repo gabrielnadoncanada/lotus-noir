@@ -33,7 +33,7 @@ class PageResource extends Resource
 
     protected static bool $shouldRegisterNavigation = true;
 
-    protected static ?string $recordTitleAttribute = 'title';
+    protected static ?string $recordTitleAttribute = Page::TITLE;
 
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
 
@@ -61,11 +61,9 @@ class PageResource extends Resource
                             ->schema([
                                 Section::make('Status')
                                     ->schema([
-                                        Toggle::make('is_visible')
-                                            ->label('Visible')
+                                        Toggle::make(Page::IS_VISIBLE)
                                             ->default(true),
-                                        DatePicker::make('published_at')
-                                            ->label('Publish Date')
+                                        DatePicker::make(Page::PUBLISHED_AT)
                                             ->default(now())
                                             ->required(),
                                     ]),
@@ -80,10 +78,9 @@ class PageResource extends Resource
     {
         return $table
             ->columns([
-                ImageColumn::make('image')
-                    ->label('Image'),
-                TextColumn::make('title'),
-                IsVisible::make('is_visible'),
+                ImageColumn::make(Page::IMAGE),
+                TextColumn::make(Page::TITLE),
+                IsVisible::make(Page::IS_VISIBLE),
             ])
             ->filters([])
             ->actions([
@@ -114,17 +111,16 @@ class PageResource extends Resource
     {
         return [
             TitleWithSlugInput::make(
-                fieldTitle: 'title',
-                fieldSlug: 'slug',
-            )->label('Title')
-                ->afterStateUpdated(function ($get, $state, $set) {
-                    if (class_has_trait(static::$model, HasMeta::class)) {
-                        if (empty($get('meta.title')) && ! empty($state['title'])) {
-                            $set('meta.title', $state['title']);
-                        }
+                fieldTitle: Page::TITLE,
+                fieldSlug: Page::SLUG,
+            )->afterStateUpdated(function ($get, $state, $set) {
+                if (class_has_trait(static::$model, HasMeta::class)) {
+                    if (empty($get('meta.title')) && ! empty($state[Page::TITLE])) {
+                        $set('meta.title', $state[Page::TITLE]);
                     }
-                }),
-            Textarea::make('text')
+                }
+            }),
+            Textarea::make(Page::TEXT)
                 ->rows(3)
                 ->required()
                 ->maxLength(255)
@@ -136,8 +132,7 @@ class PageResource extends Resource
                         }
                     }
                 }),
-            Forms\Components\FileUpload::make('image')
-                ->label('Image')
+            Forms\Components\FileUpload::make(Page::IMAGE)
                 ->image(),
         ];
     }

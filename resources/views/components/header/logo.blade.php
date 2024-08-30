@@ -3,6 +3,6 @@
         <img
             class="h-[60px]  w-full"
             src="{{Storage::url(app(App\Settings\ThemeSettings::class)->site_logo)}}"
-            alt="{{config('app.name')}}">
+            alt="{{theme('site_title') ?: config('app.name')}}">
     @endif
 </a>

@@ -7,17 +7,10 @@ use App\Settings\ThemeSettings;
 
 class PageController extends Controller
 {
-    public function show($slug = null)
+    public function index($slug = null)
     {
-        $record = Page::find(app(ThemeSettings::class)->site_home_page_id);
-
-        if ($slug) {
-            $page = Page::where('slug', $slug)->published()->first();
-
-            if ($page) {
-                $record = $page;
-            }
-        }
+        $themeSettings = app(ThemeSettings::class);
+        $record = Page::find($themeSettings->site_home_page_id);
 
         return view('templates.single', [
             'record' => $record,

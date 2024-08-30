@@ -7,7 +7,7 @@
                     <div class="flex flex-col sm:flex-row justify-between max-sm:items-start gap-y-6">
                         @if(app(App\Settings\ThemeSettings::class)->site_logo)
                             <img class="h-15" src="{{Storage::url(app(App\Settings\ThemeSettings::class)->site_logo)}}"
-                                 alt="Mireya">
+                                 alt="{{theme('site_title') ?: config('app.name')}}">
                         @endif
 
                         <div class="flex flex-col space-y-6 h-full sm:items-end sm:justify-end">
@@ -34,7 +34,7 @@
                                 @endif
                             </div>
 
-                            <p class="text-xs leading-5 ">&copy; {{config('app.name')}} © {{date('Y')}}. All rights reserved.</p>
+                            <p class="text-xs leading-5 ">&copy; {{theme('site_title') ?: config('app.name')}}  {{date('Y')}}. All rights reserved.</p>
                         </div>
                     </div>
 

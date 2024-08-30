@@ -32,7 +32,6 @@ class ThemeSettings extends Settings
 
     public ?string $instagram_url;
 
-
     public static function group(): string
     {
         return 'theme';

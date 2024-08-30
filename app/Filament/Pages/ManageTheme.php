@@ -2,7 +2,6 @@
 
 namespace App\Filament\Pages;
 
-use App\Filament\Fields\MenuSelect;
 use App\Filament\Fields\PageSelect;
 use App\Settings\ThemeSettings;
 use Filament\Forms\Components\FileUpload;
@@ -37,37 +36,17 @@ class ManageTheme extends SettingsPage
     public static function generalTabSchema(): array
     {
         return [
-            TextInput::make('site_title')
-                ->label('Site Title'),
-            TextInput::make('site_tag_line')
-                ->label('Tag Line'),
+            TextInput::make('site_title'),
             PageSelect::make('site_home_page_id')
-                ->disabled()
-                ->label('Home Post'),
+                ->disabled(),
             FileUpload::make('site_fav_icon')
-                ->image()
-                ->label('Site Favicon'),
+                ->image(),
             FileUpload::make('site_logo')
-                ->image()
-                ->label('Site logo'),
+                ->image(),
             TextInput::make('instagram_url')
                 ->url(),
             TextInput::make('facebook_url')
                 ->url(),
-        ];
-    }
-
-    public static function headerTabSchema(): array
-    {
-        return [
-            MenuSelect::make('header_menu_id'),
-        ];
-    }
-
-    public static function footerTabSchema(): array
-    {
-        return [
-            MenuSelect::make('footer_menu_id'),
         ];
     }
 }

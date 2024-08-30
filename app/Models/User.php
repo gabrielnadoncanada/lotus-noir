@@ -15,23 +15,31 @@ class User extends Authenticatable implements FilamentUser
     use HasFactory;
     use Notifiable;
 
+    const ID = 'id';
+
+    const NAME = 'name';
+
+    const EMAIL = 'email';
+
+    const EMAIL_VERIFIED_AT = 'email_verified_at';
+
+    const PASSWORD = 'password';
+
+    const REMEMBER_TOKEN = 'remember_token';
+
+    const PASSWORD_CONFIRMATION = 'password_confirmation';
+
+    const CREATED_AT = 'created_at';
+
+    const UPDATED_AT = 'updated_at';
+
     protected $guarded = [];
 
-    /**
-     * The attributes that should be hidden for serialization.
-     *
-     * @var array<int, string>
-     */
     protected $hidden = [
         'password',
         'remember_token',
     ];
 
-    /**
-     * The attributes that should be cast.
-     *
-     * @var array<string, string>
-     */
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];

@@ -2,6 +2,10 @@
 
 namespace App\Filament\Resources;
 
+use App\Filament\Resources\UserResource\Pages\CreateUser;
+use App\Filament\Resources\UserResource\Pages\EditUser;
+use App\Filament\Resources\UserResource\Pages\ListUsers;
+use App\Models\User;
 use Filament\Forms;
 use Filament\Forms\Form;
 use Filament\Forms\Get;
@@ -16,7 +20,7 @@ use Illuminate\Validation\Rules\Password;
 
 class UserResource extends Resource
 {
-    protected static ?string $model = \App\Models\User::class;
+    protected static ?string $model = User::class;
 
     protected static ?string $navigationIcon = 'heroicon-o-user';
 
@@ -43,16 +47,13 @@ class UserResource extends Resource
                     ->columnSpan(2),
                 Forms\Components\Section::make()
                     ->schema([
-                        Forms\Components\Placeholder::make('created_at')
-                            ->label(__('filament.fields.created_at'))
-                            ->content(fn (\App\Models\User $record): ?string => $record->created_at?->diffForHumans())
-                            ->hidden(fn (?\App\Models\User $record) => $record === null),
-                        Forms\Components\Placeholder::make('updated_at')
-                            ->label(__('filament.fields.updated_at'))
-                            ->content(fn (\App\Models\User $record): ?string => $record->updated_at?->diffForHumans())
-                            ->hidden(fn (?\App\Models\User $record) => $record === null),
-                        Forms\Components\Select::make('roles')
-                            ->label(__('filament.fields.roles'))
+                        Forms\Components\Placeholder::make(User::CREATED_AT)
+                            ->content(fn (User $record): ?string => $record->created_at?->diffForHumans())
+                            ->hidden(fn (?User $record) => $record === null),
+                        Forms\Components\Placeholder::make(User::UPDATED_AT)
+                            ->content(fn (User $record): ?string => $record->updated_at?->diffForHumans())
+                            ->hidden(fn (?User $record) => $record === null),
+                        Forms\Components\Select::make(User::ROLES)
                             ->relationship('roles', 'name')
                             ->multiple()
                             ->preload()
@@ -67,16 +68,12 @@ class UserResource extends Resource
     {
         return $table
             ->columns([
-                Tables\Columns\TextColumn::make('name')
-                    ->label(__('filament.fields.name')),
-                Tables\Columns\TextColumn::make('email')
-                    ->label(__('filament.fields.email')),
-                TextColumn::make('created_at')
-                    ->label(__('filament.fields.created_at'))
+                Tables\Columns\TextColumn::make(User::NAME),
+                Tables\Columns\TextColumn::make(User::EMAIL),
+                TextColumn::make(User::CREATED_AT)
                     ->date()
                     ->sortable(),
-                TextColumn::make('updated_at')
-                    ->label(__('filament.fields.updated_at'))
+                TextColumn::make(User::UPDATED_AT)
                     ->date()
                     ->sortable(),
             ])
@@ -109,11 +106,9 @@ class UserResource extends Resource
                     Forms\Components\Grid::make()
                         ->schema(
                             [
-                                Forms\Components\TextInput::make('name')
-                                    ->label(__('filament.fields.name'))
+                                Forms\Components\TextInput::make(User::NAME)
                                     ->required(),
-                                Forms\Components\TextInput::make('email')
-                                    ->label(__('filament.fields.email'))
+                                Forms\Components\TextInput::make(User::EMAIL)
                                     ->email()
                                     ->unique(ignoreRecord: true)
                                     ->required()
@@ -129,10 +124,9 @@ class UserResource extends Resource
                 ->schema([
                     Forms\Components\Grid::make()
                         ->schema([
-                            Forms\Components\TextInput::make('password')
-                                ->label('Nouveau mot de passe')
+                            Forms\Components\TextInput::make(User::PASSWORD)
                                 ->password()
-                                ->required(fn (?\App\Models\User $record) => $record === null)
+                                ->required(fn (?User $record) => $record === null)
                                 ->rule(Password::default())
                                 ->dehydrated(fn ($state): bool => filled($state))
                                 ->live(debounce: 500)
@@ -143,12 +137,11 @@ class UserResource extends Resource
                                 ->dehydrateStateUsing(fn ($state) => Hash::make($state))
                                 ->dehydrated(fn ($state) => filled($state))
                                 ->required(fn (string $context): bool => $context === 'create')
-                                ->same('passwordConfirmation'),
-                            Forms\Components\TextInput::make('passwordConfirmation')
-                                ->label('Confirmation du mot de passe')
+                                ->same(User::PASSWORD_CONFIRMATION),
+                            Forms\Components\TextInput::make(User::PASSWORD_CONFIRMATION)
                                 ->password()
                                 ->required()
-                                ->visible(fn (Get $get): bool => filled($get('password')))
+                                ->visible(fn (Get $get): bool => filled($get(User::PASSWORD)))
                                 ->dehydrated(false),
                         ])->columns(2),
                 ]),
@@ -158,9 +151,9 @@ class UserResource extends Resource
     public static function getPages(): array
     {
         return [
-            'index' => \App\Filament\Resources\UserResource\Pages\ListUsers::route('/'),
-            'create' => \App\Filament\Resources\UserResource\Pages\CreateUser::route('/create'),
-            'edit' => \App\Filament\Resources\UserResource\Pages\EditUser::route('/{record}/edit'),
+            'index' => ListUsers::route('/'),
+            'create' => CreateUser::route('/create'),
+            'edit' => EditUser::route('/{record}/edit'),
         ];
     }
 }

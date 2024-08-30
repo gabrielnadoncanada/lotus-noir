@@ -8,6 +8,22 @@ use Illuminate\Support\Facades\Mail;
 
 class FormEntry extends Model
 {
+    const ID = 'id';
+
+    const CREATED_AT = 'created_at';
+
+    const UPDATED_AT = 'updated_at';
+
+    const FIRST_NAME = 'firstName';
+
+    const LAST_NAME = 'lastName';
+
+    const EMAIL = 'email';
+
+    const TEL = 'tel';
+
+    const MESSAGE = 'message';
+
     protected $guarded = [];
 
     protected static function booted()

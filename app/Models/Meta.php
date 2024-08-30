@@ -9,12 +9,25 @@ class Meta extends Model
 {
     use HasFactory;
 
-    protected $fillable = [
-        'title',
-        'text',
-        'indexable',
-        'image',
-    ];
+    const ID = 'id';
+
+    const METAABLE_ID = 'metaable_id';
+
+    const METAABLE_TYPE = 'metaable_type';
+
+    const TITLE = 'title';
+
+    const TEXT = 'text';
+
+    const INDEXABLE = 'indexable';
+
+    const IMAGE = 'image';
+
+    const CREATED_AT = 'created_at';
+
+    const UPDATED_AT = 'updated_at';
+
+    protected $guarded = [];
 
     protected $casts = [
         'id' => 'integer',

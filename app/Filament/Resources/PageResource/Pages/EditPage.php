@@ -18,28 +18,4 @@ class EditPage extends EditRecord
             PreviewAction::make()->label('Preview Changes'),
         ];
     }
-
-    public static function updateHeadingLevels(&$content, $currentLevel = 1): array
-    {
-        foreach ($content as &$section) {
-            if (isset($section['type']) && $section['type'] === 'banner') {
-                $currentLevel = min(6, $currentLevel + 1);
-                $section['data']['heading_level'] = 'h' . $currentLevel;
-                $section['data']['heading_size'] = 'h' . $currentLevel;
-            }
-
-            if (isset($section['data']['blocks'])) {
-                static::updateHeadingLevels($section['data']['blocks'], $currentLevel);
-            } elseif (isset($section['data']['columns'])) {
-                foreach ($section['data']['columns'] as &$column) {
-
-                    if (isset($column['blocks'])) {
-                        static::updateHeadingLevels($column['blocks'], $currentLevel);
-                    }
-                }
-            }
-        }
-
-        return $content;
-    }
 }

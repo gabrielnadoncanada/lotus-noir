@@ -18,14 +18,26 @@ class Page extends Model
     use HasFactory;
     use HasMeta;
 
-    /**
-     * @var string
-     */
+    const ID = 'id';
+
+    const TITLE = 'title';
+
+    const SLUG = 'slug';
+
+    const TEXT = 'text';
+
+    const IS_VISIBLE = 'is_visible';
+
+    const PUBLISHED_AT = 'published_at';
+
+    const IMAGE = 'image';
+
+    const CREATED_AT = 'created_at';
+
+    const UPDATED_AT = 'updated_at';
+
     protected $guarded = [];
 
-    /**
-     * @var array<string, string>
-     */
     protected $casts = [
         'status' => PublishedStatus::class,
     ];

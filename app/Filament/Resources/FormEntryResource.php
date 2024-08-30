@@ -13,7 +13,7 @@ use Filament\Tables\Table;
 
 class FormEntryResource extends Resource
 {
-    protected static ?string $label = 'message';
+    protected static ?string $label = FormEntry::MESSAGE;
 
     protected static ?string $pluralLabel = 'messages';
 
@@ -30,21 +30,11 @@ class FormEntryResource extends Resource
         return $form->schema([
             Section::make('Informations')
                 ->schema([
-                    Forms\Components\TextInput::make('firstName')
-                        ->disabled()
-                        ->label('Prénom'),
-                    Forms\Components\TextInput::make('lastName')
-                        ->disabled()
-                        ->label('Nom'),
-                    Forms\Components\TextInput::make('email')
-                        ->disabled()
-                        ->label('Courriel'),
-                    Forms\Components\TextInput::make('tel')
-                        ->disabled()
-                        ->label('Téléphone'),
-                    Forms\Components\Textarea::make('message')
-                        ->disabled()
-                        ->label('Message'),
+                    Forms\Components\TextInput::make(FormEntry::FIRST_NAME),
+                    Forms\Components\TextInput::make(FormEntry::LAST_NAME),
+                    Forms\Components\TextInput::make(FormEntry::EMAIL),
+                    Forms\Components\TextInput::make(FormEntry::TEL),
+                    Forms\Components\Textarea::make(FormEntry::MESSAGE),
                 ]),
 
         ]);
@@ -54,20 +44,24 @@ class FormEntryResource extends Resource
     {
         return $table
             ->columns([
-                Tables\Columns\TextColumn::make('firstName')
-                    ->label('Prénom'),
-                Tables\Columns\TextColumn::make('lastName')
-                    ->label('Nom'),
-                Tables\Columns\TextColumn::make('email')
-                    ->label('Courriel'),
-                Tables\Columns\TextColumn::make('tel')
-                    ->label('Téléphone'),
+                Tables\Columns\TextColumn::make(FormEntry::FIRST_NAME),
+                Tables\Columns\TextColumn::make(FormEntry::LAST_NAME),
+                Tables\Columns\TextColumn::make(FormEntry::EMAIL),
+                Tables\Columns\TextColumn::make(FormEntry::TEL),
             ])
             ->filters([
                 // ... your filters
             ])
             ->actions([
-                Tables\Actions\ViewAction::make(),
+                Tables\Actions\EditAction::make(),
+                Tables\Actions\DeleteAction::make(),
+            ])
+            ->bulkActions([
+                Tables\Actions\BulkActionGroup::make([
+                    Tables\Actions\DeleteBulkAction::make(),
+                ]),
+            ])
+            ->emptyStateActions([
             ]);
     }
 
