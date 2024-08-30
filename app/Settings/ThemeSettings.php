@@ -31,6 +31,7 @@ class ThemeSettings extends Settings
     public ?string $facebook_url;
 
     public ?string $instagram_url;
+    public ?string $google_analytics_tracking_id;
 
     public static function group(): string
     {

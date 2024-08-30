@@ -16,9 +16,24 @@
     @vite(['resources/css/app.css', 'resources/js/app.js'])
     @livewireStyles
 
-
     @if($meta)
         <x-layouts.meta :meta="$meta" />
+    @endif
+
+    @if(theme('google_analytics_tracking_id'))
+        <!-- Google tag (gtag.js) -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id={{theme('google_analytics_tracking_id')}}"></script>
+        <script>
+            window.dataLayer = window.dataLayer || [];
+
+            function gtag() {
+                dataLayer.push(arguments);
+            }
+
+            gtag('js', new Date());
+
+            gtag('config', '{{theme('google_analytics_tracking_id')}}');
+        </script>
     @endif
 </head>
 <body class="h-full m-0 p-0">

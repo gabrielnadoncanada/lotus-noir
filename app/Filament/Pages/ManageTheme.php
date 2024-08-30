@@ -47,6 +47,7 @@ class ManageTheme extends SettingsPage
                 ->url(),
             TextInput::make('facebook_url')
                 ->url(),
+            TextInput::make('google_analytics_tracking_id'),
         ];
     }
 }
