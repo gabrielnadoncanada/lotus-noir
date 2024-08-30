@@ -34,8 +34,8 @@ class AdminPanelProvider extends PanelProvider
             ->colors([
 
             ])
-            ->brandLogo(Storage::url(app(ThemeSettings::class)->site_logo))
-            ->darkModeBrandLogo(Storage::url(app(ThemeSettings::class)->site_logo))
+            ->brandLogo(Storage::url(theme('site_logo')))
+            ->darkModeBrandLogo(Storage::url(theme('site_logo')))
             ->brandLogoHeight('2.25rem')
             ->font('DM Sans', provider: GoogleFontProvider::class)
             ->viteTheme('resources/css/filament/admin/theme.css')

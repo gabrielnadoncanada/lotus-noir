@@ -65,14 +65,10 @@ class Page extends Model
 
     public function isHomePage(): bool
     {
-        return app(ThemeSettings::class)->site_home_page_id == $this->id;
+        return theme('site_home_page_id') == $this->id;
     }
 
-    public function isArchivePage(): bool
-    {
-        return app(ThemeSettings::class)->site_blog_page_id == $this->id
-            || app(ThemeSettings::class)->site_service_page_id == $this->id;
-    }
+
 
     public function template(): string
     {
