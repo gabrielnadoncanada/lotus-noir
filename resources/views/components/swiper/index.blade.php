@@ -8,7 +8,7 @@
     x-data="Components.swiper({{json_encode($options)}}, {{$swipe_on_mobile}})"
     {{$attributes->merge(['class' => "slider-template-$template"])}}
 >
-    <div class="swiper-container" x-ref="container">
+    <div class="swiper swiper-container" x-ref="container">
         {{$slot}}
     </div>
 </div>

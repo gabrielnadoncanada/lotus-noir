@@ -1,8 +1,8 @@
-<x-container :fluid="false" class="lg:pt-30 2sm:pt-20 pt-14 lg:!pl-[120px] max-md:overflow-hidden">
+<x-container :fluid="true" class="lg:pt-30 2sm:pt-20 pt-14 ">
     <x-swiper
         :options="[
             'slidesPerView' => 4,
-            'spaceBetween' => 30,
+            'spaceBetween' => 0,
             'breakpoints' => [
                 0 => [
                     'slidesPerView' => 2
@@ -24,7 +24,7 @@
         <x-swiper.wrapper>
             @foreach($items as $key => $item)
                 <x-swiper.item>
-                    <div class='team-card'>
+                    <div class='px-3 sm:px-4 team-card'>
                         <div class="relative group">
                             <div class="block relative overflow-hidden w-full pt-[211.7%] mx-text-center">
                                 <a class="magnetic-link " href="{{ $item['image'] ? Storage::url($item['image']) : '/img/placeholder.png' }}">
@@ -37,7 +37,7 @@
                 </x-swiper.item>
             @endforeach
         </x-swiper.wrapper>
-        <x-container :fluid="true">
+        <x-container :fluid="false">
             <x-swiper.progress-and-navigation />
         </x-container>
     </x-swiper>

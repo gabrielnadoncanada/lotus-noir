@@ -1,9 +1,8 @@
-
-<x-container :fluid="false" class="lg:pt-30 2sm:pt-20 pt-14 lg:!pl-[120px] max-md:overflow-hidden">
+<x-container :fluid="true" class="lg:pt-30 2sm:pt-20 pt-14">
     <x-swiper
         :options="[
           'slidesPerView' => 1,
-            'spaceBetween' => 90,
+  'spaceBetween' => 0,
             'breakpoints' => [
                 0 => [
                     'slidesPerView' => 1
@@ -16,8 +15,8 @@
                 ],
 
                 1650 => [
-                     'spaceBetween' => 60,
-                    'slidesPerView' => 3
+
+                    'slidesPerView' => 4
                 ]
             ],
               'autoplay' => false,
@@ -33,18 +32,18 @@
                     $description = $item['description'];
                 @endphp
                 <x-swiper.item>
-                    <div class="px-3 sm:px-0 flex flex-col gap-y-3">
+                    <div class="px-3 sm:px-4 flex flex-col gap-y-3">
                         <x-outline-svg-text :text="$key" />
                         <span
-                            class="mt-4 text-white font-bold leading-135 md:text-4xl text-3xl hover-underline">
+                            class="text-white font-bold leading-135 md:text-4xl text-3xl hover-underline">
                             {{ $title }}
                         </span>
-                        <p class="text-justify font-normal text-2xl/10 text-white">{{ $description }}</p>
+                        <p class="font-normal  text-white">{{ $description }}</p>
                     </div>
                 </x-swiper.item>
             @endforeach
         </x-swiper.wrapper>
-        <x-container :fluid="true">
+        <x-container :fluid="false">
             <x-swiper.progress-and-navigation />
         </x-container>
     </x-swiper>

@@ -24,8 +24,8 @@ return [
         'button' => [
             'class' => Components\Button::class,
             'themes' => [
-                'primary' => 'flex items-center justify-center gap-2.5 whitespace-nowrap text-xl md:text-2xl text-lg font-bold border-2 px-10 sm:py-[15px] py-3 relative z-10 overflow-hidden after:absolute after:right-0 after:top-0 after:bottom-0 after:z-[-1] after:w-full after:transition-all after:duration-500 hover:after:w-0 transition-all duration-500 after:left-0 after:bg-white text-background border-white hover:text-white mt-6 md:mt-0',
-                'outline' => 'magnetic-link text-white flex items-center justify-center gap-2.5 whitespace-nowrap sm:text-2xl text-lg font-bold border-2 border-white px-10 sm:py-[15px] py-3 relative overflow-hidden after:absolute after:right-0 after:bottom-0 after:top-0 after:z-[-1] after:bg-white after:w-0 after:transition-all after:duration-500 hover:after:w-full hover:text-background transition-all duration-500',
+                'primary' => 'flex items-center justify-center gap-2.5 whitespace-nowrap text-xl md:text-2xl text-lg font-bold border-2  px-[1.7em] py-[0.65em] relative z-10 overflow-hidden after:absolute after:right-0 after:top-0 after:bottom-0 after:z-[-1] after:w-full after:transition-all after:duration-500 hover:after:w-0 transition-all duration-500 after:left-0 after:bg-white text-background border-white hover:text-white mt-6 md:mt-0',
+                'outline' => 'magnetic-link text-white flex items-center justify-center gap-2.5 whitespace-nowrap sm:text-2xl text-lg font-bold border-2 border-white px-[1.7em] py-[0.65em] relative overflow-hidden after:absolute after:right-0 after:bottom-0 after:top-0 after:z-[-1] after:bg-white after:w-0 after:transition-all after:duration-500 hover:after:w-full hover:text-background transition-all duration-500',
             ],
         ],
         'form' => [

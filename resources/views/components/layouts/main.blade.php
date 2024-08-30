@@ -22,7 +22,7 @@
     @endif
 </head>
 <body class="h-full m-0 p-0">
-
+<div class="w-full h-full fixed -z-[1] top-0 left-0 page-lines"><div class="container relative h-full"><span class="absolute left-3 top-0 h-full w-[1px] bg-secondary_rgba"></span><span class="absolute right-[28%] top-0 h-full w-[1px] bg-secondary_rgba"></span><span class="absolute right-3 top-0 h-full w-[1px] bg-secondary_rgba"></span></div></div>
 {{--<x-cursor></x-cursor>--}}
 <div class="relative flex flex-col h-full">
     <x-header />
