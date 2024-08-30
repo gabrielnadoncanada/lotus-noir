@@ -16,6 +16,7 @@ class Meta
             TextInput::make('title')
                 ->label('Title'),
             Textarea::make('text')
+                ->maxLength(255)
                 ->label('Text')
                 ->rows(3),
             FileUpload::make('image')

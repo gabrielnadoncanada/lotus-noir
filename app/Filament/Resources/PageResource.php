@@ -127,6 +127,7 @@ class PageResource extends Resource
             Textarea::make('text')
                 ->rows(3)
                 ->required()
+                ->maxLength(255)
                 ->live(true)
                 ->afterStateUpdated(function ($get, $state, $set) {
                     if (class_has_trait(static::$model, HasMeta::class)) {
