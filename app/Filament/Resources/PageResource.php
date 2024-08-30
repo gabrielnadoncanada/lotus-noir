@@ -137,7 +137,6 @@ class PageResource extends Resource
                 }),
             Forms\Components\FileUpload::make('image')
                 ->label('Image')
-                ->optimize('webp')
                 ->image(),
         ];
     }
