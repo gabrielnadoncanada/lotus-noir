@@ -1,11 +1,19 @@
 <?php
 
+use Illuminate\Support\Facades\Schema;
+
 if (! function_exists('theme')) {
     function theme($key)
     {
-        return app(App\Settings\ThemeSettings::class)->$key;
+        if (Schema::hasTable('settings')) {
+            return app(App\Settings\ThemeSettings::class)->$key;
+        } else {
+
+            return null;
+        }
     }
 }
+
 
 if (! function_exists('checked')) {
     function checked($value, $test)
