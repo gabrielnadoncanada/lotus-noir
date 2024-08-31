@@ -2,6 +2,17 @@
 
 return [
     'fields' => [
+        'site_title' => 'Titre du site',
+        'site_home_page_id' => 'Page d\'accueil',
+        'site_fav_icon' => 'Favicon',
+        'site_logo' => 'Logo',
+        'instagram_url' => 'URL Instagram',
+        'facebook_url' => 'URL Facebook',
+        'text' => 'Description',
+        'is_visible' => 'Est visible',
+        'published_at' => 'Publié le',
+        'content_section' => 'Section de contenu',
+        'google_analytics_tracking_id' => 'ID de suivi Google Analytics',
         'title' => 'Titre',
         'slug' => 'Slug',
         'content' => 'Contenu',

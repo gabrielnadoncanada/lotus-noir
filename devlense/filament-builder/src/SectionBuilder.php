@@ -43,12 +43,12 @@ abstract class SectionBuilder
         return Block::make(static::$name)
             ->schema([
                 Tabs::make()->tabs([
-                    Tabs\Tab::make('Content')
+                    Tabs\Tab::make('Contenu')
                         ->schema(static::content($parameters)),
-                    Tabs\Tab::make('Settings')
+                    Tabs\Tab::make('Configuration')
                         ->schema([
                             Toggle::make('hidden')
-                                ->label('Hidden')
+                                ->label('Caché')
                                 ->default(false),
                             ...static::settings($parameters),
                         ]),

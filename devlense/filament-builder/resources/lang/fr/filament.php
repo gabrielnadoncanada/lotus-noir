@@ -2,6 +2,17 @@
 
 return [
     'fields' => [
+        'site_title' => 'Titre du site',
+        'site_home_page_id' => 'Page d\'accueil',
+        'site_fav_icon' => 'Favicon',
+        'site_logo' => 'Logo',
+        'instagram_url' => 'URL Instagram',
+        'facebook_url' => 'URL Facebook',
+        'text' => 'Description',
+        'is_visible' => 'Est visible',
+        'published_at' => 'Publié le',
+        'content_section' => 'Section de contenu',
+        'google_analytics_tracking_id' => 'ID de suivi Google Analytics',
         'title' => 'Titre',
         'slug' => 'Slug',
         'content' => 'Contenu',
@@ -34,6 +45,16 @@ return [
         'builder' => 'Constructeur',
         'image' => 'Image',
         'is_home' => 'Page d\'accueil',
+
+        'slug_input' => [
+            'permalink_label' => 'Permalien :',
+            'permalink_label_link_visit' => 'Voir',
+            'permalink_action_edit' => 'Éditer',
+            'permalink_action_ok' => 'OK',
+            'permalink_action_reset' => 'Réinitialiser',
+            'permalink_action_cancel' => 'Annuler',
+            'permalink_status_changed' => 'modifié',
+        ],
     ],
     'actions' => [
         'preview' => 'Aperçu',
@@ -77,40 +98,40 @@ return [
     ],
     'menu' => [
         'attributes' => [
-            'external-link' => 'External link',
+            'external-link' => 'Lien externe',
             'post-link' => 'Lien article',
             'service-link' => 'Lien service',
             'url' => 'URL',
-            'target' => 'Target',
-            'name' => 'Name',
-            'items' => 'Items',
-            'handle' => 'Handle',
-            'created_at' => 'Created at',
-            'updated_at' => 'Updated at',
+            'target' => 'Cible',
+            'name' => 'Nom',
+            'items' => 'Éléments',
+            'handle' => 'Clé',
+            'created_at' => 'Créé le',
+            'updated_at' => 'Màj le',
 
         ],
 
         'select-options' => [
-            'same-tab' => 'Same tab',
-            'new-tab' => 'New tab',
+            'same-tab' => 'Même fenêtre',
+            'new-tab' => 'Nouvelle fenêtre',
         ],
 
         'items' => [
-            'empty' => 'No items.',
-            'add-item' => 'Add item',
-            'add-child' => 'Add child',
-            'move-up' => 'Move up',
-            'move-down' => 'Move down',
-            'indent' => 'Indent',
-            'dedent' => 'Dedent',
-            'remove' => 'Remove',
+            'empty' => 'pas d\'élément',
+            'add-item' => 'Ajouter un élément',
+            'add-child' => 'Ajouter un enfant',
+            'move-up' => 'Déplacer vers le haut',
+            'move-down' => 'Déplacer vers le bas',
+            'indent' => 'Indenter',
+            'dedent' => 'Désindenter',
+            'remove' => 'Supprimer',
         ],
 
         'items-modal' => [
-            'title' => 'Item',
+            'title' => 'Élément',
             'label' => 'Label',
             'type' => 'Type',
-            'btn' => 'Save',
+            'btn' => 'Enregistrer',
         ],
     ],
 ];

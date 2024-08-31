@@ -22,6 +22,7 @@ class HeroBanner extends SectionBuilder
         return [
             Group::make([
                 Textarea::make('title')
+                    ->label('Titre')
                     ->rows(5)
                     ->required(),
                 ImageField::make()

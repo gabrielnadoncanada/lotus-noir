@@ -15,7 +15,7 @@ class EditPage extends EditRecord
     protected function getHeaderActions(): array
     {
         return [
-            PreviewAction::make()->label('Preview Changes'),
+            PreviewAction::make()->label('Prévisualiser'),
         ];
     }
 }

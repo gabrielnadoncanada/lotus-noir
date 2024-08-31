@@ -19,7 +19,6 @@ class FormEntryResource extends Resource
 
     protected static ?string $model = FormEntry::class;
 
-    protected static ?string $navigationGroup = 'Site';
 
     protected static ?int $navigationSort = 2;
 

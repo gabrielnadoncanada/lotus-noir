@@ -27,7 +27,6 @@ class PageResource extends Resource
 {
     protected static ?string $model = Page::class;
 
-    protected static ?string $navigationGroup = 'Site';
 
     protected static ?int $navigationSort = 1;
 
@@ -59,7 +58,7 @@ class PageResource extends Resource
                             ->columnSpan(['lg' => 2]),
                         Group::make()
                             ->schema([
-                                Section::make('Status')
+                                Section::make('Statut')
                                     ->schema([
                                         Toggle::make(Page::IS_VISIBLE)
                                             ->default(true),

@@ -20,6 +20,7 @@ class FilamentBuilderServiceProvider extends PackageServiceProvider
             ->hasMigrations(
                 'create_contents_table',
             )
+            ->hasTranslations()
             ->hasViews()
             ->hasInstallCommand(function (InstallCommand $installCommand) {
                 $installCommand

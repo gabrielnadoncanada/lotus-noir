@@ -19,16 +19,17 @@ class Section extends SectionBuilder
 
         return [
             Group::make([
-                TextInput::make('subtitle'),
-                TextInput::make('title'),
+                TextInput::make('subtitle')
+                    ->label('Sous-titre'),
+                TextInput::make('title')
+                    ->label('Titre')
+                    ->required(),
                 RichEditor::make('description')
+                    ->label('Description')
                     ->toolbarButtons([
-                        'blockquote',
                         'bold',
-                        'bulletList',
                         'italic',
                         'link',
-                        'orderedList',
                         'redo',
                         'strike',
                         'underline',

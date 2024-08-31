@@ -19,11 +19,13 @@ class SliderText extends SectionBuilder
         return Block::make(static::$name)
             ->schema([
                 Repeater::make('items')
+                    ->label('Items')
                     ->collapsible()
                     ->collapsed()
                     ->cloneable()
                     ->schema([
-                        TextInput::make('title')->required(),
+                        TextInput::make('title')->required()
+                            ->label('Titre'),
                         Textarea::make('description')->required(),
                     ])
                     ->defaultItems(3),

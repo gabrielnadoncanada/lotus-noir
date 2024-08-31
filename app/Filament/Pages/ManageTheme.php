@@ -16,7 +16,9 @@ class ManageTheme extends SettingsPage
 
     protected static string $settings = ThemeSettings::class;
 
-    protected static ?string $navigationGroup = 'Site';
+    protected static ?string $navigationLabel = 'Options';
+
+    protected static ?string $title = 'Options';
 
     protected static ?int $navigationSort = 5;
 

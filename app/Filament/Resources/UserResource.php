@@ -24,7 +24,6 @@ class UserResource extends Resource
 
     protected static ?string $navigationIcon = 'heroicon-o-user';
 
-    protected static ?string $navigationGroup = 'Site';
 
     protected static ?int $navigationSort = 3;
 
@@ -53,11 +52,7 @@ class UserResource extends Resource
                         Forms\Components\Placeholder::make(User::UPDATED_AT)
                             ->content(fn (User $record): ?string => $record->updated_at?->diffForHumans())
                             ->hidden(fn (?User $record) => $record === null),
-                        Forms\Components\Select::make(User::ROLES)
-                            ->relationship('roles', 'name')
-                            ->multiple()
-                            ->preload()
-                            ->required(),
+
                     ])
                     ->columnSpan(['lg' => 1]),
             ])

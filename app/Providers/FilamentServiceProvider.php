@@ -2,8 +2,10 @@
 
 namespace App\Providers;
 
+use App\Filament\Tables\Actions\SoftDeleteAction as TableSoftDeleteAction;
 use Filament\Facades\Filament;
 use Filament\Forms;
+use Filament\Forms\Components\Field;
 use Filament\Support\Assets\Css;
 use Filament\Support\Assets\Js;
 use Filament\Support\Facades\FilamentAsset;
@@ -11,7 +13,9 @@ use Filament\Tables\Actions\Action;
 use Filament\Tables\Actions\DeleteAction as TableDeleteAction;
 use Filament\Tables\Actions\DetachAction;
 use Filament\Tables\Actions\EditAction as TableEditAction;
+use Filament\Tables\Actions\ForceDeleteAction as TableForceDeleteAction;
 use Filament\Tables\Actions\ReplicateAction as TableReplicateAction;
+use Filament\Tables\Actions\RestoreAction as TableRestoreAction;
 use Filament\Tables\Actions\ViewAction as TableViewAction;
 use Filament\Tables\Columns\Column;
 use Filament\Tables\Columns\TextColumn;
@@ -149,6 +153,53 @@ class FilamentServiceProvider extends ServiceProvider
                 ->inline();
         });
 
+        Field::configureUsing(function (Field $field): void {
+            $field->label(function () use ($field): string {
+                $fieldName = $field->getName();
+
+                return __("filament.fields.$fieldName");
+            });
+        });
+
+        Column::configureUsing(function (Column $column): void {
+            $column->label(function () use ($column): string {
+                $fieldName = $column->getName();
+
+                return __("filament.fields.$fieldName");
+            });
+        });
+
+        TableEditAction::configureUsing(function (TableEditAction $action) {
+            $action->hiddenLabel();
+            $action->tooltip('Modifier');
+        }, isImportant: true);
+
+
+
+        TableForceDeleteAction::configureUsing(function (TableForceDeleteAction $action) {
+            $action->hiddenLabel();
+            $action->tooltip('Supprimer');
+        }, isImportant: true);
+
+        TableRestoreAction::configureUsing(function (TableRestoreAction $action) {
+            $action->hiddenLabel();
+            $action->tooltip('Restaurer');
+        }, isImportant: true);
+
+        TableDeleteAction::configureUsing(function (TableDeleteAction $action) {
+            $action->hiddenLabel();
+            $action->tooltip('Archiver');
+        }, isImportant: true);
+
+        TableViewAction::configureUsing(function (TableViewAction $action) {
+            $action->hiddenLabel();
+            $action->tooltip('Voir');
+        }, isImportant: true);
+
+        TableReplicateAction::configureUsing(function (TableReplicateAction $action) {
+            $action->hiddenLabel();
+            $action->tooltip('Dupliquer');
+        }, isImportant: true);
         //        Forms\Components\FileUpload::configureUsing(function ($component) {
         //            $component
         //                ->optimize('webp');
