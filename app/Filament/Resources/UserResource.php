@@ -47,9 +47,11 @@ class UserResource extends Resource
                 Forms\Components\Section::make()
                     ->schema([
                         Forms\Components\Placeholder::make(User::CREATED_AT)
+                            ->label('Créé le')
                             ->content(fn (User $record): ?string => $record->created_at?->diffForHumans())
                             ->hidden(fn (?User $record) => $record === null),
                         Forms\Components\Placeholder::make(User::UPDATED_AT)
+                            ->label('Dernière modification')
                             ->content(fn (User $record): ?string => $record->updated_at?->diffForHumans())
                             ->hidden(fn (?User $record) => $record === null),
 
