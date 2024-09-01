@@ -35,7 +35,7 @@
                     wire:model="tel"
                     name="tel"
                     type="tel"
-                    placeholder="+450 (123)-456"
+                    placeholder="450 (123)-4567"
                     required
                 />
                 <x-form.error for="tel"></x-form.error>
